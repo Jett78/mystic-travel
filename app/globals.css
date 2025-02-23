@@ -10,7 +10,7 @@
 }
 
 body {
-  font-family: "Nunito", sans-serif;
+  font-family: "nunito", sans-serif;
 }
 
 .title {
@@ -29,6 +29,7 @@ body {
   background-repeat: no-repeat;
   position: relative;
 }
+
 .loader:after {
   content: "";
   position: absolute;
@@ -37,6 +38,14 @@ body {
   opacity: 0.4;
   animation: l7 1s infinite;
 }
+
+@font-face {
+  font-family: 'palker';
+  src: url('/fonts/mrpalker.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
 @keyframes l7 {
   to {
     transform: scale(1.8);
@@ -57,6 +66,7 @@ section {
   justify-content: center;
   align-items: center;
 }
+
 body::-webkit-scrollbar {
   display: none;
 }
@@ -72,12 +82,7 @@ body::-webkit-scrollbar {
   background-image: linear-gradient(to bottom, #0f2027, #080e10);
 }
 
-section h2 {
-  color: #fff;
-  font-size: 2em;
-  text-transform: uppercase;
-  text-shadow: 0 1px 4px red;
-}
+
 section .set {
   position: absolute;
   width: 100%;
@@ -86,44 +91,53 @@ section .set {
   left: 0;
   pointer-events: none;
 }
+
 section .set div {
   position: absolute;
   display: block;
 }
+
 section .set div:nth-child(1) {
   left: 20%;
   animation: animate 15s linear infinite;
   animation-delay: -7s;
 }
+
 section .set div:nth-child(2) {
   left: 50%;
   animation: animate 20s linear infinite;
   animation-delay: -5s;
 }
+
 section .set div:nth-child(3) {
   left: 70%;
   animation: animate 20s linear infinite;
   animation-delay: 0s;
 }
+
 section .set div:nth-child(4) {
   left: 0%;
   animation: animate 15s linear infinite;
   animation-delay: -5s;
 }
+
 section .set div:nth-child(5) {
   left: 85%;
   animation: animate 18s linear infinite;
   animation-delay: -10s;
 }
+
 section .set div:nth-child(6) {
   left: 20%;
   animation: animate 15s linear infinite;
   animation-delay: -7s;
 }
+
 section .set div:nth-child(7) {
   left: 0%;
   animation: animate 12s linear infinite;
 }
+
 section .set div:nth-child(8) {
   left: 60%;
   animation: animate 15s linear infinite;
@@ -133,6 +147,7 @@ section .set div:nth-child(8) {
   transform: scale(2) rotateY(180deg);
   filter: blur(2px);
 }
+
 .set3 {
   transform: scale(0.8) rotateX(180deg);
   filter: blur(4px);
@@ -144,21 +159,27 @@ section .set div:nth-child(8) {
     top: -10%;
     transform: translateX(20px) rotate(0deg);
   }
+
   10% {
     opacity: 1;
   }
+
   20% {
     transform: translateX(-20px) rotate(45deg);
   }
+
   40% {
     transform: translateX(-20px) rotate(90deg);
   }
+
   60% {
     transform: translateX(20px) rotate(180deg);
   }
+
   80% {
     transform: translateX(-20px) rotate(180deg);
   }
+
   100% {
     top: 110%;
     transform: translateX(-20px) rotate(225deg);
@@ -236,7 +257,7 @@ section .set div:nth-child(8) {
 }
 
 @media print and (-ms-high-contrast: active),
-  print and (-ms-high-contrast: none) {
+print and (-ms-high-contrast: none) {
   .form-select {
     padding-right: 0.75rem;
   }
