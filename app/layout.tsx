@@ -77,7 +77,7 @@ export default function RootLayout({
       <body className="">
         <Toaster />
         {/* Preloader */}
-        {isLoading ? (
+        {/* {isLoading ? (
           <div
             ref={preloaderContainerRef}
             className="fixed top-0 left-0 w-full text-center h-screen bg-white text-secondary-500 z-[90000] title text-6xl flex justify-center items-center"
@@ -86,21 +86,21 @@ export default function RootLayout({
               LOADING FOR YOUR NEXT ADVENTURE...
             </span>
           </div>
-        ) : (
-          <>
-            <Navbar />
-            <div
-              className={`w-full h-full  ${
-                currentRoute === "/" ? "" : "md:mb-[60vh]"
-              } bg-secondary-50 text-secondary-500`}
-            >
-              {children}
-            </div>
-            <div className={`${currentRoute === "/" ? "hidden" : "block"}`}>
-              <Footer />
-            </div>
-          </>
-        )}
+        ) : ( */}
+        <>
+          <Navbar />
+          <div
+            className={`w-full h-full  ${
+              currentRoute === "/" ? "" : "md:mb-[60vh]"
+            } bg-secondary-50 text-secondary-500`}
+          >
+            {children}
+          </div>
+          <div className={`${currentRoute === "/" ? "hidden" : "block"}`}>
+            <Footer />
+          </div>
+        </>
+        {/* )} */}
       </body>
     </html>
   );
