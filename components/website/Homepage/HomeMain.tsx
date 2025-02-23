@@ -14,6 +14,7 @@ import Footer from "@/components/Footer";
 import NavHome from "./NavHome";
 import Try from "./try";
 import Faq from "./Faq";
+import NewHero from "./new-hero";
 type Props = {};
 
 gsap.registerPlugin(ScrollTrigger);
@@ -53,11 +54,12 @@ function HomeMain({}: any) {
   return (
     <>
       <div className=" w-full overflow-hidden">
-        <NavHome navContainerRef={navContainerRef} />
-        <div className="hero-container relative   h-screen  top-0 left-0 w-full">
+        {/* <NavHome navContainerRef={navContainerRef} /> */}
+        {/* <div className="hero-container relative   h-screen  top-0 left-0 w-full">
           <Hero />
-        </div>
-        <div className="w-full relative  content-main  bg-secondary-50  z-20">
+        </div> */}
+        <NewHero />
+        <div className="w-full relative  content-main  bg-secondary-50  z-20 mt-[100vh]">
           {/* <Try /> */}
           <div className="md:w-10/12 w-11/12 mx-auto">
             <HomeAbout />
