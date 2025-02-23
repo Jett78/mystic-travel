@@ -1,10 +1,9 @@
 "use client";
 import Link from "next/link";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Icon } from "@iconify/react";
 import Ham from "@/public/hamburger.png";
-import Logo from "@/public/Trivision-blacktext.svg";
-
+import Logo from "@/public/logo/logo.svg";
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import { gsap, Expo } from "gsap";
@@ -25,6 +24,7 @@ const sideNavLinks = [
 
 function Navbar({}: Props) {
   const currentRoute = usePathname();
+  const [scrolled, setScrolled] = useState(false);
   const sideNavRef = useRef(null);
   const [sideNav, setSideNav] = useState(false);
   const [sideLinks, setSideLinks] = useState(false);
@@ -54,6 +54,22 @@ function Navbar({}: Props) {
     }
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 720) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
+
   // open animation
   const navContainerRef = useRef(null);
   // useGSAP(() => {
@@ -68,14 +84,14 @@ function Navbar({}: Props) {
   return (
     <div
       ref={navContainerRef}
-      className={`fixed z-[100] nav-container  ${
-        currentRoute === "/" ? "hidden" : "block"
-      }  text-secondary-500 top-0 bg-secondary-50 left-0 w-full h-[4.5rem] `}
+      className={`${
+        scrolled ? "bg-white" : "bg-transparent text-white"
+      } ease-in-out duration-300 transition-all fixed z-[100] nav-container    top-0  left-0 w-full h-[4.5rem] `}
     >
       {/* mobile nav  */}
       <div
         ref={sideNavRef}
-        className="absolute  md:hidden w-[100vw] flex justify-center items-center top-0 right-[-100%]  h-[100vh] mx-auto bg-secondary-50 text-secondary-500 py-2"
+        className="absolute  md:hidden w-[100vw] flex justify-center items-center top-0 right-[-100%]  h-[100vh] mx-auto bg-secondary-50  py-2"
       >
         <div className="w-11/12 mx-auto  grid grid-cols-1  gap-5 place-content-center pt-[5rem] text-start h-full place-items-start  flex-col justify-center items-center">
           {sideNavLinks.map((link, index) => (
@@ -97,8 +113,7 @@ function Navbar({}: Props) {
           ))}
         </div>
       </div>
-      {/* LOGO  */}
-      <div className="w-11/12 md:hidden  text-secondary-500 relative  tracking-wide  mx-auto h-full flex  justify-between items-center gap-5">
+      <div className="w-11/12 md:hidden   relative  tracking-wide  mx-auto h-full flex  justify-between items-center gap-5">
         {/* LOGO  */}
         <Link href="/" className="cursor-pointer">
           <Image
@@ -124,9 +139,9 @@ function Navbar({}: Props) {
           )}
         </div>
       </div>
-      <div className="w-10/12  text-secondary-500    tracking-wide  mx-auto h-full hidden md:flex justify-between items-center gap-5">
+      <div className="w-10/12 tracking-wide  mx-auto h-full hidden md:flex justify-between items-center gap-5">
         {/*  nav links  */}
-        <div className="flex gap-5 text-[14px] font-semibold">
+        <div className="flex gap-8 text-[14px] font-semibold">
           {companyLinks.map((link) => (
             <Link
               key={link.href}
@@ -134,7 +149,7 @@ function Navbar({}: Props) {
               className={
                 link.href === currentRoute
                   ? "text-primary-600     duration-[0.5]"
-                  : "text-secondary-500 hover:text-primary-600"
+                  : " hover:text-primary-600"
               }
             >
               {link.name}
@@ -152,7 +167,7 @@ function Navbar({}: Props) {
             className="w-[8rem] h-[3rem] object-fit object-center"
           ></Image>
         </Link>
-        <div className="flex gap-5  text-[14px] font-semibold">
+        <div className="flex gap-8  text-[14px] font-semibold">
           <div className="group relative">
             <div
               className={` flex gap-1 justify-center items-center cursor-pointer hover:text-primary-600 ${
