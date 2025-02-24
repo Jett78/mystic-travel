@@ -59,7 +59,7 @@ function HomeMain({}: any) {
           <Hero />
         </div> */}
         <NewHero />
-        <div className="w-full relative  content-main  bg-secondary-50  z-20 mt-[100vh]">
+        <div className="w-full relative  content-main  bg-white  z-20 mt-[100vh]">
           {/* <Try /> */}
           <div className="md:w-10/12 w-11/12 mx-auto">
             <HomeAbout />

@@ -76,7 +76,7 @@ function PackageDetailMain({}: Props) {
 
             <Link
               href="/booking"
-              className={`cursor-pointer hidden   text-nowrap w-full text-secondary-50 bg-gradient-to-r from-primary-600 to-primary-500   duration-200 md:flex justify-center items-center  px-5  h-[2.5rem] text-sm`}
+              className={`cursor-pointer hidden   text-nowrap w-full text-secondary-50 bg-primary-600  duration-200 md:flex justify-center items-center  px-5  h-[2.5rem] text-sm`}
             >
               Book now
             </Link>

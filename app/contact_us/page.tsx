@@ -9,7 +9,7 @@ function Page({}: Props) {
     scrollTo(0, 0);
   },[]);
   return (
-    <main className="bg-secondary-50 z-[20] relative">
+    <main className="bg-white z-[20] relative">
       <ContactUs />
     </main>
   );

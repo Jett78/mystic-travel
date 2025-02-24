@@ -3,11 +3,11 @@ import Link from "next/link";
 import React, { useRef, useState } from "react";
 import { Icon } from "@iconify/react";
 import Ham from "@/public/hamburger.png";
-import Logo from "@/public/Trivision-blacktext.svg";
+import Logo from "@/public/logo/logo.svg";
 
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
-import { gsap, Expo } from "gsap";
+import { gsap } from "gsap";
 
 import { usePathname } from "next/navigation";
 

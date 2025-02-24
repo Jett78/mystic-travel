@@ -1,5 +1,5 @@
 import React from "react";
-import LogoIcon from "@/public/fav icon.svg";
+import LogoIcon from "@/public/logo/logo-white.svg";
 import Image from "next/image";
 
 type Props = {};

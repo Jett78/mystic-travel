@@ -2,7 +2,7 @@
 import React from "react";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
-import Logo from "@/public/Trivision-whitetext.svg";
+import Logo from "@/public/Mystic Adventure-whitetext.svg";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 type Props = {};

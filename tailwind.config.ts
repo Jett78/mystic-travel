@@ -28,7 +28,7 @@ const config: Config = {
           300: "#d6a873",
           400: "#cc8d53",
           500: "#b76b3a",
-          600: "#ab5834",
+          600: "#02ADED",
           700: "#8f412e",
           800: "#75362b",
           900: "#612d26",
@@ -47,6 +47,11 @@ const config: Config = {
           800: "#020202",
           900: "#020202",
         },
+        // primary: {
+        //   DEFAULT: "#02ADED", // Primary blue
+        //   light: "#3B82F6", // Lighter shade
+        //   dark: "#1E40AF", // Darker shade
+        // },
       },
 
       backgroundImage: {

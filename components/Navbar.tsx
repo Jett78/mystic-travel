@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Icon } from "@iconify/react";
 import Ham from "@/public/hamburger.png";
 import Logo from "@/public/logo/logo.svg";
+import Logowhite from "@/public/logo/logo-white.svg";
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import { gsap, Expo } from "gsap";
@@ -56,7 +57,7 @@ function Navbar({}: Props) {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 720) {
+      if (window.scrollY > 100) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -113,14 +114,23 @@ function Navbar({}: Props) {
           ))}
         </div>
       </div>
+
       <div className="w-11/12 md:hidden   relative  tracking-wide  mx-auto h-full flex  justify-between items-center gap-5">
         {/* LOGO  */}
         <Link href="/" className="cursor-pointer">
-          <Image
-            src={Logo}
-            alt="trek-nepal-logo"
-            className="w-[6rem] h-[3rem] object-fit object-center"
-          ></Image>
+          {scrolled ? (
+            <Image
+              src={Logo}
+              alt="trek-nepal-logo"
+              className="w-[6rem] h-[3rem] object-fit object-center"
+            />
+          ) : (
+            <Image
+              src={Logowhite}
+              alt="trek-nepal-logo"
+              className="w-[6rem] h-[3rem] object-fit object-center"
+            />
+          )}
         </Link>
         <div onClick={handleOpenNav} className="">
           {sideNav === false ? (
@@ -148,8 +158,8 @@ function Navbar({}: Props) {
               href={link.href}
               className={
                 link.href === currentRoute
-                  ? "text-primary-600     duration-[0.5]"
-                  : " hover:text-primary-600"
+                  ? "#02ADED    duration-[0.5]"
+                  : " hover:#02ADED"
               }
             >
               {link.name}
@@ -161,11 +171,19 @@ function Navbar({}: Props) {
           href="/home"
           className="font-bold text-2xl  tracking-wide absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2"
         >
-          <Image
-            src={Logo}
-            alt="trek-nepal-logo"
-            className="w-[8rem] h-[3rem] object-fit object-center"
-          ></Image>
+          {scrolled ? (
+            <Image
+              src={Logo}
+              alt="trek-nepal-logo"
+              className="w-[6rem] h-[3rem] object-fit object-center"
+            />
+          ) : (
+            <Image
+              src={Logowhite}
+              alt="trek-nepal-logo"
+              className="w-[6rem] h-[3rem] object-fit object-center"
+            />
+          )}
         </Link>
         <div className="flex gap-8  text-[14px] font-semibold">
           <div className="group relative">

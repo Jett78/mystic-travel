@@ -41,12 +41,12 @@ export default function CertificatesMain({}: Props) {
   });
   return (
     <>
-      <div className="w-full">
+      <div className="w-full ">
         <CertificatesHero />
       </div>
       <div
-        className="w-10/12 mx-auto
-     py-[5rem] flex flex-col gap-10 justify-center items-center relative"
+        className="px-[15em] 
+     py-[5rem] flex flex-col gap-10 justify-center items-center relative bg-white"
       >
         {CertificatesData.map((item, index) => {
           const isOddIndex = index % 2 !== 0;

@@ -117,7 +117,7 @@ function AllTrek({ region }: any) {
                 </div>
 
                 <Link href="/package_detail">
-                  <button className="w-full py-3 bg-gradient-to-r from-primary-600 to-primary-500 text-sm font-medium text-secondary-100">
+                  <button className="w-full py-3 bg-primary-600 text-sm font-medium text-secondary-100">
                     View more
                   </button>
                 </Link>

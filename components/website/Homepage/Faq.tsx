@@ -61,7 +61,7 @@ export default function Faq({}: Props) {
               <span className="cursor-pointer overflow-hidden w-[1.5rem] h-[1.5rem]">
                 <Icon
                   icon="mdi:arrow-down-drop"
-                  className="w-full h-full object-cover text-primary-500 object-center"
+                  className="w-full h-full object-cover text-primary-600 object-center"
                 />
               </span>
             </div>

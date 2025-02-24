@@ -145,7 +145,7 @@ const ReviewsData = [
     role: "Avid Hiker",
     img: "/path/to/alice.jpg",
     review:
-      "Trivision has been my go-to platform for planning hiking trips. The detailed trail descriptions and user reviews helped me find the perfect trails for both solo hikes and group adventures.",
+      "Mystic Adventure has been my go-to platform for planning hiking trips. The detailed trail descriptions and user reviews helped me find the perfect trails for both solo hikes and group adventures.",
   },
   {
     id: 2,
@@ -153,7 +153,7 @@ const ReviewsData = [
     role: "Beginner Hiker",
     img: "/path/to/bob.jpg",
     review:
-      "As someone new to hiking, Trivision has been invaluable. The easy-to-use interface and comprehensive trail database allowed me to discover scenic routes near my area.",
+      "As someone new to hiking, Mystic Adventure has been invaluable. The easy-to-use interface and comprehensive trail database allowed me to discover scenic routes near my area.",
   },
   {
     id: 3,
@@ -161,7 +161,7 @@ const ReviewsData = [
     role: "Trek Leader",
     img: "/path/to/charlie.jpg",
     review:
-      "I recently used Trivision to plan a trekking expedition with friends to a remote location. The platform's extensive trail information and downloadable maps were essential for our journey.",
+      "I recently used Mystic Adventure to plan a trekking expedition with friends to a remote location. The platform's extensive trail information and downloadable maps were essential for our journey.",
   },
   {
     id: 4,
@@ -169,6 +169,6 @@ const ReviewsData = [
     role: "Outdoor Enthusiast",
     img: "/path/to/dana.jpg",
     review:
-      "Trivision made it easy to find family-friendly hiking trails for our weekend trips. The user reviews and ratings helped us choose the best trails for our kids.",
+      "Mystic Adventure made it easy to find family-friendly hiking trails for our weekend trips. The user reviews and ratings helped us choose the best trails for our kids.",
   },
 ];

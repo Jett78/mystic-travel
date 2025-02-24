@@ -120,10 +120,10 @@ function HomeAbout({}: Props) {
   return (
     <div
       ref={aboutUsContainerRef}
-      className="w-full py-[2rem] md:py-0 flex md:h-screen  md:flex-row flex-col justify-center items-center gap-10"
+      className="w-full py-[2rem] grid grid-cols-2"
     >
       {/* image  */}
-      <div className="w-full md:w-[30%]  md:-rotate-3   object-cover object-center overflow-hidden h-[60vh] md:h-[70%]">
+      <div className="w-full md:w-[40%]  md:-rotate-3   object-cover object-center overflow-hidden h-[60vh] md:h-[70%]">
         <Image
           className="w-full h-full image-about   object-cover object-center"
           width={1000}
@@ -142,20 +142,20 @@ function HomeAbout({}: Props) {
           ref={aboutTitleRef}
           className="title text-secondary-500 font-semibold tracking-wide text-5xl"
         >
-          Explore the Great <br /> Outdoors with Trivision
+          Explore the Great <br /> Outdoors with Mystic Adventure
         </h2>
         <p
           ref={aboutDescRef}
           className="text-secondary-400 inline-block about-desc"
         >
-          Trivision is your ultimate expedition partner, specializing in
+          Mystic Adventure is your ultimate expedition partner, specializing in
           providing detailed information, expert advice, and a vibrant community
           for adventure enthusiasts.
         </p>
         <Link href="/about_us">
           <button
             ref={aboutButtonRef}
-            className="px-10 py-3 text-secondary-50 font-medium   bg-primary-600 border-b-2  cursor-pointer mt-5"
+            className="px-10 py-3 text-secondary-50 font-medium   bg-primary-600 border-b-2  cursor-pointer mt-5 rounded-full"
           >
             Discover more
           </button>

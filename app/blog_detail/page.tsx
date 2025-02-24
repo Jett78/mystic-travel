@@ -5,7 +5,7 @@ type Props = {};
 
 export default function page({}: Props) {
   return (
-    <div className="bg-secondary-50 relative z-[20]">
+    <div className="bg-white relative z-[20]">
       <BlogDetailMain />
     </div>
   );

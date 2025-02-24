@@ -59,57 +59,7 @@ function Hero({}: Props) {
         <source src="/HeroBg.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      {/* <div className="absolute bottom-10 left-20 text-white z-20 text-[14px]">
-        2024
-      </div> */}
 
-      {/* <div className="absolute border-dotted border border-white p-1 bottom-10 opacity-0  side-circle  right-20 z-20 gap-10 flex  justify-center items-end flex-col">
-        <div className="w-[3rem] h-[3rem] overflow-hidden rounded-full border-dotted p-1 hover:w-[4rem] hover:h-[4rem] duration-200 cursor-pointer">
-          <Image
-            src={HeroBg}
-            className="w-full h-full object-cover object-center rounded-full"
-            alt=""
-          ></Image>
-        </div>
-        <div className="w-[3rem] h-[3rem] overflow-hidden rounded-full border-dotted p-1 hover:w-[4rem] hover:h-[4rem] duration-200 cursor-pointer">
-          <Image
-            src={HeroBg}
-            className="w-full h-full object-cover object-center rounded-full"
-            alt=""
-          ></Image>
-        </div>
-        <div className="w-[3rem] h-[3rem] overflow-hidden rounded-full border-dotted p-1 hover:w-[4rem] hover:h-[4rem] duration-200 cursor-pointer">
-          <Image
-            src={HeroBg}
-            className="w-full h-full object-cover object-center rounded-full"
-            alt=""
-          ></Image>
-        </div>
-      </div>
-
-      <div className="absolute  border-dotted border border-white p-1 bottom-10 left-20 opacity-0  side-circle  z-20 gap-10 flex  justify-center items-start flex-col">
-        <div className="w-[3rem] h-[3rem] overflow-hidden rounded-full border-dotted p-1 hover:w-[4rem] hover:h-[4rem] duration-200 cursor-pointer">
-          <Image
-            src={HeroBg}
-            className="w-full h-full object-cover object-center rounded-full"
-            alt=""
-          ></Image>
-        </div>
-        <div className="w-[3rem] h-[3rem] overflow-hidden rounded-full border-dotted p-1 hover:w-[4rem] hover:h-[4rem] duration-200 cursor-pointer">
-          <Image
-            src={HeroBg}
-            className="w-full h-full object-cover object-center rounded-full"
-            alt=""
-          ></Image>
-        </div>
-        <div className="w-[3rem] h-[3rem] overflow-hidden rounded-full border-dotted p-1 hover:w-[4rem] hover:h-[4rem] duration-200 cursor-pointer">
-          <Image
-            src={HeroBg}
-            className="w-full h-full object-cover object-center rounded-full"
-            alt=""
-          ></Image>
-        </div>
-      </div> */}
       {/* text HEADINg  */}
       <div className="text-center  z-20  relative  w-11/12 md:w-10/12   mx-auto flex justify-center items-center flex-col gap-2">
         <h1

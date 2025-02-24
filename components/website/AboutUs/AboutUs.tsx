@@ -20,7 +20,6 @@ function AboutUs({}: Props) {
       stagger: 0.03,
       ease: "power4.inOut",
       scrollTrigger: {
-        
         start: "top 90%",
         end: "50% 50%",
         trigger: ".about-subtitle",
@@ -38,7 +37,6 @@ function AboutUs({}: Props) {
       duration: 1.5,
       ease: "power4.inOut",
       scrollTrigger: {
-        
         start: "top 90%",
         end: "50% 50%",
         trigger: ".about-desc2",
@@ -55,15 +53,15 @@ function AboutUs({}: Props) {
             Our Story
           </span>
           <p className="text-secondary-400">
-            {`At Trivision, our passion for adventure and the great outdoors drives
+            {`At Mystic Adventure, our passion for adventure and the great outdoors drives
             everything we do. Founded by a team of outdoor enthusiasts, we set
             out to create a platform that would inspire and empower fellow
             adventurers worldwide. Whether you're seeking serene hikes amidst
             nature's beauty or challenging treks to conquer majestic peaks,
-            Trivision is here to guide you.`}
+            Mystic Adventure is here to guide you.`}
           </p>
           <Link href="/contact_us">
-            <button className="w-full py-3 bg-gradient-to-r  px-16 from-primary-600 to-primary-500 text-sm font-medium text-secondary-100">
+            <button className="w-full py-3 bg-gradient-to-r  px-16 bg-primary-600  text-sm font-medium text-secondary-100">
               Get in touch
             </button>
           </Link>
@@ -85,7 +83,7 @@ function AboutUs({}: Props) {
         </h1>
         <div className="w-full flex justify-end">
           <p className="w-full md:w-[60%] about-desc2 text-secondary-400">
-            {`From the side of Trivision, let's embark on a journey of connection
+            {`From the side of Mystic Adventure, let's embark on a journey of connection
             and discovery together. We're passionate about understanding your
             interests, sharing insights, and exploring ideas with you. Whether
             it's discussing the latest outdoor adventures, delving into trail
@@ -119,7 +117,7 @@ function AboutUs({}: Props) {
                 Our mission
               </span>
               <p className="text-secondary-50 text-sm">
-                {`Our mission at Trivision is to inspire and empower outdoor
+                {`Our mission at Mystic Adventure is to inspire and empower outdoor
                 enthusiasts worldwide by providing comprehensive resources for
                 exploration and adventure. We aim to curate a platform where
                 individuals can discover, plan, and share their outdoor journeys

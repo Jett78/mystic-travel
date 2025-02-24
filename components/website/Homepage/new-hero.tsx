@@ -20,7 +20,7 @@ const NewHero = () => {
     return () => clearInterval(interval); // Cleanup on unmount
   }, []);
 
-  const handleManualClick = (index) => {
+  const handleManualClick = (index: number) => {
     setCurrentIndex(index);
     setBgImg(cards[index].img);
     setTitle(cards[index].title);
@@ -35,10 +35,10 @@ const NewHero = () => {
       <div className="absolute inset-0 top-0 bg-black bg-opacity-40 w-full h-screen" />
       <div className="absolute left-1/2 -translate-x-1/2 top-1/3 -translate-y-1/2 space-y-4">
         <div className="flex justify-center gap-4">
-          <button className="px-6 border py-1 rounded-full border-[#02ADED] bg-white text-black">
+          <button className="px-6 border py-1 rounded-full border-primary-600 bg-white text-black">
             Expedition
           </button>
-          <button className="px-6 border py-1 text-sm rounded-full border-[#02ADED] text-white">
+          <button className="px-6 border py-1 text-sm rounded-full border-primary-600 text-white">
             Booking Available dates 2025-2026
           </button>
         </div>
@@ -48,7 +48,7 @@ const NewHero = () => {
         </h1>
 
         <div className="flex justify-center">
-          <button className="px-6 flex items-center gap-2 py-3 font-bold rounded-full bg-[#02ADED] text-white">
+          <button className="px-6 flex items-center gap-2 py-3 font-bold rounded-full bg-primary-600 text-white">
             Explore Now
             <Icon icon="mynaui:arrow-right" width="24" height="24" />
           </button>
@@ -65,7 +65,7 @@ const NewHero = () => {
           >
             <figure
               className={`p-1 border rounded-xl border-dashed overflow-hidden ${
-                index === currentIndex ? "border-[#02ADED]" : ""
+                index === currentIndex ? "border-primary-600" : ""
               }`}
             >
               <Image

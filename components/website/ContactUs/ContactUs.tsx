@@ -50,7 +50,7 @@ function ContactUs({}: Props) {
             <div className="absolute top-0 left-0 w-full h-full bg-black opacity-[0.3]"></div>
             <div className="absolute w-[90%] md:w-[50%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white  mx-auto p-5 flex flex-col gap-3 items-start justify-center">
               <span className="w-full text-center title font-semibold tracking-wide">
-                Trivision
+                Mystic Adventure
               </span>
               <div className="w-full flex justify-center items-center flex-col gap-2">
                 <div className="flex justify-center items-center gap-3">

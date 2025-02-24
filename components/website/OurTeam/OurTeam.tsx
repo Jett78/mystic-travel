@@ -121,7 +121,7 @@ const TeamData = [
     name: "Sarah Lee",
     img:Team5,
     role: "Marketing Manager",
-    desc: "Develops and executes marketing strategies to promote Trivision's unique adventure travel offerings.",
+    desc: "Develops and executes marketing strategies to promote Mystic Adventure's unique adventure travel offerings.",
   },
   {
     id: 6,

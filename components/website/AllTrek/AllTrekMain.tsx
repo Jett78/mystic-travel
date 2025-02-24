@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import AllTrekHero from "./AllTrekHero";
 import AllTrek from "./AllTrek";
@@ -18,7 +18,6 @@ function AllTrekMain({ region }: any) {
   });
   return (
     <div className="all-trek-main-container">
-     
       <div className="relative">
         <AllTrekHero region={region} />
       </div>
