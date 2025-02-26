@@ -1,7 +1,6 @@
 "use client";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import "./globals.css";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
@@ -10,6 +9,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Lenis from "lenis";
+import Footer from "@/components/layout/new-footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -96,9 +96,11 @@ export default function RootLayout({
           >
             {children}
           </div>
-          <div className={`${currentRoute === "/" ? "hidden" : "block"}`}>
+          {/* <div className={`${currentRoute === "/" ? "hidden" : "block"}`}>
             <Footer />
-          </div>
+          </div> */}
+
+          <Footer />
         </>
         {/* )} */}
       </body>
