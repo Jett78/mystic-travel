@@ -15,6 +15,7 @@ import NavHome from "./NavHome";
 import Try from "./try";
 import Faq from "./Faq";
 import NewHero from "./new-hero";
+import WhyChoose from "./why-choose";
 type Props = {};
 
 gsap.registerPlugin(ScrollTrigger);
@@ -62,11 +63,11 @@ function HomeMain({}: any) {
         <div className="w-full relative  content-main  bg-white  z-20 mt-[100vh]">
           {/* <Try /> */}
           <div className="md:w-10/12 w-11/12 mx-auto">
-            <HomeAbout />
+            <WhyChoose />
           </div>
-          <div className="md:w-10/12 w-11/12 mx-auto">
+          {/* <div className="md:w-10/12 w-11/12 mx-auto">
             <Services />
-          </div>
+          </div> */}
           <div className="w-full mx-auto">
             <PopularExpedition />
           </div>
