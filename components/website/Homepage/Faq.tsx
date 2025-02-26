@@ -46,7 +46,7 @@ export default function Faq({}: Props) {
 
       {/* faqs  */}
 
-      <div className="w-11/12 md:w-9/12 mt-[3%] mx-auto columns-1 md:columns-2 flex-col space-y-5  justify-start items-start">
+      <div className="w-11/12 md:w-9/12 mt-[3%] mx-auto columns-1  flex-col space-y-5  justify-start items-start">
         {FaqData.map((item, index) => (
           <div
             onClick={() => handleOpenAns(index)}
