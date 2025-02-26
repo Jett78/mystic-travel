@@ -12,6 +12,7 @@
     "@gsap/react": "^2.1.1",
     "@iconify/react": "^5.0.1",
     "@studio-freight/lenis": "^1.0.42",
+    "clsx": "^2.1.1",
     "framer-motion": "^11.2.13",
     "gsap": "^3.12.5",
     "i": "^0.3.7",
@@ -28,7 +29,8 @@
     "react-snowfall": "^2.1.0",
     "sharp": "^0.33.4",
     "split-type": "^0.3.4",
-    "swiper": "^11.1.4"
+    "swiper": "^11.1.4",
+    "tailwind-merge": "^3.0.2"
   },
   "devDependencies": {
     "@types/node": "^20",
