@@ -16,6 +16,7 @@ import Try from "./try";
 import Faq from "./Faq";
 import NewHero from "./new-hero";
 import WhyChoose from "./why-choose";
+import InternationalTrips from "./international-trips";
 type Props = {};
 
 gsap.registerPlugin(ScrollTrigger);
@@ -71,6 +72,7 @@ function HomeMain({}: any) {
           <div className="w-full mx-auto">
             <PopularExpedition />
           </div>
+          <InternationalTrips />
           <div className="w-full mx-auto">
             <PopularTrekking />
           </div>
@@ -83,8 +85,6 @@ function HomeMain({}: any) {
           <div className="md:w-10/12 w-11/12 mx-auto">
             <Reviews />
           </div>
-
-          <Footer />
         </div>
       </div>
     </>
