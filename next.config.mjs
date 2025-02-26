@@ -8,6 +8,10 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "mysticnepaladventure.com",
+      },
+      {
+        protocol: "https",
         hostname: "plus.unsplash.com",
       },
       {
@@ -19,7 +23,7 @@ const nextConfig = {
         hostname: "img.freepik.com",
       },
     ],
-    domains: ["plus.unsplash.com"], // Add this line
+    domains: ["plus.unsplash.com", "mysticnepaladventure.com"], // Add this line
   },
 };
 
