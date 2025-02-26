@@ -4,7 +4,7 @@ import React from "react";
 
 const WhyChoose = () => {
   return (
-    <main className="grid grid-cols-2 gap-x-8 h-screen py-20">
+    <main className="grid grid-cols-2 gap-x-8  py-16">
       <div className="grid grid-cols-2 items-center gap-4">
         <div className="grid gap-4 h-full w-full">
           {choosedata.slice(0, 2).map((item, index) => (
