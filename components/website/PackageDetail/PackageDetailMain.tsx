@@ -1,10 +1,12 @@
 "use client";
 import gsap from "gsap";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import Image from "next/image";
-import { useGSAP } from "@gsap/react";
+import PrimaryButton from "@/components/shared/primary-button";
+import { Link as ScrollLink, Element } from "react-scroll";
+
 type Props = {};
 
 function PackageDetailMain({}: Props) {
@@ -42,81 +44,192 @@ function PackageDetailMain({}: Props) {
     }
   };
 
+  const importantdata = [
+    {
+      title: "Group Size",
+      info: "10 people",
+      img: "/infoicon/group (2).png",
+    },
+    {
+      title: "Trip Duration",
+      info: "14 Days",
+      img: "/infoicon/timer.png",
+    },
+    {
+      title: "Mountain Ranges",
+      info: "Everest range",
+      img: "/infoicon/mountain.png",
+    },
+    {
+      title: "Max Altitude",
+      info: "8848m",
+      img: "/infoicon/mountains.png",
+    },
+    {
+      title: "Best Seasons",
+      info: "Spring,Autumn,Spring",
+      img: "/infoicon/seasonal.png",
+    },
+    {
+      title: "Activities",
+      info: "Alpine Trekking",
+      img: "/infoicon/accomodations.png",
+    },
+    {
+      title: "Difficulties",
+      info: "Moderate",
+      img: "/infoicon/difficulty.png",
+    },
+    {
+      title: "Accomodations",
+      info: "Hotel/Lodge/",
+      img: "/infoicon/accomodations.png",
+    },
+  ];
+  const [offset, setOffset] = useState(-300);
+
+  useEffect(() => {
+    const updateOffset = () => {
+      if (window.innerWidth < 768) {
+        setOffset(-150); // Offset for mobile screens
+      } else {
+        setOffset(-300); // Offset for larger screens
+      }
+    };
+    updateOffset();
+  }, []);
   return (
-    <>
-      <div className="w-full h-full  text-secondary-500 relative">
-        <div className="w-full h-[80vh] relative  flex justify-center items-center">
-          <Image
-            width={1000}
-            height={1000}
-            src="https://images.unsplash.com/photo-1486525546686-3cd5484691f4?q=80&w=2031&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="expedition-image"
-            className="absolute top-0 left-0 w-full h-full object-cover object-top"
-          />
-          <div className="absolute top-0 left-0 w-full h-full bg-black opacity-[0.5]"></div>
-          <h1 className="text-3xl md:text-6xl relative tracking-wide mt-10 title font-bold text-secondary-50">
-            Everest Trekking
+    <main className="">
+      <div className="relative ">
+        <Image
+          width={1000}
+          height={1000}
+          src="https://images.unsplash.com/photo-1486525546686-3cd5484691f4?q=80&w=2031&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="expedition-image"
+          className="w-full h-screen object-cover brightness-50"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/50 to-transparent opacity-80" />
+        <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
+          <h1 className="text-3xl md:text-[6vw] leading-[1.1]  tracking-wide  font-palker text-white uppercase whitespace-nowrap ">
+            Everest Base Camp Trekking
           </h1>
+          <p className="text-center text-white/80 my-8">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+            magnam ab laborum consequuntur possimus eum voluptatibus explicabo
+            aspernatur. Deleniti doloribus amet tenetur. Animi nisi cum,
+            laudantium consectetur ab enim. Odit.
+          </p>
+
+          <div className="flex justify-center gap-4">
+            <PrimaryButton
+              title="Explore Date"
+              className="bg-transparent border"
+            />
+            <PrimaryButton title="Book Now" className="" />
+          </div>
+        </div>
+      </div>
+
+      <div className="py-[5rem] w-11/12 md:w-10/12 flex flex-col md:flex-row justify-center relative items-start gap-3 mx-auto">
+        {/* tab  link  */}
+        <div className="mx-auto  w-full md:w-[15%] flex-col gap-8 backdrop-blur-sm sticky top-[4rem] overflow-x-scroll md:overflow-x-visible md:top-[7rem] left-0  flex  font-medium items-center">
+          <div className="w-full py-1 overflow-x-scroll md:overflow-x-visible flex md:flex-col gap-5 font-medium items-center">
+            {buttonLabels.map((item, index) => (
+              <ScrollLink
+                key={index}
+                activeClass="active"
+                to={item.label.replace(/\s+/g, "-").toLowerCase()}
+                smooth={true}
+                duration={500}
+                spy={true}
+                offset={offset}
+                className={`cursor-pointer w-full flex items-center gap-2 text-nowrap  text-secondary-500 hover:scale-105 duration-300  md:px-5 py-3 text-sm ]`}
+              >
+                <Image
+                  src={item.img}
+                  alt="icons"
+                  width={1000}
+                  height={1000}
+                  className="md:w-6 md:h-6 w-5 h-5 object-cover object-center"
+                />
+                <h2 className="lg:block hidden xl:text-sm lg:text-[10px] font-bold">
+                  {" "}
+                  {item.label}
+                </h2>{" "}
+              </ScrollLink>
+            ))}
+          </div>
+
+          <Link href="/booking">
+            <PrimaryButton title="Book Now" />
+          </Link>
         </div>
 
-        <div className="py-[5rem] w-11/12 md:w-10/12 flex flex-col md:flex-row justify-center relative items-start gap-3 mx-auto">
-          {/* tab  link  */}
-          <div className="mx-auto  w-full md:w-[15%] flex-col gap-8 backdrop-blur-sm sticky top-[4rem] overflow-x-scroll md:overflow-x-visible md:top-[6rem] left-0  flex  font-medium items-center">
-            <div className="w-full py-1 overflow-x-scroll md:overflow-x-visible flex md:flex-col gap-5 font-medium items-center">
-              {buttonLabels.map((item, index) => (
-                <a
-                  href={`#${item.label.replace(/\s+/g, "-").toLowerCase()}`}
-                  key={item.id}
-                  className={`cursor-pointer text-nowrap w-full text-secondary-500 border-x border-b hover:scale-105 duration-300  flex justify-center items-center  px-5  h-[2.5rem] text-sm`}
-                >
-                  {item.label}
-                </a>
-              ))}
+        {/* detail  */}
+        <div className="w-full md:w-[85%] flex flex-col gap-2">
+          <div className="w-full rounded-md bg-white z-[50] sticky top-16 py-4 ">
+            <div className="p-4 rounded-md w-full h-full border  bg-zinc-50">
+              <h1 className="font-palker uppercase">
+                Everest Base Camp Trekking
+              </h1>
+              <div className="grid grid-cols-4 gap-8 p-4">
+                {importantdata.map((item, index) => (
+                  <div key={index} className="flex gap-2">
+                    <Image
+                      src={item.img}
+                      alt="img"
+                      width={1000}
+                      height={1000}
+                      className="w-10"
+                    />
+                    <div className="border-l  pl-2">
+                      <h2 className="text-sm font-semibold">{item.title}</h2>
+                      <h2
+                        className="font-medium text-xs text-primary-600
+                        "
+                      >
+                        {item.info}
+                      </h2>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-
-            <Link
-              href="/booking"
-              className={`cursor-pointer hidden   text-nowrap w-full text-secondary-50 bg-primary-600  duration-200 md:flex justify-center items-center  px-5  h-[2.5rem] text-sm`}
-            >
-              Book now
-            </Link>
           </div>
-          {/* detail  */}
-
-          <div className="w-full md:w-[85%] flex flex-col gap-2">
-            <div
-              id="overview"
-              className="w-full mx-auto p-3 md:p-10   bg-primary-50/20 shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] "
-            >
-              <div className="text-2xl overview relative tracking-wide title font-semibold italic text-secondary-500">
-                Overview
-              </div>
-              <div className="w-full  text-secondary-400">
-                Everest Circuit Trek, also known as Everest Round Trek, is a
-                classic expedition-style trek around the world’s seventh highest
-                peak, Everest 8167m and its broad massif of 7000m peaks. Everest
-                Circuit is a challenging trek in the western part of Nepal,
-                offering full adventure and off the beaten path experience in
-                the remote and unspoilt region of Nepal. Everest circuit trek
-                itinerary travels through serene, isolated regions full of
-                natural beauty, crossing through highlands and high passes with
-                astonishing viewpoints. The route offers constant mountains
-                views while passing through remote villages and astonishing
-                landscape including several high passes, dense forests and
-                glaciers. Our 20 days Everest circuit trek is a fully guided and
-                supported trek with camping accommodation throughout the trek.
-                Our journey to Everest round trek starts with a short flight to
-                Pokhara and then followed by an off-road drive to Darbang the
-                next day. Our actual trek commences from Darbang as we follow
-                the well-paced itinerary which we have meticulously devised
-                keeping every important aspect in mind.
-              </div>
+          <div
+            id="overview"
+            className="w-full mx-auto p-3 md:p-10 border rounded-md   bg-primary-50/20  "
+          >
+            <div className="text-2xl overview relative tracking-wide title font-semibold italic text-secondary-500">
+              Overview
             </div>
+            <div className="w-full  text-secondary-400">
+              Everest Circuit Trek, also known as Everest Round Trek, is a
+              classic expedition-style trek around the world’s seventh highest
+              peak, Everest 8167m and its broad massif of 7000m peaks. Everest
+              Circuit is a challenging trek in the western part of Nepal,
+              offering full adventure and off the beaten path experience in the
+              remote and unspoilt region of Nepal. Everest circuit trek
+              itinerary travels through serene, isolated regions full of natural
+              beauty, crossing through highlands and high passes with
+              astonishing viewpoints. The route offers constant mountains views
+              while passing through remote villages and astonishing landscape
+              including several high passes, dense forests and glaciers. Our 20
+              days Everest circuit trek is a fully guided and supported trek
+              with camping accommodation throughout the trek. Our journey to
+              Everest round trek starts with a short flight to Pokhara and then
+              followed by an off-road drive to Darbang the next day. Our actual
+              trek commences from Darbang as we follow the well-paced itinerary
+              which we have meticulously devised keeping every important aspect
+              in mind.
+            </div>
+          </div>
 
-            {/* iternary  */}
+          {/* iternary  */}
+          <div className="space-y-12">
             <div
               id="itinerary"
-              className="w-full mx-auto p-3 md:p-10   bg-primary-50/20 shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] "
+              className="w-full mt-8 mx-auto p-3 md:p-10   bg-primary-50/20 border rounded-md  "
             >
               {/* tile  */}
               <div className="text-2xl itinerary it relative tracking-wide title font-semibold italic text-secondary-500">
@@ -164,7 +277,7 @@ function PackageDetailMain({}: Props) {
             </div>
             <div
               id="route-map"
-              className="w-full h-[70vh] mx-auto p-3 md:p-10   bg-primary-50/20 shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] "
+              className="w-full h-[70vh] mx-auto p-3 md:p-10   bg-primary-50/20 border rounded-md  "
             >
               <div className="text-2xl route-map relative tracking-wide title font-semibold italic text-secondary-500">
                 Route Map
@@ -179,7 +292,7 @@ function PackageDetailMain({}: Props) {
             </div>
             <div
               id="inclusions"
-              className="w-full mx-auto p-3 md:p-10   bg-primary-50/20 shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] "
+              className="w-full mx-auto p-3 md:p-10   bg-primary-50/20 border rounded-md  "
             >
               <div className="text-2xl relative inclusion tracking-wide title font-semibold italic text-secondary-500">
                 Inclusion
@@ -212,7 +325,7 @@ function PackageDetailMain({}: Props) {
             </div>
             <div
               id="exclusions"
-              className="w-full mx-auto p-3 md:p-10   bg-primary-50/20 shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] "
+              className="w-full mx-auto p-3 md:p-10   bg-primary-50/20 border rounded-md  "
             >
               <div className="text-2xl exclusion relative tracking-wide title font-semibold italic text-secondary-500">
                 Exclusions
@@ -245,7 +358,7 @@ function PackageDetailMain({}: Props) {
             </div>
             <div
               id="fixed-dates"
-              className="w-full mx-auto p-3 md:p-10   bg-primary-50/20 shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] "
+              className="w-full mx-auto p-3 md:p-10   bg-primary-50/20 border rounded-md  "
             >
               <div className="text-2xl relative fixed-date tracking-wide title font-semibold italic text-secondary-500">
                 Fixed Dates
@@ -286,19 +399,19 @@ function PackageDetailMain({}: Props) {
           </div>
         </div>
       </div>
-    </>
+    </main>
   );
 }
 
 export default PackageDetailMain;
 
 const buttonLabels = [
-  { id: 1, label: "Overview" },
-  { id: 2, label: "Itinerary" },
-  { id: 3, label: "Route map" },
-  { id: 4, label: "Inclusions" },
-  { id: 5, label: "Exclusions" },
-  { id: 6, label: "Fixed Dates" },
+  { id: 1, label: "Overview", img: "/infoicon/eye.png" },
+  { id: 2, label: "Itinerary", img: "/infoicon/route.png" },
+  { id: 3, label: "Route map", img: "/infoicon/chart.png" },
+  { id: 4, label: "Inclusions", img: "/infoicon/greentick.png" },
+  { id: 5, label: "Exclusions", img: "/infoicon/close.png" },
+  { id: 6, label: "Fixed Dates", img: "/infoicon/calendar.png" },
 ];
 
 const ItineraryData = [

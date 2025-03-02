@@ -74,12 +74,12 @@ function Navbar({}: Props) {
   });
 
   return (
-    <Headroom>
+
       <div
         ref={navContainerRef}
         className={`${
           scrolled ? "bg-white shadow-md" : "bg-transparent text-white"
-        } ease-in-out duration-300 transition-all z-[200]  sticky  w-full h-[4.5rem] `}
+        } ease-in-out duration-300 transition-all z-[900]  fixed w-full h-[4.5rem] `}
       >
         {/* mobile nav  */}
         <div
@@ -329,7 +329,6 @@ function Navbar({}: Props) {
           </div>
         </div>
       </div>
-    </Headroom>
   );
 }
 

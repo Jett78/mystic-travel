@@ -21,9 +21,9 @@ function AllTrek({ region }: any) {
   const { name, intro, package: packages, route } = data;
 
   return (
-    <div className="w-full overflow-hidden py-[5rem]">
+    <div className="w-full  py-[5rem]">
       {/* tab  */}
-      <div className="w-full mb-9 py-1 flex overflow-x-scroll md:overflow-x-visible justify-start  items-center gap-10">
+      <div className="sticky z-[2] top-[4.4rem] h-fit w-full mb-9  flex bg-white py-3 justify-start   items-center gap-10">
         {/* exp tab  */}
         {TrekData.map((item, index) => (
           <Link
@@ -31,7 +31,7 @@ function AllTrek({ region }: any) {
             key={index}
             className={`${
               item.route === region ? "bg-primary-600" : "bg-secondary-50"
-            } px-10 py-2 whitespace-nowrap   shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] hover:scale-105 duration-300 cursor-pointer`}
+            }  px-10 py-2 whitespace-nowrap   shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] hover:scale-105 duration-300 cursor-pointer`}
           >
             <h1
               className={`text-lg relative tracking-wide title font-medium    ${
@@ -86,7 +86,7 @@ function AllTrek({ region }: any) {
                   {item.packageDesc.slice(0, 50)}...
                 </p>
 
-                <div className="flex gap-3 text-sm font-medium">
+                <div className="flex gap-3 justify-between text-sm font-medium">
                   <div className="flex gap-1 items-center">
                     <Icon
                       icon="iconoir:trekking"
@@ -105,19 +105,19 @@ function AllTrek({ region }: any) {
               </div>
 
               {/* price */}
-              <div className="flex flex-col w-full gap-2">
-                <span className="font-bold text-xl text-secondary-500">
+              <div className="grid grid-cols-2 w-full gap-2">
+                <div className="px-6 py-2 border rounded-md flex justify-center items-center text-md font-bold font-palker text-yellow-500 ">
                   $100
-                </span>
+                </div>
 
-                <div className="flex flex-col w-full whitespace-nowrap text-[12px] font-semibold text-sm gap-1">
+                {/* <div className="flex flex-col w-full whitespace-nowrap text-[12px] font-semibold text-sm gap-1">
                   <span className="font-bold">Price for:</span>
                   <span>1 person</span>
                   <span>{item.packageDay}</span>
-                </div>
+                </div> */}
 
                 <Link href="/package_detail">
-                  <button className="w-full py-3 bg-primary-600 text-sm font-medium text-secondary-100">
+                  <button className="w-full py-3 bg-primary-600 rounded-md text-sm font-medium text-secondary-100">
                     View more
                   </button>
                 </Link>

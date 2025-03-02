@@ -7,7 +7,7 @@ type Props = {};
 function Page({}: Props) {
   useEffect(() => {
     scrollTo(0, 0);
-  },[]);
+  }, []);
   return (
     <main className="bg-white z-[20] relative">
       <PackageDetailMain />

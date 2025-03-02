@@ -37,20 +37,6 @@ export default function OurTeam({}: Props) {
                 labore! Alias incidunt enim aut voluptatum!
               </p>
             </div>
-            <div>
-              <span className="text-sm font-bold">title</span>
-              <p className="text-secondary-400">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Explicabo adipisci recusandae reprehenderit at facilis quaerat,
-                necessitatibus facere nobis delectus quas deserunt vel illo
-                doloribus nam consequatur. Vero, voluptatem neque consectetur
-                maiores debitis adipisci minima alias. Saepe, dolor quis. Unde
-                nihil ratione doloribus culpa magni ea sit perspiciatis soluta
-                quisquam. Accusamus! Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. At modi vitae ad illo dolore ipsum distinctio
-                consequuntur quis natus quidem.
-              </p>
-            </div>
           </div>
         </div>
       </div>
@@ -64,8 +50,12 @@ export default function OurTeam({}: Props) {
             } gap-1`}
           >
             <div className="w-full justify-between flex px-2">
-              <span className="font-sm uppercase tracking-wide title">{teamMember.name}</span>
-              <span className="text-[14px] italic   text-secondary-500">{teamMember.role}</span>
+              <span className="font-sm uppercase tracking-wide title">
+                {teamMember.name}
+              </span>
+              <span className="text-[14px] italic   text-secondary-500">
+                {teamMember.role}
+              </span>
             </div>
             <div className="relative group h-[50vh] cursor-pointer">
               <div className="absolute md:group-hover:opacity-[0.5] duration-300  top-0  opacity-0 left-0 w-full h-[50vh] bg-black"></div>
@@ -91,42 +81,42 @@ const TeamData = [
   {
     id: 1,
     name: "Jane Doe",
-    img:Team1,
+    img: Team1,
     role: "Founder & CEO",
     desc: "Visionary leader dedicated to creating unforgettable outdoor adventures and experiences for travelers worldwide.",
   },
   {
     id: 2,
     name: "John Smith",
-    img:Team2,
+    img: Team2,
     role: "Chief Operating Officer (COO)",
     desc: "Oversees day-to-day operations and ensures seamless delivery of travel services and experiences.",
   },
   {
     id: 3,
     name: "Emily Johnson",
-    img:Team3,
+    img: Team3,
     role: "Head of Customer Experience",
     desc: "Ensures exceptional customer satisfaction and personalized service throughout travelers' journeys.",
   },
   {
     id: 4,
     name: "Michael Brown",
-    img:Team4,
+    img: Team4,
     role: "Travel Consultant",
     desc: "Expert in crafting bespoke travel itineraries tailored to each traveler's preferences and interests.",
   },
   {
     id: 5,
     name: "Sarah Lee",
-    img:Team5,
+    img: Team5,
     role: "Marketing Manager",
     desc: "Develops and executes marketing strategies to promote Mystic Adventure's unique adventure travel offerings.",
   },
   {
     id: 6,
     name: "John Doe",
-    img:Team6,
+    img: Team6,
     role: "Team Member",
     desc: "Key contributor to various projects, bringing expertise and dedication to the team.",
   },

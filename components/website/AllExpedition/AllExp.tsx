@@ -23,7 +23,7 @@ function AllExp({ distance }: any) {
   return (
     <div className="w-full py-[5rem]">
       {/* tab  */}
-      <div className="w-full mb-9 py-1 flex justify-start overflow-x-scroll md:overflow-x-visible  items-center gap-10">
+      <div className="w-full bg-white sticky top-[4.4rem] mb-9 py-2 flex justify-start overflow-x-scroll md:overflow-x-visible  items-center gap-10">
         {/* exp tab  */}
         {ExpData.map((item, index) => (
           <Link
@@ -83,7 +83,7 @@ function AllExp({ distance }: any) {
                   {item.packageDesc.slice(0, 50)}...
                 </p>
 
-                <div className="flex gap-3 text-sm font-medium">
+                <div className="flex justify-between gap-3 text-sm font-medium">
                   <div className="flex gap-1 items-center">
                     <Icon icon="la:mountain" className="text-primary-600" />
                     <span>Expedition</span>
@@ -99,19 +99,13 @@ function AllExp({ distance }: any) {
               </div>
 
               {/* price */}
-              <div className="flex flex-col w-full gap-2">
-                <span className="font-bold text-xl text-secondary-500">
+              <div className="grid grid-cols-2 w-full gap-2">
+                <div className="px-6 py-2 border rounded-md flex justify-center items-center text-md font-bold font-palker text-yellow-500 ">
                   $100
-                </span>
-
-                <div className="flex flex-col w-full whitespace-nowrap text-[12px] font-semibold text-sm gap-1">
-                  <span className="font-bold">Price for:</span>
-                  <span>1 person</span>
-                  <span>{item.packageDay}</span>
                 </div>
 
                 <Link href="/package_detail">
-                  <button className="w-full py-3 bg-gradient-to-r from-primary-600 to-primary-500 text-sm font-medium text-secondary-100">
+                  <button className="w-full rounded-md py-3 bg-gradient-to-r from-primary-600 to-primary-600 text-sm font-medium text-secondary-100">
                     View more
                   </button>
                 </Link>

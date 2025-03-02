@@ -28,7 +28,7 @@ const NewHero = () => {
 
   return (
     <main
-      className="h-screen fixed -mt-[4.5em] w-full bg-cover transition-all duration-1000 ease-in-out"
+      className="h-screen fixed  w-full bg-cover transition-all duration-1000 ease-in-out"
       style={{ backgroundImage: `url(${bgImg})` }}
     >
       <div className="absolute top-0 bg-gradient-to-b from-black via-black/50 to-transparent w-full h-40" />

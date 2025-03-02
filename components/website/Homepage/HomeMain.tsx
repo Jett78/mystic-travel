@@ -1,8 +1,6 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
-import Hero from "./Hero";
-import HomeAbout from "./HomeAbout";
-import Services from "./Services";
+import React, { useRef } from "react";
+
 import Banner from "./Banner";
 import PopularExpedition from "./PopularExpedition";
 import PopularTrekking from "./PopularTrekking";
@@ -10,13 +8,11 @@ import Reviews from "./Reviews";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Footer from "@/components/Footer";
-import NavHome from "./NavHome";
-import Try from "./try";
 import Faq from "./Faq";
 import NewHero from "./new-hero";
 import WhyChoose from "./why-choose";
 import InternationalTrips from "./international-trips";
+import Cta from "./cta";
 type Props = {};
 
 gsap.registerPlugin(ScrollTrigger);
@@ -56,13 +52,8 @@ function HomeMain({}: any) {
   return (
     <>
       <div className=" w-full overflow-hidden">
-        {/* <NavHome navContainerRef={navContainerRef} /> */}
-        {/* <div className="hero-container relative   h-screen  top-0 left-0 w-full">
-          <Hero />
-        </div> */}
         <NewHero />
-        <div className="w-full relative  content-main  bg-white  z-20 mt-[100vh]">
-          {/* <Try /> */}
+        <div className="w-full relative  content-main  bg-white   mt-[100vh]">
           <div className="md:w-10/12 w-11/12 mx-auto">
             <WhyChoose />
           </div>
@@ -79,9 +70,10 @@ function HomeMain({}: any) {
           <div className="md:w-10/12 w-11/12 mx-auto">
             <Faq />
           </div>
-          <div className="w-full mx-auto">
+          {/* <div className="w-full mx-auto">
             <Banner />
-          </div>
+          </div> */}
+          <Cta />
           <div className="md:w-10/12 w-11/12 mx-auto">
             <Reviews />
           </div>
