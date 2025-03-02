@@ -28,11 +28,12 @@ const NewHero = () => {
 
   return (
     <main
-      className="h-screen fixed w-full bg-cover transition-all duration-1000 ease-in-out"
+      className="h-screen fixed -mt-[4.5em] w-full bg-cover transition-all duration-1000 ease-in-out"
       style={{ backgroundImage: `url(${bgImg})` }}
     >
       <div className="absolute top-0 bg-gradient-to-b from-black via-black/50 to-transparent w-full h-40" />
       <div className="absolute inset-0 top-0 bg-black bg-opacity-40 w-full h-screen" />
+
       <div className="absolute left-1/2 -translate-x-1/2 top-1/3 -translate-y-1/2 space-y-4">
         <div className="flex justify-center gap-4">
           <button className="px-6 border py-1 rounded-full border-primary-600 bg-white text-black">
@@ -64,7 +65,7 @@ const NewHero = () => {
             className="cursor-pointer group"
           >
             <figure
-              className={`p-1 border rounded-xl border-dashed overflow-hidden ${
+              className={`p-1 border rounded-xl border-dashed relative overflow-hidden ${
                 index === currentIndex ? "border-primary-600" : ""
               }`}
             >
@@ -73,8 +74,12 @@ const NewHero = () => {
                 alt="card"
                 width={1000}
                 height={1000}
-                className="h-[30vh] object-cover rounded-xl group-hover:scale-110 ease-in-out duration-300"
+                className="h-[20vh] object-cover rounded-xl group-hover:scale-110 ease-in-out duration-300"
               />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"/>
+
+              <h2 className="absolute top-1/2 -translate-y-1/2 whitespace-nowrap left-1/2 -translate-x-1/2 font-palker text-white tracking-wide text-[1.2vw]">{item.title}</h2>
             </figure>
           </div>
         ))}
@@ -87,7 +92,7 @@ export default NewHero;
 
 const cards = [
   {
-    title: "Everest Base Camp Trek",
+    title: "Langtang Base Camp Trek",
     img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
@@ -103,7 +108,7 @@ const cards = [
     img: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    title: "Everest Base Camp Trek 5,545m",
+    title: "Dhaulagiri Base Camp Trek",
     img: "https://images.unsplash.com/photo-1477346611705-65d1883cee1e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
