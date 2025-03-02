@@ -9,7 +9,14 @@ const InternationalTrips = () => {
       <h1 className="text-3xl text-center title-exp  md:text-6xl mb-6 relative tracking-wide title font-bold  text-black">
         International Tours
       </h1>
-      <div className="group flex max-md:flex-col justify-center gap-2 w-[80%] mx-auto mb-10 mt-10">
+      <p className="w-[80%] mx-auto text-center">
+        Embark on unforgettable journeys across borders, exploring diverse
+        cultures, iconic landmarks, and breathtaking landscapes. Whether you're
+        seeking adventure, relaxation, or cultural enrichment, our curated
+        international tour packages promise unique experiences and lifelong
+        memories
+      </p>
+      <div className="group flex max-md:flex-col justify-center gap-2 w-10/12 mx-auto my-10">
         {items.map((item, i: number) => {
           return (
             <article

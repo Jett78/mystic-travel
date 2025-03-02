@@ -14,7 +14,7 @@ const WhyChoose = () => {
                 alt="dummy-img"
                 width={1000}
                 height={1000}
-                className="h-full object-cover rounded-md"
+                className="h-full object-cover rounded-md "
               />
               <div className="absolute inset-0 rounded-md bg-gradient-to-t from-black via-black/50 to-transparent w-full" />
               <h2 className="absolute bottom-2 left-2 text-[1.4vw] text-white uppercase font-palker tracking-wide ">
@@ -52,7 +52,7 @@ const WhyChoose = () => {
             Mystic Adventure{" "}
           </h1>
 
-          <div className="my-8 space-y-4 font-medium">
+          <div className="my-8 space-y-4 font-medium text-zinc-700 text-sm">
             <p>
               Mystic Nepal Adventure (P.).Ltd is an independently owned and
               officially authorized full-service tour operator based in
