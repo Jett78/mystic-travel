@@ -2,30 +2,76 @@
 import Image from "next/image";
 import React, { useRef } from "react";
 import { Icon } from "@iconify/react";
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/pagination";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider, { Settings } from "react-slick";
 
-import "./swiper.css";
+function Reviews() {
+  const sliderRef = useRef<Slider>(null);
 
-// import required modules
-import { FreeMode, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+  const settings: Settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: false,
+    autoplay: true,
 
-type Props = {};
+    // Responsive breakpoints
+    responsive: [
+      {
+        breakpoint: 1440,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          centerPadding: "40px",
+        },
+      },
+      {
+        breakpoint: 1250,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          centerPadding: "40px",
+        },
+      },
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          centerPadding: "30px",
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "20px",
+        },
+      },
+    ],
+  };
 
-function Reviews({}: Props) {
-  const swiperRef = useRef<any>();
+  const handleNext = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+    }
+  };
+
+  const handlePrev = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickPrev();
+    }
+  };
+
   return (
     <div className="w-full py-[3rem] flex flex-col gap-20 justify-center items-center relative">
       <div className="w-10/12 mx-auto justify-between items-center flex">
         <div
-          onClick={() => {
-            if (swiperRef.current) {
-              swiperRef.current.slidePrev();
-            }
-          }}
+          onClick={handlePrev}
           className="w-[2rem]  md:w-[2.5rem] h-[2rem] md:h-[2.5rem] hover:scale-105 duration-300 cursor-pointer overflow-hidden  text-secondary-700 hover:text-secondary-400"
         >
           <Icon
@@ -37,11 +83,7 @@ function Reviews({}: Props) {
           TOP-RATED REVIEWS
         </h1>
         <div
-          onClick={() => {
-            if (swiperRef.current) {
-              swiperRef.current.slideNext();
-            }
-          }}
+          onClick={handleNext}
           className="w-[2rem]  md:w-[2.5rem] h-[2rem] md:h-[2.5rem] hover:scale-105 duration-300 cursor-pointer overflow-hidden  text-secondary-700 hover:text-secondary-400"
         >
           <Icon
@@ -51,40 +93,13 @@ function Reviews({}: Props) {
         </div>
       </div>
       {/* CARDS  */}
-      <div className="w-11/12 md:w-10/12 mx-auto h-[50vh] flex  justify-center relative items-center">
-        <Swiper
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper;
-          }}
-          loop={true}
-          breakpoints={{
-            924: {
-              slidesPerView: 2,
-              spaceBetween: 10,
-            },
-            1256: {
-              slidesPerView: 3,
-              spaceBetween: 10,
-            },
-            1576: {
-              slidesPerView: 4,
-              spaceBetween: 10,
-            },
-          }}
-          speed={500}
-          spaceBetween={30}
-          freeMode={true}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[FreeMode]}
-          className="mySwiper"
-        >
-          {ReviewsData.map((itemn, index) => (
-            <SwiperSlide key={index}>
-              <div className="shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] flex flex-col gap-3 h-[40vh] p-3">
-                <div className="flex justify-between">
-                  <span className="flex text-primary-600">
+      <div className="w-11/12 md:w-11/12 mx-auto  flex  justify-center relative items-center p-2">
+        <div className="w-full">
+          <Slider {...settings} ref={sliderRef}>
+            {ReviewsData.map((itemn, index) => (
+              <div key={index}>
+                <div className=" flex flex-col gap-3 border rounded-md p-3 mx-2">
+                  <span className="flex text-primary-600 opacity-20">
                     <Icon
                       icon="mdi:comma"
                       className="w-[2rem] h-[2rem] object-cover object-center rotate-[180deg]"
@@ -95,42 +110,41 @@ function Reviews({}: Props) {
                     />
                   </span>
 
-                  {/* PROFILE  */}
-                  <div className="w-[3.5rem]  h-[3.5rem] bg-zinc-700 overflow-hidden">
+                  <figure className="w-[6rem]  h-[6rem] mx-auto rounded-full bg-zinc-700 overflow-hidden">
                     <Image
                       width={500}
                       height={500}
                       alt="client-img"
-                      className="w-full h-full object-cover object-top"
+                      className="w-full h-full object-cover rounded-full object-top"
                       src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     ></Image>
-                  </div>
-                </div>
-                {/* review  */}
-                <p className="text-secondary-400">{itemn.review}</p>
+                  </figure>
+                  {/* review  */}
+                  <p className="text-secondary-400 text-center py-4">
+                    {itemn.review}
+                  </p>
 
-                <div className="w-full flex flex-col">
-                  {/* name  */}
-                  <span className="title italic  tracking-wide">
-                    {itemn.name}
-                  </span>
-                  <div className="w-full flex  items-center justify-between">
-                    <span className="text-[14px] font-medium text-secondary-400">
-                      Web Designer
+                  <div className="w-full flex flex-col">
+                    {/* name  */}
+                    <span className="title italic  tracking-wide">
+                      {itemn.name}
                     </span>
-                    <span className="flex justify-center items-center  text-primary-600">
-                      <Icon icon="material-symbols:star" />
-                      <Icon icon="material-symbols:star" />
-                      <Icon icon="material-symbols:star" />
-                      <Icon icon="material-symbols:star" />
-                      <Icon icon="material-symbols:star" />
-                    </span>
+                    <div className="w-full flex  items-center justify-between">
+                      <span className="text-[14px] font-medium text-secondary-400">
+                        Web Designer
+                      </span>
+                      <span className="flex justify-center items-center text-primary-600">
+                        {[...Array(5)].map((_, i) => (
+                          <Icon key={i} icon="material-symbols:star" />
+                        ))}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+            ))}
+          </Slider>
+        </div>
       </div>
     </div>
   );
