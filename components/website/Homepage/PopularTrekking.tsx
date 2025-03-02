@@ -2,55 +2,77 @@
 import Image from "next/image";
 import React, { useRef } from "react";
 import { Icon } from "@iconify/react";
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/pagination";
 
-import "./swiper.css";
-
-// import required modules
+// import required modulesimport "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider, { Settings } from "react-slick";
 import { FreeMode, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // data
 import TrekData from "@/data/TrekkingData";
 import Link from "next/link";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 
-type Props = {};
+function PopularTrekking() {
+  const sliderRef = useRef<Slider>(null);
 
-function PopularTrekking({}: Props) {
-  const swiperRef = useRef<any>();
+  const settings: Settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    arrows: false,
+    autoplay: true,
 
-  useGSAP(() => {
-    gsap.from(".title-trek", {
-      y: "100px",
-      opacity: 0.5,
-      ease: "sine.out",
-      scrollTrigger: {
-        start: "top 90%",
-        end: "50% 50%",
-        // markers: true,
-        scrub: 1,
-        trigger: ".title-trek",
+    // Responsive breakpoints
+    responsive: [
+      {
+        breakpoint: 1440,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          centerPadding: "40px",
+        },
       },
-    });
-
-    gsap.from(".card-trek", {
-      y: "100px",
-      opacity: 0.5,
-      ease: "sine.out",
-      scrollTrigger: {
-        start: "top 90%",
-        end: "50% 50%",
-        // markers: true,
-        scrub: 1,
-        trigger: ".card-trek",
+      {
+        breakpoint: 1250,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          centerPadding: "40px",
+        },
       },
-    });
-  });
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          centerPadding: "30px",
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "20px",
+        },
+      },
+    ],
+  };
+
+  const handleNext = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+    }
+  };
+
+  const handlePrev = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickPrev();
+    }
+  };
   return (
     <div className="w-full h-screen flex justify-center items-center relative">
       {/* image  */}
@@ -59,45 +81,16 @@ function PopularTrekking({}: Props) {
       </div>
 
       {/* CARDS  */}
-      <div className="w-11/12 md:w-9/12 mx-auto   flex flex-col gap-5  justify-center relative items-center">
+      <div className="w-11/12 md:w-10/12 mx-auto   flex flex-col gap-5  justify-center relative items-center">
         <h1 className="text-3xl title-trek  md:text-6xl mb-6 relative tracking-wide title font-bold  text-secondary-50">
           TRENDING TREKKING
         </h1>
 
-        <Swiper
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper;
-          }}
-          autoplay={{ delay: 2000 }}
-          breakpoints={{
-            924: {
-              slidesPerView: 2,
-              spaceBetween: 10,
-            },
-
-            1256: {
-              slidesPerView: 3,
-              spaceBetween: 10,
-            },
-            1576: {
-              slidesPerView: 4,
-              spaceBetween: 10,
-            },
-          }}
-          speed={500}
-          loop={true}
-          spaceBetween={30}
-          freeMode={true}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[FreeMode]}
-          className="mySwiper card-trek"
-        >
-          {TrekData.map((item, index) => (
-            <SwiperSlide key={index}>
-              <Link href="/package_detail">
-                <div className="bg-secondary-50 shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] flex flex-col gap-3 h-auto max-h-[60vh] p-2">
+        <div className="w-full">
+          <Slider {...settings} ref={sliderRef}>
+            {TrekData.map((item, index) => (
+              <Link key={index} href="/package_detail">
+                <div className="bg-secondary-50 mx-1 flex flex-col gap-3 h-auto max-h-[60vh] p-2">
                   <div className="relative">
                     <div className="px-4 text-secondary-50 z-10 text-sm py-1 text- bg-primary-600 absolute top-[3%] left-[3%]">
                       $120
@@ -126,7 +119,9 @@ function PopularTrekking({}: Props) {
                     <span className="title text-xl pt-[1.5rem] text-secondary-500 tracking-wide">
                       {item.name}
                     </span>
-                    <p className="text-sm text-secondary-400">{item.desc}</p>
+                    <p className="text-sm text-secondary-400 line-clamp-2">
+                      {item.desc}
+                    </p>
 
                     <div className="w-full flex pb-2 justify-between">
                       <span className="text-sm  py-2 ">View details</span>
@@ -141,17 +136,13 @@ function PopularTrekking({}: Props) {
                   </div>
                 </div>
               </Link>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+            ))}
+          </Slider>
+        </div>
 
         <div className="flex gap-5 items-center">
           <div
-            onClick={() => {
-              if (swiperRef.current) {
-                swiperRef.current.slidePrev();
-              }
-            }}
+            onClick={handlePrev}
             className="w-[2rem]  md:w-[2.5rem] h-[2rem] md:h-[2.5rem] hover:scale-105 duration-300 cursor-pointer overflow-hidden  text-secondary-50 hover:text-secondary-100"
           >
             <Icon
@@ -160,11 +151,7 @@ function PopularTrekking({}: Props) {
             />
           </div>
           <div
-            onClick={() => {
-              if (swiperRef.current) {
-                swiperRef.current.slideNext();
-              }
-            }}
+            onClick={handleNext}
             className="w-[2rem]  md:w-[2.5rem] h-[2rem] md:h-[2.5rem] hover:scale-105 duration-300 cursor-pointer overflow-hidden  text-secondary-50 hover:text-secondary-100"
           >
             <Icon
