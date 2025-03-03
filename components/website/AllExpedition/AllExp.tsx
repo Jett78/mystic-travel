@@ -1,10 +1,7 @@
-import Image from "next/image";
 import React from "react";
-import { Icon } from "@iconify/react";
 import Link from "next/link";
 import ExpData from "@/data/ExpeditionData";
-
-type Props = {};
+import Card from "@/components/shared/card";
 
 function AllExp({ distance }: any) {
   if (!distance) {
@@ -55,62 +52,7 @@ function AllExp({ distance }: any) {
       <div className="w-full pb-[5rem] px-1 flex flex-col gap-3">
         <div className="w-full grid grid-cols-1 md:grid-cols-4 gap-5">
           {packages.map((item: any, index: number) => (
-            <div
-              key={index}
-              className="w-full p-2 flex flex-col justify-start items-start gap-3 shadow-[rgba(50,50,105,0.15)_0px_2px_5px_0px,rgba(0,0,0,0.05)_0px_1px_1px_0px]"
-            >
-              {/* img */}
-              <Image
-                width={1000}
-                height={1000}
-                src={item.packageImg}
-                alt="banner-image"
-                className="w-full h-full object-cover object-bottom"
-              ></Image>
-
-              {/* desc */}
-              <div className="flex w-full flex-col gap-2">
-                {/* title */}
-                <span className="text-md title font-semibold tracking-wider">
-                  {item.packageName}
-                </span>
-                {/* short intro */}
-                <p className="text-sm hidden md:block font-medium text-secondary-400">
-                  {item.packageDesc.slice(0, 100)}...
-                </p>
-                {/* short intro */}
-                <p className="text-sm md:hidden block font-medium text-secondary-400">
-                  {item.packageDesc.slice(0, 50)}...
-                </p>
-
-                <div className="flex justify-between gap-3 text-sm font-medium">
-                  <div className="flex gap-1 items-center">
-                    <Icon icon="la:mountain" className="text-primary-600" />
-                    <span>Expedition</span>
-                  </div>
-                  <div className="flex gap-1 items-center">
-                    <Icon
-                      icon="simple-line-icons:calender"
-                      className="text-primary-600"
-                    />
-                    <span>{item.packageDay}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* price */}
-              <div className="grid grid-cols-2 w-full gap-2">
-                <div className="px-6 py-2 border rounded-md flex justify-center items-center text-md font-bold font-palker text-yellow-500 ">
-                  $100
-                </div>
-
-                <Link href="/package_detail">
-                  <button className="w-full rounded-md py-3 bg-gradient-to-r from-primary-600 to-primary-600 text-sm font-medium text-secondary-100">
-                    View more
-                  </button>
-                </Link>
-              </div>
-            </div>
+            <Card item={item} key={index} />
           ))}
         </div>
       </div>
