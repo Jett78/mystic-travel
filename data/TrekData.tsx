@@ -7,8 +7,27 @@ import EverestPackage1 from "@/public/TrekkingPackage/EverestTrek/EverestPackage
 import EverestPackage2 from "@/public/TrekkingPackage/EverestTrek/EverestPackage2.png";
 import EverestPackage3 from "@/public/TrekkingPackage/EverestTrek/EverestPackage3.png";
 import EverestPackage4 from "@/public/TrekkingPackage/EverestTrek/EverestPackage4.png";
+import { StaticImageData } from "next/image";
 
-const TrekData = [
+interface TrekPackage {
+  packageImg: StaticImageData;
+  packageName: string;
+  packageDesc: string;
+  packageDay: string;
+}
+
+interface Trek {
+  route: string;
+  heroImg: string;
+  intro: string;
+  id: number;
+  name: string;
+  days: number;
+  distance: string;
+  package?: TrekPackage[];
+}
+
+export const TrekData: Trek[] = [
   {
     route: "everest_region_trekking",
     heroImg: "",

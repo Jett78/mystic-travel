@@ -174,49 +174,6 @@ const ExpData = [
       },
     ],
   },
-
-  {
-    route: "8000m",
-    heroImg: "",
-    intro:
-      "Standing amidst the towering giants of the Himalayas, peaks that soar above 8,000 meters command awe and reverence. These majestic summits, including Mount Everest, Kanchenjunga, Lhotse, and Makalu, rise to staggering heights, piercing the skies with their snow-clad summits. Climbing to such elevations presents a monumental challenge, requiring elite mountaineering skills, careful planning, and a deep respect for the harsh and unpredictable mountain environment.",
-    id: 1,
-    name: "Mt. Manaslu Expedition",
-    desc: "Experience the breathtaking Manaslu expedition and challenging climbs.",
-    days: 14,
-    distance: "130 km",
-    img: Exp1,
-    package: [
-      {
-        packageImg: Package8000Img1,
-        packageName: "Mt. Everest",
-        packageDesc:
-          "The climbing history of Mount Everest North started on the Northside, in Tibet....",
-        packageDay: "58 Days",
-      },
-      {
-        packageImg: Package8000Img2,
-        packageName: "Mount Kanchenjunga",
-        packageDesc:
-          "A sacred quest and expedition for hidden treasures to the aptly named Mt. Kanchenjunga.....",
-        packageDay: "55 Days",
-      },
-      {
-        packageImg: Package8000Img3,
-        packageName: "Mount Lhotse",
-        packageDesc:
-          "Embark on an extraordinary journey with the Lhotse Mountain Expedition, an iconic quest to conquer one of the world's highest peaks...",
-        packageDay: "60 Days",
-      },
-      {
-        packageImg: Package8000Img4,
-        packageName: "Mount Makalu",
-        packageDesc:
-          "The Makalu Expedition is a challenging and prestigious mountaineering endeavor that involves climbing Makalu.....",
-        packageDay: "55 Days",
-      },
-    ],
-  },
 ];
 
 export default ExpData;
