@@ -1,78 +1,137 @@
+"use client";
 import React, { useRef, useState } from "react";
 import { Icon } from "@iconify/react";
 import gsap from "gsap";
-import { useScroll } from "framer-motion";
 import { useGSAP } from "@gsap/react";
 import Link from "next/link";
+import SplitType from "split-type";
+
 type Props = {};
 
 export default function Faq({}: Props) {
-  const { contextSafe } = useGSAP();
-  const [openAns, setOpenAns] = useState(false);
-  const handleOpenAns = contextSafe((index: number) => {
-    if (!openAns) {
-      gsap.to(`.ans-${index}`, {
-        height: "auto",
-        duration: 0.2,
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
+  const homeFaqRef = useRef(null);
+  useGSAP(() => {
+    // ANIMATION CODE
+    const textSplitFaq = new SplitType(".home-faq-title");
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".home-faq-title",
+        // markers: true,
+        start: "top 90%",
+        end: "50% 50%",
+        scrub: 2,
+      },
+    });
+    // Perform the animations
+    tl.from(
+      textSplitFaq.chars,
+      {
+        opacity: 0,
+        duration: 1.5,
+        stagger: 0.05,
         ease: "sine.inOut",
-      });
-      setOpenAns(true);
-    }
-    if (openAns) {
-      gsap.to(`.ans-${index}`, {
-        height: 0,
-        duration: 0.2,
-        ease: "sine.inOut",
-      });
-      setOpenAns(false);
-    }
+      },
+      "tl"
+    );
+
+    gsap.from(".home-faq-desc", {
+      opacity: 0,
+      duration: 1.5,
+      y: "100px",
+      ease: "sine.inOut",
+      scrollTrigger: {
+        trigger: ".home-faq-desc",
+        // markers: true,
+        start: "top 90%",
+        end: "50% 50%",
+        scrub: 2,
+      },
+    });
+
+    gsap.from(homeFaqRef.current, {
+      opacity: 0,
+      duration: 1.5,
+      y: "50px",
+      ease: "sine.inOut",
+      scrollTrigger: {
+        trigger: homeFaqRef.current,
+        // markers: true,
+        start: "top 90%",
+        end: "50% 50%",
+        scrub: 2,
+      },
+    });
   });
   return (
-    <div className="w-full  py-[5rem]">
+    <div className="md:py-20 py-12 lg:w-11/12 w-11/12 3xl:w-8/12 mx-auto relative bg-[url('/noise.jpg')] bg-cover bg-center bg-opacity-80 bg-white bg-blend-overlay ">
       {/* top title  */}
-      <div className="flex w-full justify-center items-center text-center flex-col gap-3">
-        <h1 className="text-3xl md:text-6xl relative tracking-wide title font-bold text-secondary-500">
-          FREQUENTLY ASKED QUESTIONS
-        </h1>
-        <p className="w-full md:w-[50%] text-secondary-400">
-          {`Got a question? We're here to help! If you don't see your question
-          below, drop us a line on our`}{" "}
-          <span className="underline font-semibold text-secondary-500 italic cursor-pointer">
-            <Link href="contact_us">Contact Page</Link>
-          </span>
-          .
-        </p>
-      </div>
+      <div className="mx-auto">
+        {/* title  */}
+        <div className=" flex-col flex gap-2 justify-center items-center  ">
+          <h2 className="uppercase font-extrabold title lg:text-[4vw] leading-[1em] sm:text-[1.5em] text-2xl">
+            Frequently asked questions
+          </h2>
 
-      {/* faqs  */}
+          <p className=" text-secondary-400 desc text-center mt-4 md:text-base text-xs">
+            This section highlights some of the most recent and frequently asked
+            questions from our community{" "}
+          </p>
+        </div>
 
-      <div className="w-11/12 md:w-9/12 mt-[3%] mx-auto columns-1  flex-col space-y-5  justify-start items-start">
-        {FaqData.map((item, index) => (
-          <div
-            onClick={() => handleOpenAns(index)}
-            key={index}
-            className="w-full cursor-pointer break-inside-avoid px-5 pt-5 pb-2 flex flex-col gap-1 justify-between shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px]"
-          >
-            {/* title  */}
-            {/* <span className="text-sm text-primary-400">{item.title}</span> */}
-            {/* question  */}
-            <div className="w-ful pb-3 gap-2 text-secondary-500 font-semibold flex justify-between items-center">
-              <span className="w-[95%]">{item.question}</span>
-              <span className="cursor-pointer overflow-hidden w-[1.5rem] h-[1.5rem]">
-                <Icon
-                  icon="mdi:arrow-down-drop"
-                  className="w-full h-full object-cover text-primary-600 object-center"
-                />
-              </span>
-            </div>
-            {/* ans  */}
-            <p
-              className={`h-0 overflow-hidden w-full text-sm text-secondary-400 text-start ans-${index}`}
+        <div className="gap-6 desc space-y-4 md:my-14 my-6">
+          {FaqData.map((item, index) => (
+            <div
+              key={index}
+              className="border-2 border-primarybg/50 shadow-sm rounded-lg transition-all ease-in-out duration-300"
+              style={{
+                maxHeight: activeIndex === index ? "500px" : "70px", // Define max height based on active state
+                overflow: "hidden",
+              }}
             >
-              {item.answer}
-            </p>
-          </div>
-        ))}
+              <div
+                className="flex justify-between md:p-6 p-2 items-center cursor-pointer"
+                onClick={() => toggleFAQ(index)}
+              >
+                <h2 className="font-medium md:text-[16px] text-sm cursor-pointer">
+                  {item.question}
+                </h2>
+                <div className="text-3xl">
+                  {activeIndex === index ? (
+                    <Icon
+                      icon="iconamoon:arrow-up-2-duotone"
+                      style={{ color: "#0385fe" }}
+                    />
+                  ) : (
+                    <Icon
+                      icon="iconamoon:arrow-down-2"
+                      style={{ color: "#0385fe" }}
+                    />
+                  )}
+                </div>
+              </div>
+
+              <div
+                className={`transition-all ease-in-out duration-500 ${
+                  activeIndex === index ? "opacity-100" : "opacity-0"
+                }`}
+                style={{
+                  maxHeight: activeIndex === index ? "500px" : "0px", // Dynamically set height
+                  overflow: "hidden",
+                }}
+              >
+                <p className="md:p-6 p-2 border-t border-primarybg text-black font-regular md:text-base text-[12px] ">
+                  {item.answer}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -31,8 +31,8 @@ const NewHero = () => {
       className="h-screen fixed  w-full bg-cover transition-all duration-1000 ease-in-out"
       style={{ backgroundImage: `url(${bgImg})` }}
     >
-      <div className="absolute top-0 bg-gradient-to-b from-black via-black/50 to-transparent w-full h-40" />
-      <div className="absolute inset-0 top-0 bg-black bg-opacity-40 w-full h-screen" />
+      <div className="absolute top-0 bg-gradient-to-b from-black/80 via-black/50 to-transparent w-full h-40" />
+      <div className="absolute inset-0 top-0 bg-black bg-opacity-20 w-full h-screen" />
 
       <div className="absolute left-1/2 -translate-x-1/2 top-1/3 -translate-y-1/2 space-y-4">
         <div className="flex justify-center gap-4">
@@ -77,9 +77,11 @@ const NewHero = () => {
                 className="h-[20vh] object-cover rounded-xl group-hover:scale-110 ease-in-out duration-300"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"/>
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
 
-              <h2 className="absolute top-1/2 -translate-y-1/2 whitespace-nowrap left-1/2 -translate-x-1/2 font-palker text-white tracking-wide text-[1.2vw]">{item.title}</h2>
+              <h2 className="absolute top-1/2 -translate-y-1/2 whitespace-nowrap left-1/2 -translate-x-1/2 font-palker text-white tracking-wide text-[1.2vw]">
+                {item.title}
+              </h2>
             </figure>
           </div>
         ))}

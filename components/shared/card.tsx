@@ -16,16 +16,17 @@ type cardinterface = {
 
 const Card = ({ item }: cardinterface) => {
   return (
-    <div className="w-full p-2 flex flex-col justify-start items-start gap-3 shadow-[rgba(50,50,105,0.15)_0px_2px_5px_0px,rgba(0,0,0,0.05)_0px_1px_1px_0px]">
+    <div className="w-full rounded-md p-2 cursor-pointer group flex flex-col justify-start items-start gap-3 border hover:shadow-md">
       {/* img */}
-      <Image
-        width={1000}
-        height={1000}
-        src={item.packageImg}
-        alt="banner-image"
-        className="w-full h-full object-cover object-bottom"
-      ></Image>
-
+      <figure className="overflow-hidden rounded-md">
+        <Image
+          width={1000}
+          height={1000}
+          src={item.packageImg}
+          alt="banner-image"
+          className="w-full h-full object-cover object-bottom ease-in-out duration-300 group-hover:scale-110"
+        />
+      </figure>
       {/* desc */}
       <div className="flex w-full flex-col gap-2">
         {/* title */}

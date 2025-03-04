@@ -5,7 +5,16 @@ type buttonprops = {
   className?: string;
 };
 const PrimaryButton = ({ title, className }: buttonprops) => {
-  return <button className={cn("px-8 py-2 rounded-full bg-primary-600 text-white font-bold", className)}>{title}</button>;
+  return (
+    <button
+      className={cn(
+        "px-8 py-2 rounded-lg bg-primary-600 text-white font-bold",
+        className
+      )}
+    >
+      {title}
+    </button>
+  );
 };
 
 export default PrimaryButton;

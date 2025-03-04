@@ -73,7 +73,8 @@ function PopularExpedition() {
     <div className="w-full h-screen flex justify-center items-center relative ">
       {/* image  */}
       <div className="w-full h-screen bg-parallex1 bg-fixed bg-cover   overflow-hidden absolute top-0 left-0 flex justify-center items-center">
-        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-[0.5]"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-[0.5]" />
+        {/* <div className="absolute w-full h-40 bottom-0 bg-gradient-to-t from-white via-white/50 to-transparent z-[50]" /> */}
       </div>
 
       {/* CARDS  */}

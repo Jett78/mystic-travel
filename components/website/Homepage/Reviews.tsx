@@ -98,7 +98,7 @@ function Reviews() {
           <Slider {...settings} ref={sliderRef}>
             {ReviewsData.map((itemn, index) => (
               <div key={index}>
-                <div className=" flex flex-col gap-3 border rounded-md p-3 mx-2">
+                <div className=" flex flex-col gap-3 border shadow-md rounded-md p-3 mx-2">
                   <span className="flex text-primary-600 opacity-20">
                     <Icon
                       icon="mdi:comma"

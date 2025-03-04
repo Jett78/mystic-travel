@@ -3,14 +3,13 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { Icon } from "@iconify/react";
 import Ham from "@/public/hamburger.png";
-import Logo from "@/public/logo/logo.svg";
-import Logowhite from "@/public/logo/logo-white.svg";
+import Logo from "@/public/logo/logo-straight.svg";
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
-import { gsap, Expo } from "gsap";
-import Headroom from "react-headroom";
+import { gsap } from "gsap";
 
 import { usePathname } from "next/navigation";
+import PrimaryButton from "./shared/primary-button";
 
 type Props = {};
 
@@ -74,261 +73,221 @@ function Navbar({}: Props) {
   });
 
   return (
-
+    <div
+      ref={navContainerRef}
+      className={`${
+        scrolled ? "bg-white shadow-md" : "bg-transparent text-white"
+      } ease-in-out duration-300 transition-all z-[900]  fixed w-full h-[4.5rem] `}
+    >
+      {/* mobile nav  */}
       <div
-        ref={navContainerRef}
-        className={`${
-          scrolled ? "bg-white shadow-md" : "bg-transparent text-white"
-        } ease-in-out duration-300 transition-all z-[900]  fixed w-full h-[4.5rem] `}
+        ref={sideNavRef}
+        className="absolute  md:hidden w-[100vw] flex justify-center items-center top-0 right-[-100%]  h-[100vh] mx-auto bg-secondary-50  py-2"
       >
-        {/* mobile nav  */}
-        <div
-          ref={sideNavRef}
-          className="absolute  md:hidden w-[100vw] flex justify-center items-center top-0 right-[-100%]  h-[100vh] mx-auto bg-secondary-50  py-2"
-        >
-          <div className="w-11/12 mx-auto  grid grid-cols-1  gap-5 place-content-center pt-[5rem] text-start h-full place-items-start  flex-col justify-center items-center">
-            {sideNavLinks.map((link, index) => (
-              <>
-                <Link
-                  onClick={() => handleLink(index)}
-                  key={index}
-                  className="w-full"
-                  href={link.href}
-                >
-                  <div className="title  links text-lg border-b mb-1 opacity-0 font-medium tracking-wide w-full flex justify-between items-center">
-                    {link.title} <span></span> <span></span>
-                  </div>
-                  <div
-                    className={`w-full  openlinks-${index} bg-green-200 h-0`}
-                  ></div>
-                </Link>
-              </>
-            ))}
-          </div>
-        </div>
-
-        <div className="w-11/12 md:hidden   relative  tracking-wide  mx-auto h-full flex  justify-between items-center gap-5">
-          {/* LOGO  */}
-          <Link href="/" className="cursor-pointer">
-            {scrolled ? (
-              <Image
-                src={Logo}
-                alt="trek-nepal-logo"
-                className="w-[6rem] h-[3rem] object-fit object-center"
-              />
-            ) : (
-              <Image
-                src={Logowhite}
-                alt="trek-nepal-logo"
-                className="w-[6rem] h-[3rem] object-fit object-center"
-              />
-            )}
-          </Link>
-          <div onClick={handleOpenNav} className="">
-            {sideNav === false ? (
-              <Image
-                width={500}
-                height={500}
-                src={Ham}
-                alt="ham"
-                className="w-[2rem]  h-[1rem] object-fit object-center pr-1"
-              />
-            ) : (
-              <Icon
-                icon="material-symbols:close"
-                className="w-[2rem]  h-[2rem] object-fit object-center pr-1"
-              />
-            )}
-          </div>
-        </div>
-        <div className="w-10/12 tracking-wide  mx-auto h-full hidden md:flex justify-between items-center gap-5">
-          {/*  nav links  */}
-          <div className="flex gap-8 text-[14px] font-semibold">
-            {companyLinks.map((link) => (
+        <div className="w-11/12 mx-auto  grid grid-cols-1  gap-5 place-content-center pt-[5rem] text-start h-full place-items-start  flex-col justify-center items-center">
+          {sideNavLinks.map((link, index) => (
+            <>
               <Link
-                key={link.href}
+                onClick={() => handleLink(index)}
+                key={index}
+                className="w-full"
                 href={link.href}
-                className={
-                  link.href === currentRoute
-                    ? "#02ADED    duration-[0.5]"
-                    : " hover:#02ADED"
-                }
               >
-                {link.name}
+                <div className="title  links text-lg border-b mb-1 opacity-0 font-medium tracking-wide w-full flex justify-between items-center">
+                  {link.title} <span></span> <span></span>
+                </div>
+                <div
+                  className={`w-full  openlinks-${index} bg-green-200 h-0`}
+                ></div>
               </Link>
-            ))}
-            <div className="group relative">
-              <div
-                className={` flex gap-1 justify-center items-center cursor-pointer hover:text-primary-600 ${
-                  currentRoute.includes("/trek")
-                    ? "text-primary-600 font-semibold  duration-[0.5]"
-                    : ""
-                }`}
-              >
-                <span>About us</span>
-                <Icon
-                  icon="gridicons:dropdown"
-                  className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
-                />
-              </div>
-              <ul className="absolute hidden group-hover:block duration-[0.5] top-[100%] left-[50%] translate-x-[-50%] whitespace-nowrap  bg-white shadow p-5">
-                {aboutLinks.map((trek) => (
-                  <li key={trek.href} className="py-1">
-                    <Link href={trek.href}>
-                      <div className="border-b border-primary-100 text-secondary-500 text-[13px] font-semibold hover:text-primary-600 cursor-pointer">
-                        {trek.name}
-                      </div>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="group relative">
-              <div
-                className={` flex gap-1 justify-center items-center cursor-pointer hover:text-primary-600 ${
-                  currentRoute.includes("/trek")
-                    ? "text-primary-600 font-semibold  duration-[0.5]"
-                    : ""
-                }`}
-              >
-                <span>Destinations</span>
-                <Icon
-                  icon="gridicons:dropdown"
-                  className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
-                />
-              </div>
-              <ul className="absolute hidden group-hover:block duration-[0.5] top-[100%] left-[50%] translate-x-[-50%] whitespace-nowrap  bg-white shadow w-32 p-5">
-                {destinationsLinks.map((trek) => (
-                  <li key={trek.href} className="py-1">
-                    <Link href={trek.href}>
-                      <div className="border-b border-primary-100 text-secondary-500 text-[13px] font-semibold hover:text-primary-600 cursor-pointer">
-                        {trek.name}
-                      </div>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* LOGO  */}
-          <Link
-            href="/"
-            className="font-bold text-2xl  tracking-wide absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2"
-          >
-            {scrolled ? (
-              <Image
-                src={Logo}
-                alt="trek-nepal-logo"
-                className="w-[6rem] h-[3rem] object-fit object-center"
-              />
-            ) : (
-              <Image
-                src={Logowhite}
-                alt="trek-nepal-logo"
-                className="w-[6rem] h-[3rem] object-fit object-center"
-              />
-            )}
-          </Link>
-          <div className="flex gap-8  text-[14px] font-semibold">
-            <div className="group relative">
-              <div
-                className={` flex gap-1 justify-center items-center cursor-pointer hover:text-primary-600 ${
-                  currentRoute.includes("/trek")
-                    ? "text-primary-600 font-semibold  duration-[0.5]"
-                    : ""
-                }`}
-              >
-                <span>Trekking</span>
-                <Icon
-                  icon="gridicons:dropdown"
-                  className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
-                />
-              </div>
-              <ul className="absolute hidden group-hover:block duration-[0.5] top-[100%] left-[50%] translate-x-[-50%] whitespace-nowrap  bg-white shadow p-5">
-                {treksLink.map((trek) => (
-                  <li key={trek.href} className="py-1">
-                    <Link href={trek.href}>
-                      <div className="border-b border-primary-100 text-secondary-500 text-[13px] font-semibold hover:text-primary-600 cursor-pointer">
-                        {trek.name}
-                      </div>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* expedition  */}
-            <div className="group relative">
-              <div
-                className={` flex gap-1 justify-center items-center cursor-pointer hover:text-primary-600 ${
-                  currentRoute.includes("/expedition")
-                    ? "text-primary-600 font-semibold  duration-[0.5]"
-                    : ""
-                }`}
-              >
-                <span>Expedition</span>
-                <Icon
-                  icon="gridicons:dropdown"
-                  className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
-                />
-              </div>
-              <ul className="absolute hidden group-hover:block duration-[0.5] top-[100%] left-[50%] translate-x-[-50%] whitespace-nowrap bg-white shadow p-5">
-                {expeditionsLink.map((expedition) => (
-                  <li key={expedition.href} className="py-1">
-                    <Link href={expedition.href}>
-                      <div className="border-b border-primary-100 text-secondary-500 hover:text-primary-600 text-[13px] font-semibold  cursor-pointer">
-                        {expedition.name}
-                      </div>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            {/* other activities  */}
-            <div className="group relative">
-              <div
-                className={` flex gap-1 justify-center items-center cursor-pointer hover:text-primary-600 ${
-                  currentRoute.includes("/other_activities")
-                    ? "text-primary-600   duration-[0.5]"
-                    : ""
-                }`}
-              >
-                <span>Other Activities</span>
-                <Icon
-                  icon="gridicons:dropdown"
-                  className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
-                />
-              </div>
-              <ul className="absolute hidden group-hover:block duration-[0.5] top-[100%] left-[50%] translate-x-[-50%] whitespace-nowrap bg-white shadow p-5">
-                {activitiesLink.map((activity) => (
-                  <li key={activity.href} className="py-1">
-                    <Link href={activity.href}>
-                      <div className="border-b border-primary-100 text-secondary-500 text-[13px] font-semibold uppercase hover:text-primary-600 cursor-pointer">
-                        {activity.name}
-                      </div>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* CONTACT US  */}
-            <Link href="/contact_us" className="group relative">
-              <span
-                className={` hover:text-primary-600 ${
-                  currentRoute.includes("/contact_us")
-                    ? "text-primary-600 font-semibold scale-110 duration-[0.5]"
-                    : ""
-                }`}
-              >
-                Contact us
-              </span>
-            </Link>
-          </div>
+            </>
+          ))}
         </div>
       </div>
+
+      <div className="w-11/12 md:hidden   relative  tracking-wide  mx-auto h-full flex  justify-between items-center gap-5">
+        {/* LOGO  */}
+        <Link href="/" className="cursor-pointer">
+          <Image
+            src={Logo}
+            alt="trek-nepal-logo"
+            className="w-[6rem] h-[3rem] object-fit object-center"
+          />
+          )
+        </Link>
+        <div onClick={handleOpenNav} className="">
+          {sideNav === false ? (
+            <Image
+              width={500}
+              height={500}
+              src={Ham}
+              alt="ham"
+              className="w-[2rem]  h-[1rem] object-fit object-center pr-1"
+            />
+          ) : (
+            <Icon
+              icon="material-symbols:close"
+              className="w-[2rem]  h-[2rem] object-fit object-center pr-1"
+            />
+          )}
+        </div>
+      </div>
+
+      <div className="w-10/12 tracking-wide  mx-auto h-full hidden md:flex justify-between items-center gap-5">
+        <Link href="/" className="font-bold text-2xl  tracking-wide ">
+          <Image
+            src={Logo}
+            alt="trek-nepal-logo"
+            className=" h-[4vh] w-fit object-fit object-center"
+          />
+        </Link>
+        {/*  nav links  */}
+        <div className="flex items-center gap-8">
+          <div className="group relative ">
+            <div
+              className={` flex gap-1 justify-center items-center cursor-pointer hover:text-primary-600 ${
+                currentRoute.includes("/trek")
+                  ? "text-primary-600 font-semibold  duration-[0.5]"
+                  : ""
+              }`}
+            >
+              <span className="text-[0.9vw] font-semibold">About us</span>
+              <Icon
+                icon="gridicons:dropdown"
+                className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
+              />
+            </div>
+            <ul className="absolute hidden group-hover:block duration-[0.5] top-[100%] left-[50%] translate-x-[-50%] whitespace-nowrap  bg-white shadow p-5">
+              {aboutLinks.map((trek) => (
+                <li key={trek.href} className="py-1">
+                  <Link href={trek.href}>
+                    <div className="border-b border-primary-100 text-secondary-500 text-[13px] font-semibold hover:text-primary-600 cursor-pointer">
+                      {trek.name}
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="group relative">
+            <div
+              className={` flex gap-1 justify-center items-center cursor-pointer hover:text-primary-600 ${
+                currentRoute.includes("/trek")
+                  ? "text-primary-600 font-semibold  duration-[0.5]"
+                  : ""
+              }`}
+            >
+              <span className="text-[0.9vw] font-semibold">Destinations</span>
+              <Icon
+                icon="gridicons:dropdown"
+                className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
+              />
+            </div>
+            <ul className="absolute hidden group-hover:block duration-[0.5] top-[100%] left-[50%] translate-x-[-50%] whitespace-nowrap  bg-white shadow w-32 p-5">
+              {destinationsLinks.map((trek) => (
+                <li key={trek.href} className="py-1">
+                  <Link href={trek.href}>
+                    <div className="border-b border-primary-100 text-secondary-500 text-[13px] font-semibold hover:text-primary-600 cursor-pointer">
+                      {trek.name}
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="group relative">
+            <div
+              className={` flex gap-1 justify-center items-center cursor-pointer hover:text-primary-600 ${
+                currentRoute.includes("/trek")
+                  ? "text-primary-600 font-semibold  duration-[0.5]"
+                  : ""
+              }`}
+            >
+              <span className="text-[0.9vw] font-semibold">Trekking</span>
+              <Icon
+                icon="gridicons:dropdown"
+                className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
+              />
+            </div>
+            <ul className="absolute hidden group-hover:block duration-[0.5] top-[100%] left-[50%] translate-x-[-50%] whitespace-nowrap  bg-white shadow p-5">
+              {treksLink.map((trek) => (
+                <li key={trek.href} className="py-1">
+                  <Link href={trek.href}>
+                    <div className="border-b border-primary-100 text-secondary-500 text-[13px] font-semibold hover:text-primary-600 cursor-pointer">
+                      {trek.name}
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* expedition  */}
+          <div className="group relative">
+            <div
+              className={` flex gap-1 justify-center items-center cursor-pointer hover:text-primary-600 ${
+                currentRoute.includes("/expedition")
+                  ? "text-primary-600 font-semibold  duration-[0.5]"
+                  : ""
+              }`}
+            >
+              <span className="text-[0.9vw] font-semibold">Expedition</span>
+              <Icon
+                icon="gridicons:dropdown"
+                className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
+              />
+            </div>
+            <ul className="absolute hidden group-hover:block duration-[0.5] top-[100%] left-[50%] translate-x-[-50%] whitespace-nowrap bg-white shadow p-5">
+              {expeditionsLink.map((expedition) => (
+                <li key={expedition.href} className="py-1">
+                  <Link href={expedition.href}>
+                    <div className="border-b border-primary-100 text-secondary-500 hover:text-primary-600 text-[13px] font-semibold  cursor-pointer">
+                      {expedition.name}
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          {/* other activities  */}
+          <div className="group relative">
+            <div
+              className={` flex gap-1 justify-center items-center cursor-pointer hover:text-primary-600 ${
+                currentRoute.includes("/other_activities")
+                  ? "text-primary-600   duration-[0.5]"
+                  : ""
+              }`}
+            >
+              <span className="text-[0.9vw] font-semibold">
+                Other Activities
+              </span>
+              <Icon
+                icon="gridicons:dropdown"
+                className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
+              />
+            </div>
+            <ul className="absolute hidden group-hover:block duration-[0.5] top-[100%] left-[50%] translate-x-[-50%] whitespace-nowrap bg-white shadow p-5">
+              {activitiesLink.map((activity) => (
+                <li key={activity.href} className="py-1">
+                  <Link href={activity.href}>
+                    <div className="border-b border-primary-100 text-secondary-500 text-[13px] font-semibold uppercase hover:text-primary-600 cursor-pointer">
+                      {activity.name}
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* CONTACT US  */}
+          <Link href="/contact_us" className="group relative">
+            <PrimaryButton title="contact" />
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -345,10 +304,10 @@ const aboutLinks = [
   { name: "Certificates", href: "/certificates" },
 ];
 const destinationsLinks = [
-  { name: "Nepal", href: "/" },
-  { name: "India", href: "/" },
-  { name: "Bhutan", href: "/" },
-  { name: "Tibet", href: "/" },
+  { name: "Nepal", href: "/nepal" },
+  { name: "India", href: "/india" },
+  { name: "Bhutan", href: "/bhutan" },
+  { name: "Tibet", href: "/tibet" },
 ];
 
 const activitiesLink = [

@@ -1,91 +1,23 @@
 "use client";
-import gsap from "gsap";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import Image from "next/image";
 import PrimaryButton from "@/components/shared/primary-button";
 import { Link as ScrollLink, Element } from "react-scroll";
+import RelatedPackages from "./related-packages";
+import PackageBanner from "./package-banner";
+import MajorTopInfo from "./major-top-info";
+import Title from "./title";
+import Itenary from "./itenary";
+import PackageInclusion from "./package-inclusion";
+import PackageExclusion from "./package-exclusion";
+import PackageOverview from "./package-overview";
+import PackageGallery from "./package-gallery";
 
 type Props = {};
 
 function PackageDetailMain({}: Props) {
-  const [openToggleDesc, setOpenToggleDesc] = useState(false);
-
-  const toggleOpen = (index: number) => {
-    if (!openToggleDesc) {
-      gsap.to(`.toggle2-${index}`, {
-        rotate: "180deg",
-        top: "50%",
-        duration: 0.5,
-        transformOrigin: "center",
-      });
-      gsap.to(`.open-desc-${index}`, {
-        opacity: 1,
-        height: "5rem",
-        duration: 0.5,
-        ease: "power3.inOut",
-      });
-      setOpenToggleDesc(true);
-    } else {
-      gsap.to(`.toggle2-${index}`, {
-        rotate: "90deg",
-        top: "50%",
-        duration: 0.5,
-        transformOrigin: "center",
-      });
-      gsap.to(`.open-desc-${index}`, {
-        opacity: 0,
-        height: "0",
-        duration: 0.5,
-        ease: "power3.inOut",
-      });
-      setOpenToggleDesc(false);
-    }
-  };
-
-  const importantdata = [
-    {
-      title: "Group Size",
-      info: "10 people",
-      img: "/infoicon/group (2).png",
-    },
-    {
-      title: "Trip Duration",
-      info: "14 Days",
-      img: "/infoicon/timer.png",
-    },
-    {
-      title: "Mountain Ranges",
-      info: "Everest range",
-      img: "/infoicon/mountain.png",
-    },
-    {
-      title: "Max Altitude",
-      info: "8848m",
-      img: "/infoicon/mountains.png",
-    },
-    {
-      title: "Best Seasons",
-      info: "Spring,Autumn,Spring",
-      img: "/infoicon/seasonal.png",
-    },
-    {
-      title: "Activities",
-      info: "Alpine Trekking",
-      img: "/infoicon/accomodations.png",
-    },
-    {
-      title: "Difficulties",
-      info: "Moderate",
-      img: "/infoicon/difficulty.png",
-    },
-    {
-      title: "Accomodations",
-      info: "Hotel/Lodge/",
-      img: "/infoicon/accomodations.png",
-    },
-  ];
   const [offset, setOffset] = useState(-300);
 
   useEffect(() => {
@@ -98,42 +30,16 @@ function PackageDetailMain({}: Props) {
     };
     updateOffset();
   }, []);
-  return (
-    <main className="">
-      <div className="relative ">
-        <Image
-          width={1000}
-          height={1000}
-          src="https://images.unsplash.com/photo-1486525546686-3cd5484691f4?q=80&w=2031&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="expedition-image"
-          className="w-full h-screen object-cover brightness-50"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/50 to-transparent opacity-80" />
-        <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
-          <h1 className="text-3xl md:text-[6vw] leading-[1.1]  tracking-wide  font-palker text-white uppercase whitespace-nowrap ">
-            Everest Base Camp Trekking
-          </h1>
-          <p className="text-center text-white/80 my-8">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-            magnam ab laborum consequuntur possimus eum voluptatibus explicabo
-            aspernatur. Deleniti doloribus amet tenetur. Animi nisi cum,
-            laudantium consectetur ab enim. Odit.
-          </p>
 
-          <div className="flex justify-center gap-4">
-            <PrimaryButton
-              title="Explore Date"
-              className="bg-transparent border"
-            />
-            <PrimaryButton title="Book Now" className="" />
-          </div>
-        </div>
-      </div>
+  return (
+    <main>
+      {/* hero banner */}
+      <PackageBanner />
 
       <div className="py-[5rem] w-11/12 md:w-10/12 flex flex-col md:flex-row justify-center relative items-start gap-3 mx-auto">
         {/* tab  link  */}
-        <div className="mx-auto  w-full md:w-[15%] flex-col gap-8 backdrop-blur-sm sticky top-[4rem] overflow-x-scroll md:overflow-x-visible md:top-[7rem] left-0  flex  font-medium items-center">
-          <div className="w-full py-1 overflow-x-scroll md:overflow-x-visible flex md:flex-col gap-5 font-medium items-center">
+        <div className="mx-auto  w-full md:w-[15%] flex-col gap-2 backdrop-blur-sm sticky top-[4rem] overflow-x-scroll md:overflow-x-visible md:top-[7rem] left-0  flex  font-medium items-center">
+          <div className="w-full py-1 overflow-x-scroll md:overflow-x-visible flex md:flex-col gap-2 font-medium items-center">
             {buttonLabels.map((item, index) => (
               <ScrollLink
                 key={index}
@@ -143,7 +49,7 @@ function PackageDetailMain({}: Props) {
                 duration={500}
                 spy={true}
                 offset={offset}
-                className={`cursor-pointer w-full flex items-center gap-2 text-nowrap  text-secondary-500 hover:scale-105 duration-300  md:px-5 py-3 text-sm ]`}
+                className={`cursor-pointer w-full flex items-center gap-2 text-nowrap  text-secondary-500 hover:scale-105 duration-300  md:px-4 py-3 text-sm ]`}
               >
                 <Image
                   src={item.img}
@@ -152,7 +58,7 @@ function PackageDetailMain({}: Props) {
                   height={1000}
                   className="md:w-6 md:h-6 w-5 h-5 object-cover object-center"
                 />
-                <h2 className="lg:block hidden xl:text-sm lg:text-[10px] font-bold">
+                <h2 className="lg:block hidden xl:text-sm lg:text-[10px] font-semibold">
                   {" "}
                   {item.label}
                 </h2>{" "}
@@ -160,69 +66,22 @@ function PackageDetailMain({}: Props) {
             ))}
           </div>
 
-          <Link href="/booking">
-            <PrimaryButton title="Book Now" />
+          <Link href="/booking" className="w-full">
+            <PrimaryButton title="Book Now" className="py-3 w-full" />
           </Link>
         </div>
 
-        {/* detail  */}
+        {/* sticky top detail  */}
         <div className="w-full md:w-[85%] flex flex-col gap-2">
-          <div className="w-full rounded-md bg-white z-[50] sticky top-16 py-4 ">
-            <div className="p-4 rounded-md w-full h-full border  bg-zinc-50">
-              <h1 className="font-palker uppercase">
-                Everest Base Camp Trekking
-              </h1>
-              <div className="grid grid-cols-4 gap-8 p-4">
-                {importantdata.map((item, index) => (
-                  <div key={index} className="flex gap-2">
-                    <Image
-                      src={item.img}
-                      alt="img"
-                      width={1000}
-                      height={1000}
-                      className="w-10"
-                    />
-                    <div className="border-l  pl-2">
-                      <h2 className="text-sm font-semibold">{item.title}</h2>
-                      <h2
-                        className="font-medium text-xs text-primary-600
-                        "
-                      >
-                        {item.info}
-                      </h2>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <MajorTopInfo title="Everest" item={importantdata} />
+
+          {/* overview */}
           <div
             id="overview"
             className="w-full mx-auto p-3 md:p-10 border rounded-md   bg-primary-50/20  "
           >
-            <div className="text-2xl overview relative tracking-wide title font-semibold italic text-secondary-500">
-              Overview
-            </div>
-            <div className="w-full  text-secondary-400">
-              Everest Circuit Trek, also known as Everest Round Trek, is a
-              classic expedition-style trek around the world’s seventh highest
-              peak, Everest 8167m and its broad massif of 7000m peaks. Everest
-              Circuit is a challenging trek in the western part of Nepal,
-              offering full adventure and off the beaten path experience in the
-              remote and unspoilt region of Nepal. Everest circuit trek
-              itinerary travels through serene, isolated regions full of natural
-              beauty, crossing through highlands and high passes with
-              astonishing viewpoints. The route offers constant mountains views
-              while passing through remote villages and astonishing landscape
-              including several high passes, dense forests and glaciers. Our 20
-              days Everest circuit trek is a fully guided and supported trek
-              with camping accommodation throughout the trek. Our journey to
-              Everest round trek starts with a short flight to Pokhara and then
-              followed by an off-road drive to Darbang the next day. Our actual
-              trek commences from Darbang as we follow the well-paced itinerary
-              which we have meticulously devised keeping every important aspect
-              in mind.
-            </div>
+            <Title title="Overview" />
+            <PackageOverview />
           </div>
 
           {/* iternary  */}
@@ -231,138 +90,70 @@ function PackageDetailMain({}: Props) {
               id="itinerary"
               className="w-full mt-8 mx-auto p-3 md:p-10   bg-primary-50/20 border rounded-md  "
             >
-              {/* tile  */}
-              <div className="text-2xl itinerary it relative tracking-wide title font-semibold italic text-secondary-500">
-                Itinerary
-              </div>
+              <Title title="Itenary" />
               <div className="w-full h-full flex flex-col gap-2">
                 {ItineraryData.map((item, index) => (
-                  <div
-                    key={index}
-                    className="w-full  py-4 md:py-2  overflow-hidden    items-center flex flex-col justify-between px-3 md:px-10"
-                  >
-                    <div className="w-full h-[4rem] flex  justify-between items-center">
-                      <div className="flex gap-10 items-center">
-                        {/* day */}
-                        <div className="font-bold justify-center items-center w-[3rem] leading-none h-[3rem] rounded-full overflow-hidden  text-primary-400  border-primary-300 border   text-[12px] flex flex-col gap-1">
-                          <span>Day</span>
-                          <span>{item.day}</span>
-                        </div>
-                        {/* title */}
-                        <span className="text-sm font-medium">
-                          {item.title}
-                        </span>
-                      </div>
-                      {/* open */}
-                      <div
-                        onClick={() => toggleOpen(index)}
-                        className="relative w-[3rem] h-[3rem]   overflow-hidden cursor-pointer"
-                      >
-                        <span className="absolute toggle1 bg-zinc-50 h-[2px] top-[50%] w-[15px] left-[50%] -translate-x-[50%] inline-block"></span>
-                        <span
-                          className={`absolute toggle2-${index} bg-zinc-50 h-[2px] top-[50%] rotate-90 w-[15px] left-[50%] -translate-x-[50%] inline-block`}
-                        ></span>
-                      </div>
-                    </div>
-
-                    {/* desc  */}
-                    <div
-                      className={`open-desc-${index} w-full border-t border-zinc-700 h-0 text-sm flex justify-start text-secondary-400 items-center  opacity-0`}
-                    >
-                      <span className="">{item.desc}</span>
-                    </div>
-                  </div>
+                  <Itenary key={index} index={index} item={item} />
                 ))}
               </div>
             </div>
+
+            {/* route map */}
             <div
               id="route-map"
-              className="w-full h-[70vh] mx-auto p-3 md:p-10   bg-primary-50/20 border rounded-md  "
+              className="w-full  mx-auto p-3 md:p-10   bg-primary-50/20 border rounded-md  "
             >
-              <div className="text-2xl route-map relative tracking-wide title font-semibold italic text-secondary-500">
-                Route Map
-              </div>
+              <Title title="Route Map" />
               <Image
                 width={1000}
                 height={1000}
                 src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                className="overflow-hidded w-full h-full object-cover object-center"
+                className="overflow-hidded w-full object-cover object-center h-[70vh] rounded-md my-4"
                 alt=""
               />
             </div>
+
+            {/* Inclusion */}
             <div
               id="inclusions"
               className="w-full mx-auto p-3 md:p-10   bg-primary-50/20 border rounded-md  "
             >
-              <div className="text-2xl relative inclusion tracking-wide title font-semibold italic text-secondary-500">
-                Inclusion
-              </div>
+              <Title title="Inclusions" />
               <div className="w-full h-full flex flex-col gap-2">
                 {Inclusion.map((item, index) => (
-                  <div
-                    key={index}
-                    className="w-full  py-4 md:py-2  overflow-hidden   flex justify-center items-center  px-3 md:px-10"
-                  >
-                    <div className=" w-full flex justify-start gap-5 items-center">
-                      {/* day */}
-                      <div className="font-bold justify-center items-center min-w-[3rem] p-3 leading-none min-h-[3rem] rounded-full overflow-hidden ">
-                        <Icon
-                          icon="subway:tick"
-                          className="text-blue-600 w-full h-full object-cover object-center"
-                        />
-                      </div>
-                      {/* title */}
-                      <div className="font-medium text-[15px]">
-                        <span className="font-semibold">{item.title}:</span>{" "}
-                        <span className="text-secondary-400">
-                          {item.description}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+                  <PackageInclusion key={index} index={index} item={item} />
                 ))}
               </div>
             </div>
+
+            {/* exclusion */}
             <div
               id="exclusions"
               className="w-full mx-auto p-3 md:p-10   bg-primary-50/20 border rounded-md  "
             >
-              <div className="text-2xl exclusion relative tracking-wide title font-semibold italic text-secondary-500">
-                Exclusions
-              </div>
+              <Title title="Exclusions" />
               <div className="w-full h-full flex flex-col gap-2">
                 {Exclusion.map((item, index) => (
-                  <div
-                    key={index}
-                    className="w-full  py-4 md:py-2  overflow-hidden   flex justify-center items-center  px-3 md:px-10"
-                  >
-                    <div className=" w-full flex justify-start gap-5 items-center">
-                      {/* day */}
-                      <div className="font-bold justify-center items-center min-w-[3rem] p-3 leading-none min-h-[3rem] rounded-full overflow-hidden ">
-                        <Icon
-                          icon="fluent-emoji-flat:cross-mark"
-                          className="text-blue-600 w-full h-full object-cover object-center"
-                        />
-                      </div>
-                      {/* title */}
-                      <div className="font-medium text-[15px]">
-                        <span className="font-semibold">{item.title}:</span>{" "}
-                        <span className="text-secondary-400">
-                          {item.description}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+                  <PackageExclusion key={index} index={index} item={item} />
                 ))}
               </div>
             </div>
+
+            {/* Gallery */}
+            <div
+              id="gallery"
+              className="w-full  mx-auto p-3 md:p-10   bg-primary-50/20 border rounded-md  "
+            >
+              <Title title="Gallery" />
+              <PackageGallery />
+            </div>
+
+            {/* fixed dates */}
             <div
               id="fixed-dates"
               className="w-full mx-auto p-3 md:p-10   bg-primary-50/20 border rounded-md  "
             >
-              <div className="text-2xl relative fixed-date tracking-wide title font-semibold italic text-secondary-500">
-                Fixed Dates
-              </div>
+              <Title title="Fixed Date" />
               <div className="w-full h-full flex flex-col gap-2">
                 <div className="w-full  py-5  overflow-hidden   items-center flex flex-col justify-between px-3 md:px-10">
                   {/* table  */}
@@ -396,22 +187,81 @@ function PackageDetailMain({}: Props) {
                 </div>
               </div>
             </div>
+
+            <div
+              id="reviews"
+              className="w-full  mx-auto p-3 md:p-10   bg-primary-50/20 border rounded-md  "
+            >
+              <Title title="Reviews" />
+              <Image
+                width={1000}
+                height={1000}
+                src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                className="overflow-hidded w-full object-cover object-center h-[70vh] rounded-md my-4"
+                alt=""
+              />
+            </div>
           </div>
         </div>
       </div>
+
+      <RelatedPackages />
     </main>
   );
 }
 
 export default PackageDetailMain;
-
+const importantdata = [
+  {
+    title: "Group Size",
+    info: "10 people",
+    img: "/infoicon/group (2).png",
+  },
+  {
+    title: "Trip Duration",
+    info: "14 Days",
+    img: "/infoicon/timer.png",
+  },
+  {
+    title: "Mountain Ranges",
+    info: "Everest range",
+    img: "/infoicon/mountain.png",
+  },
+  {
+    title: "Max Altitude",
+    info: "8848m",
+    img: "/infoicon/mountains.png",
+  },
+  {
+    title: "Best Seasons",
+    info: "Spring,Autumn,Spring",
+    img: "/infoicon/seasonal.png",
+  },
+  {
+    title: "Activities",
+    info: "Alpine Trekking",
+    img: "/infoicon/accomodations.png",
+  },
+  {
+    title: "Difficulties",
+    info: "Moderate",
+    img: "/infoicon/difficulty.png",
+  },
+  {
+    title: "Accomodations",
+    info: "Hotel/Lodge/",
+    img: "/infoicon/accomodations.png",
+  },
+];
 const buttonLabels = [
   { id: 1, label: "Overview", img: "/infoicon/eye.png" },
   { id: 2, label: "Itinerary", img: "/infoicon/route.png" },
   { id: 3, label: "Route map", img: "/infoicon/chart.png" },
   { id: 4, label: "Inclusions", img: "/infoicon/greentick.png" },
   { id: 5, label: "Exclusions", img: "/infoicon/close.png" },
-  { id: 6, label: "Fixed Dates", img: "/infoicon/calendar.png" },
+  { id: 6, label: "Gallery", img: "/infoicon/gallery.png" },
+  { id: 7, label: "Fixed Dates", img: "/infoicon/calendar.png" },
+  { id: 8, label: "Reviews", img: "/infoicon/rating.png" },
 ];
 
 const ItineraryData = [
