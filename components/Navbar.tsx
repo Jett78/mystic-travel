@@ -72,6 +72,9 @@ function Navbar({}: Props) {
     };
   });
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentRoute]);
   return (
     <div
       ref={navContainerRef}
