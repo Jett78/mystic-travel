@@ -20,7 +20,7 @@ function AllTrek({ region }: any) {
   return (
     <div className="w-full  py-[5rem]">
       {/* tab  */}
-      <div className="sticky z-[2] top-[4.4rem] h-fit w-full mb-9  flex bg-white py-3 justify-start   items-center gap-10">
+      <div className="sticky z-[2] top-[4.4rem] h-fit w-full mb-9  flex bg-white py-4 justify-start   items-center gap-10">
         {/* exp tab  */}
         {TrekData.map((item, index) => (
           <Link
@@ -28,7 +28,7 @@ function AllTrek({ region }: any) {
             key={index}
             className={`${
               item.route === region ? "bg-primary-600" : "bg-secondary-50"
-            }  px-10 py-2 whitespace-nowrap   shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] hover:scale-105 duration-300 cursor-pointer`}
+            }  px-10 rounded-md py-2 whitespace-nowrap   shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] hover:scale-105 duration-300 cursor-pointer`}
           >
             <h1
               className={`text-lg relative tracking-wide title font-medium    ${
@@ -53,7 +53,7 @@ function AllTrek({ region }: any) {
 
       {/* available treks */}
       <div className="w-full pb-[5rem] flex px-1 flex-col gap-3">
-        <div className="w-full grid grid-cols-1 md:grid-cols-4 gap-5 md:gap-5">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-5">
           {packages.map((item: any, index: number) => (
             <Card key={index} item={item} />
           ))}
