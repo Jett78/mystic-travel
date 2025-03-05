@@ -73,7 +73,7 @@ function PackageDetailMain({}: Props) {
 
         {/* sticky top detail  */}
         <div className="w-full md:w-[85%] flex flex-col gap-2">
-          <MajorTopInfo title="Everest" item={importantdata} />
+          <MajorTopInfo title="Everest Base Camp Trekking" item={importantdata} />
 
           {/* overview */}
           <div
@@ -187,20 +187,6 @@ function PackageDetailMain({}: Props) {
                 </div>
               </div>
             </div>
-
-            <div
-              id="reviews"
-              className="w-full  mx-auto p-3 md:p-10   bg-primary-50/20 border rounded-md  "
-            >
-              <Title title="Reviews" />
-              <Image
-                width={1000}
-                height={1000}
-                src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                className="overflow-hidded w-full object-cover object-center h-[70vh] rounded-md my-4"
-                alt=""
-              />
-            </div>
           </div>
         </div>
       </div>
@@ -261,7 +247,6 @@ const buttonLabels = [
   { id: 5, label: "Exclusions", img: "/infoicon/close.png" },
   { id: 6, label: "Gallery", img: "/infoicon/gallery.png" },
   { id: 7, label: "Fixed Dates", img: "/infoicon/calendar.png" },
-  { id: 8, label: "Reviews", img: "/infoicon/rating.png" },
 ];
 
 const ItineraryData = [

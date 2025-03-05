@@ -1,7 +1,6 @@
 import PrimaryButton from "@/components/shared/primary-button";
 import Image from "next/image";
 import React from "react";
-import "@/app/styles/button.css";
 
 const PackageBanner = () => {
   return (

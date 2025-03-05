@@ -18,7 +18,7 @@ const Card = ({ item }: cardinterface) => {
   return (
     <div className="w-full rounded-md p-2 cursor-pointer group flex flex-col justify-start items-start gap-3 border hover:shadow-md">
       {/* img */}
-      <figure className="overflow-hidden rounded-md">
+      <figure className="overflow-hidden w-full h-[35vh] rounded-md">
         <Image
           width={1000}
           height={1000}
@@ -30,16 +30,16 @@ const Card = ({ item }: cardinterface) => {
       {/* desc */}
       <div className="flex w-full flex-col gap-2">
         {/* title */}
-        <span className="text-md title font-semibold tracking-wider">
+        <span className="text-md title font-semibold text-[1.5vw] tracking-wider">
           {item.packageName}
         </span>
         {/* short intro */}
-        <p className="text-sm hidden md:block font-medium text-secondary-400">
-          {item.packageDesc.slice(0, 100)}...
+        <p className="text-sm hidden md:block font-medium text-secondary-400 line-clamp-2 my-2">
+          {item.packageDesc}
         </p>
         {/* short intro */}
-        <p className="text-sm md:hidden block font-medium text-secondary-400">
-          {item.packageDesc.slice(0, 50)}...
+        <p className="text-sm md:hidden block font-medium text-secondary-400 line-clamp-2">
+          {item.packageDesc}
         </p>
 
         <div className="flex justify-between gap-3 text-sm font-medium">
