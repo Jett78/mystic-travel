@@ -1,0 +1,45 @@
+"use client";
+import Banner from "@/components/ui/banner";
+import { nepalpackages } from "@/data/nepal-packages";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import React from "react";
+
+export default function NepalPackageLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const pathname = usePathname();
+  const activeSlug = pathname.split("/")[2];
+  const activePackage = nepalpackages.find((item) => item.slug === activeSlug);
+
+  return (
+    <div>
+      <Banner
+        img={
+          "https://images.unsplash.com/photo-1611516491426-03025e6043c8?q=80&w=1933&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
+        title={`Nepal / ${activePackage?.title || "Nepal"}`}
+      />
+      <div className="w-10/12 mx-auto ">
+        <div className="flex gap-6">
+          {nepalpackages.map((item) => (
+            <Link key={item.slug} href={`/nepal/${item.slug}`}>
+              <button
+                className={`px-4 py-2 rounded-md border transition font-medium text-sm ${
+                  activeSlug === item.slug
+                    ? "bg-primary-600 text-white"
+                    : "hover:bg-gray-200"
+                }`}
+              >
+                {item.title}
+              </button>
+            </Link>
+          ))}
+        </div>
+        {children}
+      </div>
+    </div>
+  );
+}
