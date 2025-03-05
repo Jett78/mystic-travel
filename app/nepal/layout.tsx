@@ -23,11 +23,11 @@ export default function NepalPackageLayout({
         title={`Nepal / ${activePackage?.title || "Nepal"}`}
       />
       <div className="w-10/12 mx-auto ">
-        <div className="flex gap-6">
+        <div className="flex z-[2] gap-6 sticky h-fit top-16 bg-white border-b py-6">
           {nepalpackages.map((item) => (
             <Link key={item.slug} href={`/nepal/${item.slug}`}>
               <button
-                className={`px-4 py-2 rounded-md border transition font-medium text-sm ${
+                className={`px-4 py-3 rounded-md border transition font-medium text-sm ${
                   activeSlug === item.slug
                     ? "bg-primary-600 text-white"
                     : "hover:bg-gray-200"

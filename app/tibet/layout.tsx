@@ -23,11 +23,11 @@ export default function IndiaPackageLayout({
         title={`Tibet / ${activePackage?.title || "Tibet"}`}
       />
       <div className="w-10/12 mx-auto ">
-        <div className="flex gap-6">
+        <div className="flex z-[2] gap-6 sticky h-fit top-16 bg-white border-b py-6">
           {tibetpackages.map((item) => (
             <Link key={item.slug} href={`/tibet/${item.slug}`}>
               <button
-                className={`px-4 py-2 rounded-md border transition font-medium text-sm ${
+                className={`px-4 py-3 rounded-md border transition font-medium text-sm ${
                   activeSlug === item.slug
                     ? "bg-primary-600 text-white"
                     : "hover:bg-gray-200"
