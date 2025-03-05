@@ -16,7 +16,7 @@ type cardinterface = {
 
 const Card = ({ item }: cardinterface) => {
   return (
-    <div className="w-full rounded-md p-2 cursor-pointer group flex flex-col justify-start items-start gap-3 border hover:shadow-md">
+    <div className="w-full rounded-md p-2 cursor-pointer group flex flex-col justify-start items-start gap-3 border hover:border-primary-600 hover:shadow-md">
       {/* img */}
       <figure className="overflow-hidden w-full h-[35vh] rounded-md">
         <Image
@@ -30,7 +30,7 @@ const Card = ({ item }: cardinterface) => {
       {/* desc */}
       <div className="flex w-full flex-col gap-2">
         {/* title */}
-        <span className="text-md title font-semibold text-[1.5vw] tracking-wider">
+        <span className="text-md title font-semibold text-[1.4vw] tracking-wider">
           {item.packageName}
         </span>
         {/* short intro */}
