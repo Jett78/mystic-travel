@@ -79,7 +79,7 @@ function Navbar({}: Props) {
     <div
       ref={navContainerRef}
       className={`${
-        scrolled ? "bg-white shadow-md" : "bg-transparent text-white"
+        scrolled ? "bg-white shadow-sm" : "bg-transparent text-white"
       } ease-in-out duration-300 transition-all z-[900]  fixed w-full h-[4.5rem] `}
     >
       {/* mobile nav  */}
