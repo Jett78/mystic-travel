@@ -304,10 +304,10 @@ const aboutLinks = [
   { name: "Certificates", href: "/certificates" },
 ];
 const destinationsLinks = [
-  { name: "Nepal", href: "/nepal" },
-  { name: "India", href: "/india" },
-  { name: "Bhutan", href: "/bhutan" },
-  { name: "Tibet", href: "/tibet" },
+  { name: "Nepal", href: "/nepal/everest_region" },
+  { name: "India", href: "/india/city_tours" },
+  { name: "Bhutan", href: "/bhutan/city_tours" },
+  { name: "Tibet", href: "/tibet/city_tours" },
 ];
 
 const activitiesLink = [
