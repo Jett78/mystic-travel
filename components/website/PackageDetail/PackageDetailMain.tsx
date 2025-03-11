@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Icon } from "@iconify/react";
 import Link from "next/link";
 import Image from "next/image";
 import PrimaryButton from "@/components/shared/primary-button";
@@ -73,7 +72,10 @@ function PackageDetailMain({}: Props) {
 
         {/* sticky top detail  */}
         <div className="w-full md:w-[85%] flex flex-col gap-2">
-          <MajorTopInfo title="Everest Base Camp Trekking" item={importantdata} />
+          <MajorTopInfo
+            title="Everest Base Camp Trekking"
+            item={importantdata}
+          />
 
           {/* overview */}
           <div
@@ -197,6 +199,7 @@ function PackageDetailMain({}: Props) {
 }
 
 export default PackageDetailMain;
+
 const importantdata = [
   {
     title: "Group Size",
@@ -239,6 +242,7 @@ const importantdata = [
     img: "/infoicon/accomodations.png",
   },
 ];
+
 const buttonLabels = [
   { id: 1, label: "Overview", img: "/infoicon/eye.png" },
   { id: 2, label: "Itinerary", img: "/infoicon/route.png" },

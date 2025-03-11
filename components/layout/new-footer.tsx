@@ -15,9 +15,10 @@ const PageTitle = ({ title }: { title: string }) => {
 const Footer = () => {
   const date = new Date().getFullYear();
   return (
-    <footer className="bg-white h-screen relative border-t-2 border-dashed">
+    <footer className="bg-primary-600  relative border-t-2 border-dashed">
+      <Image src="/footer.png" alt="footer-img" width={1000} height={1000} className="w-full absolute bottom-0 z-[0]"/> 
       <h1 className="font-palker uppercase text-[8vw] tracking-wider text-center">
-        Mystic<span className="text-primary-600">Nepal</span>Adventure
+        Mystic<span className="text-white">Nepal</span>Adventure
       </h1>
 
       <div className="grid grid-cols-2 my-10">
@@ -33,7 +34,7 @@ const Footer = () => {
                   alt="affiliation"
                   width={200}
                   height={200}
-                  className="h-16 w-16 rounded-full object-contain"
+                  className="h-16 w-16 rounded-full object-cover"
                 />
               </div>
             ))}
@@ -52,10 +53,10 @@ const Footer = () => {
       </div>
 
       {/* major links */}
-      <div className="grid grid-cols-5 gap-8 w-11/12 mx-auto border-t pt-4">
+      <div className="grid grid-cols-5 gap-8 w-11/12 mx-auto border-t pt-4 relative z-[2]">
         <div>
           <PageTitle title="About Us" />
-          <p className="font-medium text-zinc-800 text-sm mb-6">
+          <p className="font-medium text-white text-sm mb-6">
             We are an independently owned and officially authorized full-service
             tour operator based in Kathmandu, Nepal.
           </p>
@@ -64,7 +65,7 @@ const Footer = () => {
               <div key={index}>
                 <Link
                   href={item.path}
-                  className="font-medium text-sm text-zinc-800 hover:ml-2 ease-in-out duration-300 hover:text-primary-600"
+                  className="font-medium text-sm text-white hover:ml-2 ease-in-out duration-300 hover:text-primary-600"
                 >
                   <Image src={item.img} alt="social" width={20} height={20} />
                 </Link>
@@ -80,7 +81,7 @@ const Footer = () => {
               <div key={index}>
                 <Link
                   href={item.path}
-                  className="font-medium text-sm text-zinc-800 hover:ml-2 ease-in-out duration-300 hover:text-primary-600"
+                  className="font-medium text-sm text-white hover:ml-2 ease-in-out duration-300 hover:text-primary-600"
                 >
                   {item.title}
                 </Link>
@@ -95,7 +96,7 @@ const Footer = () => {
               <div key={index}>
                 <Link
                   href={item.path}
-                  className="font-medium text-sm text-zinc-800 hover:ml-2 ease-in-out duration-300 hover:text-primary-600"
+                  className="font-medium text-sm text-white hover:ml-2 ease-in-out duration-300 hover:text-primary-600"
                 >
                   {item.title}
                 </Link>
@@ -110,7 +111,7 @@ const Footer = () => {
               <div key={index}>
                 <Link
                   href={item.path}
-                  className="font-medium text-sm text-zinc-800 hover:ml-2 ease-in-out duration-300 hover:text-primary-600"
+                  className="font-medium text-sm text-white hover:ml-2 ease-in-out duration-300 hover:text-primary-600"
                 >
                   {item.title}
                 </Link>
@@ -125,7 +126,7 @@ const Footer = () => {
             {contactdetails.map((item, index) => (
               <div key={index} className="flex items-center gap-2">
                 <p className="text-xl">{item.icon}</p>
-                <p className="font-medium text-sm text-zinc-800  ease-in-out duration-300 hover:text-primary-600 ">
+                <p className="font-medium text-sm text-white  ease-in-out duration-300 hover:text-primary-600 ">
                   {item.title}
                 </p>
               </div>
@@ -134,7 +135,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="w-11/12 mx-auto mt-6 flex justify-between items-center font-medium text-sm">
+      <div className="w-11/12 relative z-[2] mx-auto py-6 flex justify-between items-center font-medium text-white text-sm">
         <p>© {date} Mystic Nepal Adventure. All rights reserved.</p>
 
         <div className="flex items-center gap-2">
