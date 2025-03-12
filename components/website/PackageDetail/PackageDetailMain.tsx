@@ -24,7 +24,7 @@ function PackageDetailMain({}: Props) {
       if (window.innerWidth < 768) {
         setOffset(-150); // Offset for mobile screens
       } else {
-        setOffset(-300); // Offset for larger screens
+        setOffset(-250); // Offset for larger screens
       }
     };
     updateOffset();
