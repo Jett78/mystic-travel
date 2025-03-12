@@ -145,16 +145,16 @@ function Navbar({}: Props) {
           />
         </Link>
         {/*  nav links  */}
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-4">
           <div className="group relative ">
             <div
               className={` flex gap-1 justify-center items-center cursor-pointer hover:text-primary-600 ${
-                currentRoute.includes("/trek")
+                currentRoute.includes("/about_us")
                   ? "text-primary-600 font-semibold  duration-[0.5]"
                   : ""
               }`}
             >
-              <span className="text-[0.9vw] font-semibold">About us</span>
+              <span className="text-[0.9vw] font-medium">About us</span>
               <Icon
                 icon="gridicons:dropdown"
                 className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
@@ -173,6 +173,34 @@ function Navbar({}: Props) {
             </ul>
           </div>
 
+
+          <div className="group relative ">
+            <div
+              className={` flex gap-1 justify-center items-center cursor-pointer hover:text-primary-600 ${
+                currentRoute.includes("/trek")
+                  ? "text-primary-600 font-semibold  duration-[0.5]"
+                  : ""
+              }`}
+            >
+              <span className="text-[0.9vw] font-medium">Useful info</span>
+              <Icon
+                icon="gridicons:dropdown"
+                className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
+              />
+            </div>
+            <ul className="absolute hidden group-hover:block duration-[0.5] top-[100%] left-[50%] translate-x-[-50%] whitespace-nowrap  bg-white shadow p-5">
+              {usefulInfo.map((info) => (
+                <li key={info.href} className="py-1">
+                  <Link href={info.href}>
+                    <div className="border-b border-primary-100 text-secondary-500 text-[13px] font-semibold hover:text-primary-600 cursor-pointer">
+                      {info.name}
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <div className="group relative">
             <div
               className={` flex gap-1 justify-center items-center cursor-pointer hover:text-primary-600 ${
@@ -181,7 +209,7 @@ function Navbar({}: Props) {
                   : ""
               }`}
             >
-              <span className="text-[0.9vw] font-semibold">Destinations</span>
+              <span className="text-[0.9vw] font-medium">Destinations</span>
               <Icon
                 icon="gridicons:dropdown"
                 className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
@@ -208,7 +236,7 @@ function Navbar({}: Props) {
                   : ""
               }`}
             >
-              <span className="text-[0.9vw] font-semibold">Trekking</span>
+              <span className="text-[0.9vw] font-medium">Trekking</span>
               <Icon
                 icon="gridicons:dropdown"
                 className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
@@ -236,7 +264,7 @@ function Navbar({}: Props) {
                   : ""
               }`}
             >
-              <span className="text-[0.9vw] font-semibold">Expedition</span>
+              <span className="text-[0.9vw] font-medium">Expedition</span>
               <Icon
                 icon="gridicons:dropdown"
                 className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
@@ -263,9 +291,7 @@ function Navbar({}: Props) {
                   : ""
               }`}
             >
-              <span className="text-[0.9vw] font-semibold">
-                Other Activities
-              </span>
+              <span className="text-[0.9vw] font-medium">Other Activities</span>
               <Icon
                 icon="gridicons:dropdown"
                 className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
@@ -305,6 +331,12 @@ const aboutLinks = [
   { name: "Company", href: "/about_us" },
   { name: "Our team", href: "/our_team" },
   { name: "Certificates", href: "/certificates" },
+];
+
+const usefulInfo = [
+  { name: "Visa Info", href: "/visa_info" },
+  { name: "Travel Info", href: "/travel_info" },
+  { name: "General Info", href: "/general_info" },
 ];
 const destinationsLinks = [
   { name: "Nepal", href: "/nepal/everest_region" },
