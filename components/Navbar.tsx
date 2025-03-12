@@ -145,7 +145,7 @@ function Navbar({}: Props) {
           />
         </Link>
         {/*  nav links  */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center  gap-6">
           <div className="group relative ">
             <div
               className={` flex gap-1 justify-center items-center cursor-pointer hover:text-primary-600 ${
@@ -172,7 +172,6 @@ function Navbar({}: Props) {
               ))}
             </ul>
           </div>
-
 
           <div className="group relative ">
             <div
@@ -310,8 +309,19 @@ function Navbar({}: Props) {
             </ul>
           </div>
 
+          <Link href="/blogs" className="text-[0.9vw] font-medium">
+            Blogs
+          </Link>
+
           {/* CONTACT US  */}
-          <Link href="/contact_us" className="group relative">
+          <Link
+            href="/contact_us"
+            className={`group relative ${
+              currentRoute.includes("/blogs")
+                ? "text-primary-600   duration-[0.5]"
+                : ""
+            }`}
+          >
             <PrimaryButton title="contact" />
           </Link>
         </div>
