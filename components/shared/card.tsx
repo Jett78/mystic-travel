@@ -30,7 +30,7 @@ const Card = ({ item }: cardinterface) => {
       {/* desc */}
       <div className="flex w-full flex-col gap-2">
         {/* title */}
-        <span className="text-md title font-semibold text-[1.4vw] tracking-wider">
+        <span className="text-md title font-medium text-[1.4vw] tracking-wider">
           {item.packageName}
         </span>
         {/* short intro */}
@@ -59,7 +59,7 @@ const Card = ({ item }: cardinterface) => {
 
       {/* price */}
       <div className="grid grid-cols-2 w-full gap-2">
-        <div className="px-6 py-2 border rounded-md flex justify-center items-center text-md font-bold font-palker text-yellow-500 ">
+        <div className="px-6 py-2 border rounded-md flex justify-center items-center text-md font-bold font-palker text-black ">
           $100
         </div>
 
