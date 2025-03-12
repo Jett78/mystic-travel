@@ -15,15 +15,104 @@ const PageTitle = ({ title }: { title: string }) => {
 const Footer = () => {
   const date = new Date().getFullYear();
   return (
-    <footer className="bg-primary-600  relative border-t-2 border-dashed">
-      <Image src="/footer.png" alt="footer-img" width={1000} height={1000} className="w-full absolute bottom-0 z-[0]"/> 
+    <footer className="bg-white  relative border-t-2 border-dashed">
+      <Image
+        src="/footer.png"
+        alt="footer-img"
+        width={1000}
+        height={1000}
+        className="w-full h-[45vh] object-cover absolute bottom-0 z-[0]"
+      />
       <h1 className="font-palker uppercase text-[8vw] tracking-wider text-center">
-        Mystic<span className="text-white">Nepal</span>Adventure
+        Mystic<span className="text-primary-600">Nepal</span>Adventure
       </h1>
 
-      <div className="grid grid-cols-2 my-10">
-        <div className="flex flex-col border-r justify-center items-center space-y-6">
-          <h1 className="font-palker tracking-wide text-[1.6vw] ">
+      {/* major links */}
+      <div className="grid grid-cols-5 gap-8 w-11/12 mx-auto border-t pt-8 relative z-[2]">
+        <div>
+          <PageTitle title="About Us" />
+          <p className="font-medium text-zinc-800 text-sm mb-6">
+            We are an independently owned and officially authorized full-service
+            tour operator based in Kathmandu, Nepal.
+          </p>
+          <div className="space-x-4 flex ">
+            {social.map((item, index) => (
+              <div key={index}>
+                <Link
+                  href={item.path}
+                  className="font-medium text-sm text-zinc-800 hover:ml-2 ease-in-out duration-300 hover:text-primary-600"
+                >
+                  <Image src={item.img} alt="social" width={20} height={20} />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <PageTitle title="Trekking Info" />
+          <div className="space-y-2">
+            {trekkinginfo.map((item, index) => (
+              <div key={index}>
+                <Link
+                  href={item.path}
+                  className="font-medium text-sm text-zinc-800 hover:ml-2 ease-in-out duration-300 hover:text-primary-600"
+                >
+                  {item.title}
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div>
+          <PageTitle title="Activities" />
+          <div className="space-y-2">
+            {activities.map((item, index) => (
+              <div key={index}>
+                <Link
+                  href={item.path}
+                  className="font-medium text-sm text-zinc-800 hover:ml-2 ease-in-out duration-300 hover:text-primary-600"
+                >
+                  {item.title}
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div>
+          <PageTitle title="Useful Links" />
+          <div className="space-y-2">
+            {usefullinks.map((item, index) => (
+              <div key={index}>
+                <Link
+                  href={item.path}
+                  className="font-medium text-sm text-zinc-800 hover:ml-2 ease-in-out duration-300 hover:text-primary-600"
+                >
+                  {item.title}
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <PageTitle title="Contact Details" />
+          <div className="space-y-2">
+            {contactdetails.map((item, index) => (
+              <div key={index} className="flex items-center gap-2">
+                <p className="text-xl">{item.icon}</p>
+                <p className="font-medium text-sm text-zinc-800  ease-in-out duration-300 hover:text-primary-600 ">
+                  {item.title}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="flex gap-24 mt-16 relative z-[2] w-11/12 mx-auto">
+        <div className="flex flex-col  justify-start  items-start space-y-6">
+          <h1 className="font-palker tracking-wide text-[1.6vw] text-white">
             Our Affiliations
           </h1>
           <div className="flex items-center justify-center gap-6">
@@ -40,98 +129,17 @@ const Footer = () => {
             ))}
           </div>
         </div>
+
+
         <div className="flex flex-col justify-center items-center space-y-6">
-          <h1 className="font-palker tracking-wide text-[1.6vw] ">We Accept</h1>
+          <h1 className="font-palker tracking-wide text-[1.6vw] text-white">We Accept</h1>
           <Image
             src="https://mysticnepaladventure.com/wp-content/uploads/2024/12/payment.webp"
             alt="affiliation"
             width={200}
             height={200}
-            className="h-20 w-40  object-contain"
+            className="h-10 w-40  object-contain"
           />
-        </div>
-      </div>
-
-      {/* major links */}
-      <div className="grid grid-cols-5 gap-8 w-11/12 mx-auto border-t pt-4 relative z-[2]">
-        <div>
-          <PageTitle title="About Us" />
-          <p className="font-medium text-white text-sm mb-6">
-            We are an independently owned and officially authorized full-service
-            tour operator based in Kathmandu, Nepal.
-          </p>
-          <div className="space-x-4 flex ">
-            {social.map((item, index) => (
-              <div key={index}>
-                <Link
-                  href={item.path}
-                  className="font-medium text-sm text-white hover:ml-2 ease-in-out duration-300 hover:text-primary-600"
-                >
-                  <Image src={item.img} alt="social" width={20} height={20} />
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <PageTitle title="Trekking Info" />
-          <div className="space-y-2">
-            {trekkinginfo.map((item, index) => (
-              <div key={index}>
-                <Link
-                  href={item.path}
-                  className="font-medium text-sm text-white hover:ml-2 ease-in-out duration-300 hover:text-primary-600"
-                >
-                  {item.title}
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div>
-          <PageTitle title="Activities" />
-          <div className="space-y-2">
-            {activities.map((item, index) => (
-              <div key={index}>
-                <Link
-                  href={item.path}
-                  className="font-medium text-sm text-white hover:ml-2 ease-in-out duration-300 hover:text-primary-600"
-                >
-                  {item.title}
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div>
-          <PageTitle title="Useful Links" />
-          <div className="space-y-2">
-            {usefullinks.map((item, index) => (
-              <div key={index}>
-                <Link
-                  href={item.path}
-                  className="font-medium text-sm text-white hover:ml-2 ease-in-out duration-300 hover:text-primary-600"
-                >
-                  {item.title}
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <PageTitle title="Contact Details" />
-          <div className="space-y-2">
-            {contactdetails.map((item, index) => (
-              <div key={index} className="flex items-center gap-2">
-                <p className="text-xl">{item.icon}</p>
-                <p className="font-medium text-sm text-white  ease-in-out duration-300 hover:text-primary-600 ">
-                  {item.title}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
 
