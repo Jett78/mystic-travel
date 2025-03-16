@@ -18,7 +18,7 @@ function AllTrek({ region }: any) {
   const { name, intro, package: packages, route } = data;
 
   return (
-    <div className="w-full  md:py-[5rem] my-4">
+    <div className="w-full  md:py-[5rem] py-4">
       {/* tab  */}
       <div className="sticky z-[2] top-[4.4rem] h-fit w-full mb-9  flex bg-white py-4 justify-start   items-center md:gap-10 gap-6">
         {/* exp tab  */}

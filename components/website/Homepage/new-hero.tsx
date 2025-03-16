@@ -1,3 +1,4 @@
+"use client";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
@@ -28,13 +29,13 @@ const NewHero = () => {
 
   return (
     <main
-      className="h-screen fixed  w-full bg-cover transition-all duration-1000 ease-in-out"
+      className="md:h-screen h-[100dvh] fixed  w-full bg-cover transition-all duration-1000 ease-in-out"
       style={{ backgroundImage: `url(${bgImg})` }}
     >
       <div className="absolute top-0 bg-gradient-to-b from-black/80 via-black/50 to-transparent w-full h-40" />
       <div className="absolute inset-0 top-0 bg-black bg-opacity-20 w-full h-screen" />
 
-      <div className="absolute left-1/2 -translate-x-1/2 top-1/3 -translate-y-1/2 space-y-4">
+      <div className="absolute left-1/2 -translate-x-1/2 top-1/3 -translate-y-1/2 md:space-y-10 space-y-4">
         <div className="flex flex-wrap justify-center gap-4">
           <button className="px-6 border py-1 md:text-base text-xs rounded-full border-primary-600 bg-white text-black">
             Expedition
@@ -44,7 +45,7 @@ const NewHero = () => {
           </button>
         </div>
 
-        <h1 className="font-bold lg:text-[5vw] my-4 leading-[2] md:text-4xl text-2xl text-white whitespace-nowrap text-center tracking-wide font-palker">
+        <h1 className="font-bold lg:text-[5vw]  md:text-4xl text-2xl text-white whitespace-nowrap text-center tracking-wide font-palker">
           {title}
         </h1>
 
@@ -57,36 +58,63 @@ const NewHero = () => {
       </div>
 
       {/* Image Thumbnail Navigation */}
-      <div className="grid md:grid-cols-5 grid-cols-3 gap-2 absolute bottom-2">
-        {cards
-          .slice(0, window.innerWidth < 769 ? 3 : cards.length)
-          .map((item, index) => (
-            <div
-              key={index}
-              onClick={() => handleManualClick(index)}
-              className="cursor-pointer group"
+      <div className="md:grid hidden md:grid-cols-5 grid-cols-3 gap-2 absolute bottom-2">
+        {cards.map((item, index) => (
+          <div
+            key={index}
+            onClick={() => handleManualClick(index)}
+            className="cursor-pointer group"
+          >
+            <figure
+              className={`p-1 border rounded-xl border-dashed relative overflow-hidden ${
+                index === currentIndex ? "border-primary-600" : ""
+              }`}
             >
-              <figure
-                className={`p-1 border rounded-xl border-dashed relative overflow-hidden ${
-                  index === currentIndex ? "border-primary-600" : ""
-                }`}
-              >
-                <Image
-                  src={item.img}
-                  alt="card"
-                  width={1000}
-                  height={1000}
-                  className="lg:h-[20vh] h-[25vh] object-cover rounded-xl group-hover:scale-110 ease-in-out duration-300"
-                />
+              <Image
+                src={item.img}
+                alt="card"
+                width={1000}
+                height={1000}
+                className="lg:h-[20vh] h-[15vh] object-cover rounded-xl group-hover:scale-110 ease-in-out duration-300"
+              />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
 
-                <h2 className="absolute top-1/2 -translate-y-1/2 md:whitespace-nowrap left-1/2 -translate-x-1/2 font-palker text-white tracking-wide md:text-[1.2vw] text-xs text-center">
-                  {item.title}
-                </h2>
-              </figure>
-            </div>
-          ))}
+              <h2 className="absolute top-1/2 -translate-y-1/2 md:whitespace-nowrap left-1/2 -translate-x-1/2 font-palker text-white tracking-wide md:text-[1.2vw] text-xs text-center">
+                {item.title}
+              </h2>
+            </figure>
+          </div>
+        ))}
+      </div>
+      <div className="md:hidden grid md:grid-cols-3 grid-cols-3 gap-2 absolute bottom-8">
+        {cards.slice(0, 3).map((item, index) => (
+          <div
+            key={index}
+            onClick={() => handleManualClick(index)}
+            className="cursor-pointer group"
+          >
+            <figure
+              className={`p-1 border rounded-xl border-dashed relative overflow-hidden ${
+                index === currentIndex ? "border-primary-600" : ""
+              }`}
+            >
+              <Image
+                src={item.img}
+                alt="card"
+                width={1000}
+                height={1000}
+                className="lg:h-[20vh] h-[15vh] object-cover rounded-xl group-hover:scale-110 ease-in-out duration-300"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+
+              <h2 className="absolute top-1/2 -translate-y-1/2 md:whitespace-nowrap left-1/2 -translate-x-1/2 font-palker text-white tracking-wide md:text-[1.2vw] text-xs text-center">
+                {item.title}
+              </h2>
+            </figure>
+          </div>
+        ))}
       </div>
     </main>
   );

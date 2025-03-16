@@ -493,6 +493,17 @@ function Navbar({}: Props) {
               </div>
             </div>
 
+            <Link
+              href="/contact_us"
+              className={`group relative mt-4 ${
+                currentRoute.includes("/blogs")
+                  ? "text-primary-600   duration-[0.5]"
+                  : ""
+              }`}
+            >
+              <PrimaryButton title="contact us" className="px-12 py-2 text-md"/>
+            </Link>
+
             {/* <Link href="/blogs" className="py-4  w-full ">
               <span className="border-b py-4 w-full h-8 cursor-pointer font-semibold text-md">
                 {" "}

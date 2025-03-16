@@ -18,7 +18,7 @@ function AllExp({ distance }: any) {
   const { intro, name, route, package: packages } = data;
 
   return (
-    <div className="w-full py-[5rem]">
+    <div className="w-full md:py-[5rem] py-4">
       {/* tab  */}
       <div className="w-full z-[10] bg-white sticky top-[4.5rem] mb-9 py-4 flex justify-start overflow-x-scroll md:overflow-x-visible  items-center md:gap-10 gap-6">
         {/* exp tab  */}
