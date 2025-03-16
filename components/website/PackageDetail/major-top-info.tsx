@@ -4,7 +4,7 @@ import React from "react";
 
 const MajorTopInfo = ({ title, item }: { title: string; item: any }) => {
   return (
-    <div className="w-full rounded-md bg-zinc-100 border z-[50] sticky top-16 py-6 ">
+    <div className="w-full rounded-md bg-zinc-100 border z-[50] lg:sticky top-16 py-6 ">
       {/* <div className="p-4 rounded-md w-full h-full border  bg-zinc-50">
         <h1 className="font-palker uppercase">{title}</h1>
         <div className="grid grid-cols-4 gap-8 p-4">
@@ -31,7 +31,7 @@ const MajorTopInfo = ({ title, item }: { title: string; item: any }) => {
         </div>
       </div> */}
 
-      <h1 className="text-3xl md:text-[2.5vw] text-center leading-[1.1]  tracking-wide  font-palker  uppercase whitespace-nowrap ">
+      <h1 className="md:text-3xl text-xl lg:text-[2.5vw] text-center leading-[1.1]  tracking-wide  font-palker  uppercase whitespace-nowrap ">
         Everest Base Camp Trekking
       </h1>
 

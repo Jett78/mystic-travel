@@ -9,7 +9,7 @@ const Itenary = ({ item, index }: { item: any; index: number }) => {
       <div className="w-full h-[4rem] flex  justify-between items-center">
         <div className="flex gap-10 items-center">
           {/* day */}
-          <div className="font-bold justify-center items-center w-[3rem] leading-none h-[3rem] rounded-full overflow-hidden  text-primary-400  border-primary-300 border   text-[12px] flex flex-col gap-1">
+          <div className="font-bold justify-center items-center min-w-[3rem] leading-none h-[3rem] rounded-full overflow-hidden  text-primary-400  border-primary-300 border   text-[12px] flex flex-col gap-1">
             <span>Day</span>
             <span>{item.day}</span>
           </div>

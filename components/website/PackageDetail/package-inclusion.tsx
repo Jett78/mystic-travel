@@ -5,7 +5,7 @@ const PackageInclusion = ({ index, item }: { index: number; item: any }) => {
   return (
     <div
       key={index}
-      className="w-full  py-4 md:py-2  overflow-hidden   flex justify-center items-center  px-3 md:px-10"
+      className="w-full  py-4 md:py-2  overflow-hidden   flex justify-center lg:items-center items-start  px-2 md:px-10"
     >
       <div className=" w-full flex justify-start gap-5 items-center">
         {/* day */}

@@ -2,7 +2,7 @@ import React from "react";
 
 const PackageOverview = () => {
   return (
-    <p className="w-full  text-secondary-400">
+    <p className="w-full md:text-base text-sm text-secondary-400">
       Everest Circuit Trek, also known as Everest Round Trek, is a classic
       expedition-style trek around the world’s seventh highest peak, Everest
       8167m and its broad massif of 7000m peaks. Everest Circuit is a

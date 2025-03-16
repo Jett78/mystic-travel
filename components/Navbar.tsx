@@ -14,17 +14,17 @@ function Navbar({}: Props) {
   const navContainerRef = useRef(null);
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+
   const [isOpenDestinations, setIsOpenDestinations] = useState(false);
   const [isOpenInfo, setIsOpenInfo] = useState(false);
   const [isOpenExpeditions, setIsOpenExpeditions] = useState(false);
   const [isOpenTrekking, setIsOpenTrekking] = useState(false);
+  const [isOpenAbout, setIsOpenAbout] = useState(false);
   const [isRotatedDestinations, setIsRotatedDestinations] = useState(false);
   const [isUsefulInfo, setIsUsefulInfo] = useState(false);
   const [isRotatedTrekking, setIsRotatedTrekking] = useState(false);
   const [isRotatedExpeditions, setIsRotatedExpeditions] = useState(false);
-  const [isRotatedAboutUs, setIsRotatedAboutUs] = useState(false);
-  const [isRotatedOtherActivities, setIsRotatedOtherActivities] =
-    useState(false);
+  const [isRotatedAbout, setIsRotatedAbout] = useState(false);
 
   const toggleDropdownDestinations = () => {
     setIsOpenDestinations(!isOpenDestinations);
@@ -49,18 +49,28 @@ function Navbar({}: Props) {
 
   const toggleDropdownTrekking = () => {
     setIsRotatedTrekking(!isRotatedTrekking);
+    setIsOpenTrekking(!isOpenTrekking);
     setIsOpenInfo(false);
     setIsOpenDestinations(false);
-    setIsOpenTrekking(false);
     setIsUsefulInfo(false);
     setIsRotatedDestinations(false);
     setIsRotatedExpeditions(false);
   };
   const toggleDropdownExpeditions = () => {
-    setIsOpenTrekking(!isOpenTrekking);
+    setIsOpenExpeditions(!isOpenExpeditions);
     setIsRotatedExpeditions(!isRotatedExpeditions);
     setIsOpenInfo(false);
-    setIsOpenExpeditions(false);
+    setIsOpenTrekking(false);
+    setIsOpenDestinations(false);
+    setIsUsefulInfo(false);
+    setIsRotatedTrekking(false);
+    setIsRotatedDestinations(false);
+  };
+  const toggleDropdownAbout = () => {
+    setIsOpenAbout(!isOpenAbout);
+    setIsRotatedAbout(!isRotatedAbout);
+    setIsOpenInfo(false);
+    setIsOpenTrekking(false);
     setIsOpenDestinations(false);
     setIsUsefulInfo(false);
     setIsRotatedTrekking(false);
@@ -85,6 +95,10 @@ function Navbar({}: Props) {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentRoute]);
+
+  useEffect(() => {
+    setIsOpen(false);
   }, [currentRoute]);
   return (
     <div
@@ -303,13 +317,13 @@ function Navbar({}: Props) {
             </div>
           </div>
 
-          <nav className="text-black mt-8">
+          <nav className="text-black mt-8 space-y-4">
             <div className="border-b  pb-2">
               <div
                 className="flex justify-between items-center"
                 onClick={toggleDropdownDestinations}
               >
-                <h2 className="cursor-pointer font-medium text-lg">
+                <h2 className="cursor-pointer font-semibold text-md ">
                   Destinations
                 </h2>
 
@@ -327,7 +341,7 @@ function Navbar({}: Props) {
                   isOpenDestinations ? "max-h-96" : "max-h-0"
                 }`}
               >
-                <div className="pl-4 mt-2 text-[16px] flex flex-col">
+                <div className="pl-4 mt-2 text-[14px] font-medium flex flex-col">
                   {destinationsLinks.map((item, index) => {
                     return (
                       <Link href={item.href} key={index}>
@@ -344,7 +358,7 @@ function Navbar({}: Props) {
                 className="flex justify-between items-center"
                 onClick={toggleDropdownUsefulInfo}
               >
-                <h2 className="cursor-pointer font-medium text-lg">
+                <h2 className="cursor-pointer font-semibold text-md ">
                   Useful Info
                 </h2>
 
@@ -362,7 +376,7 @@ function Navbar({}: Props) {
                   isOpenInfo ? "max-h-96" : "max-h-0"
                 }`}
               >
-                <div className="pl-4 mt-2 text-[16px] flex flex-col">
+                <div className="pl-4 mt-2 text-[14px] font-medium flex flex-col">
                   {usefulInfo.map((item, index) => {
                     return (
                       <Link href={item.href} key={index}>
@@ -379,7 +393,7 @@ function Navbar({}: Props) {
                 className="flex justify-between items-center"
                 onClick={toggleDropdownExpeditions}
               >
-                <h2 className="cursor-pointer font-medium text-lg">
+                <h2 className="cursor-pointer font-semibold text-md ">
                   Expeditions
                 </h2>
 
@@ -397,7 +411,42 @@ function Navbar({}: Props) {
                   isOpenExpeditions ? "max-h-96" : "max-h-0"
                 }`}
               >
-                <div className="pl-4 mt-2 text-[16px] flex flex-col">
+                <div className="pl-4 mt-2 text-[14px] font-medium flex flex-col">
+                  {expeditionsLink.map((item, index) => {
+                    return (
+                      <Link href={item.href} key={index}>
+                        {item.name}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            <div className="border-b  pb-2">
+              <div
+                className="flex justify-between items-center"
+                onClick={toggleDropdownTrekking}
+              >
+                <h2 className="cursor-pointer font-semibold text-md ">
+                  Trekking
+                </h2>
+
+                <Icon
+                  icon="formkit:down"
+                  width="16"
+                  height="7"
+                  className={`h-8 w-8 transition-transform duration-500 ${
+                    isRotatedTrekking ? "rotate-180" : ""
+                  }`}
+                />
+              </div>
+              <div
+                className={`overflow-hidden transition-max-height duration-500 ease-in-out ${
+                  isOpenTrekking ? "max-h-96" : "max-h-0"
+                }`}
+              >
+                <div className="pl-4 mt-2 text-[14px] font-medium flex flex-col">
                   {treksLink.map((item, index) => {
                     return (
                       <Link href={item.href} key={index}>
@@ -408,6 +457,48 @@ function Navbar({}: Props) {
                 </div>
               </div>
             </div>
+
+            <div className="border-b  pb-2">
+              <div
+                className="flex justify-between items-center"
+                onClick={toggleDropdownAbout}
+              >
+                <h2 className="cursor-pointer font-semibold text-md ">
+                  About Us
+                </h2>
+
+                <Icon
+                  icon="formkit:down"
+                  width="16"
+                  height="7"
+                  className={`h-8 w-8 transition-transform duration-500 ${
+                    isRotatedAbout ? "rotate-180" : ""
+                  }`}
+                />
+              </div>
+              <div
+                className={`overflow-hidden transition-max-height duration-500 ease-in-out ${
+                  isOpenAbout ? "max-h-96" : "max-h-0"
+                }`}
+              >
+                <div className="pl-4 mt-2 text-[14px] font-medium flex flex-col">
+                  {aboutLinks.map((item, index) => {
+                    return (
+                      <Link href={item.href} key={index}>
+                        {item.name}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            {/* <Link href="/blogs" className="py-4  w-full ">
+              <span className="border-b py-4 w-full h-8 cursor-pointer font-semibold text-md">
+                {" "}
+                Blogs
+              </span>
+            </Link> */}
           </nav>
         </div>
       </div>

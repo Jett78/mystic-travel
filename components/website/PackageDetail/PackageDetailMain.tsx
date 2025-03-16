@@ -35,9 +35,9 @@ function PackageDetailMain({}: Props) {
       {/* hero banner */}
       <PackageBanner />
 
-      <div className="py-[5rem] w-11/12 md:w-10/12 flex flex-col md:flex-row justify-center relative items-start gap-3 mx-auto">
+      <div className="md:py-[5rem] py-[2rem] w-11/12 md:w-10/12 flex flex-col md:flex-row justify-center relative items-start gap-3 mx-auto">
         {/* tab  link  */}
-        <div className="mx-auto  w-full md:w-[15%] flex-col gap-2 backdrop-blur-sm sticky top-[4rem] overflow-x-scroll md:overflow-x-visible md:top-[7rem] left-0  flex  font-medium items-center">
+        <div className="mx-auto  w-full bg-white z-[100] md:w-[15%] flex-col gap-2 backdrop-blur-sm sticky top-[4rem] overflow-x-scroll md:overflow-x-visible md:top-[7rem] left-0  flex  font-medium items-center">
           <div className="w-full py-1 overflow-x-scroll md:overflow-x-visible flex md:flex-col gap-2 font-medium items-center">
             {buttonLabels.map((item, index) => (
               <ScrollLink
@@ -48,7 +48,7 @@ function PackageDetailMain({}: Props) {
                 duration={500}
                 spy={true}
                 offset={offset}
-                className={`cursor-pointer w-full flex items-center gap-2 text-nowrap  text-secondary-500 hover:scale-105 duration-300  md:px-4 py-3 text-sm ]`}
+                className={`cursor-pointer w-full flex items-center lg:justify-start justify-center gap-2 text-nowrap  text-secondary-500 hover:scale-105 duration-300  md:px-4 py-3 text-sm ]`}
               >
                 <Image
                   src={item.img}
@@ -110,7 +110,7 @@ function PackageDetailMain({}: Props) {
                 width={1000}
                 height={1000}
                 src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                className="overflow-hidded w-full object-cover object-center h-[70vh] rounded-md my-4"
+                className="overflow-hidded w-full object-cover object-center max-h-[70vh] rounded-md my-4"
                 alt=""
               />
             </div>
