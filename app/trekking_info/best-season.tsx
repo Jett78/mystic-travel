@@ -5,10 +5,10 @@ const BestSeason = () => {
   return (
     <main className="my-8 space-y-8">
       <div>
-        <h2 className="font-semibold text-[2vw]">
+        <h2 className="font-semibold lg:text-[2vw] text-lg">
           Spring Season (March, April, and May)
         </h2>
-        <p className="font-medium text-zinc-600  mt-2">
+        <p className="font-medium md:text-base text-sm text-zinc-600  mt-2">
           Spring Season is best for trekking in Nepal. This season is most
           suitable for trekking and climbing. Spring offers a variety of wild
           flora blossoming above 3000 m which makes higher-altitude trekking
@@ -39,10 +39,10 @@ const BestSeason = () => {
         </div>
       </div>
       <div>
-        <h2 className="font-semibold text-[2vw]">
+        <h2 className="font-semibold lg:text-[2vw] text-lg">
           Autumn Season (September, October, and November)
         </h2>
-        <p className="font-medium text-zinc-600  mt-2">
+        <p className="font-medium md:text-base text-sm text-zinc-600  mt-2">
           During the autumn season, treks in Nepal offer excellent weather and
           exciting mountain views. Green Valley Nepal Treks offers treks,
           expeditions, and peak climbing to any region of Nepal during this
@@ -73,10 +73,10 @@ const BestSeason = () => {
         </div>
       </div>
       <div>
-        <h2 className="font-semibold text-[2vw]">
+        <h2 className="font-semibold lg:text-[2vw] text-lg">
           Winter Season (December, January, and February)
         </h2>
-        <p className="font-medium text-zinc-600  mt-2">
+        <p className="font-medium md:text-base text-sm text-zinc-600  mt-2">
           December, January, and February are the winter months in Nepal. These
           months are pretty cold in mountains with foggy and cloudy mornings and
           evenings but clear afternoons. Snowfall is common at higher elevations

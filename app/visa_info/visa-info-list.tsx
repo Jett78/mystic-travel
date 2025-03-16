@@ -3,26 +3,26 @@ import React from "react";
 
 const VisaInfoList = () => {
   return (
-    <div className="space-y-12 w-10/12 mx-auto my-16">
+    <div className="space-y-12 md:w-10/12 w-11/12 mx-auto md:my-16 my-4">
       {visainfo.map((item, index) => (
         <div key={index}>
-          <h1 className="font-bold text-[1.5vw] mb-2">
+          <h1 className="font-bold lg:text-[1.5vw] text-xl mb-2">
             {" "}
             <span>{index + 1} .</span>
             {item.title}
           </h1>
-          <p className="font-medium text-md text-zinc-800">{item.desc}</p>
+          <p className="font-medium md:text-base text-sm text-zinc-800">{item.desc}</p>
 
           <div className="my-4 space-y-2">
             {item.locations.map((location, index) => (
-              <div key={index} className="flex items-center gap-2">
+              <div key={index} className="flex md:items-center gap-2">
                 <Icon
                   icon="material-symbols-light:arrow-circle-right-rounded"
                   width="24"
                   height="24"
                   className="text-primary-600"
                 />
-                <h2 className="font-medium text-zinc-800">
+                <h2 className="font-medium md:text-base text-sm text-zinc-800">
                   {location.border} , <span>{location.region}</span>
                 </h2>
               </div>

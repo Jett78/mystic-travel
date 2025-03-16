@@ -8,10 +8,18 @@ import BestSeason from "./best-season";
 import GearList from "./gear-list";
 
 const Header = ({ title }: { title: string }) => {
-  return <h1 className="text-[2vw] font-palker tracking-wide">{title}</h1>;
+  return (
+    <h1 className="lg:text-[2vw] leading-[2]  text-xl font-palker tracking-wide">
+      {title}
+    </h1>
+  );
 };
 const Description = ({ desc }: { desc: string }) => {
-  return <h1 className="text-[1vw] font-medium text-zinc-600 mt-2">{desc}</h1>;
+  return (
+    <h1 className="lg:text-[1vw] leading-[1.5] text-sm font-medium text-zinc-600 mt-2">
+      {desc}
+    </h1>
+  );
 };
 const TrekkingInfo = () => {
   const [offset, setOffset] = useState(-40);
@@ -28,9 +36,9 @@ const TrekkingInfo = () => {
   }, []);
 
   return (
-    <main className="grid grid-cols-10 w-10/12 mx-auto ">
-      <div className="col-span-2">
-        <div className="h-fit sticky top-32">
+    <main className="grid lg:grid-cols-10 gap-y-6 md:w-10/12 w-11/12 mx-auto ">
+      <div className="lg:col-span-2 col-span-9 h-fit sticky lg:top-32 top-16 z-[50] bg-white py-4">
+        <div className=" lg:flex-col flex-row flex ">
           {trekkinginfodata.map((item, index) => (
             <ScrollLink
               key={index}
@@ -43,7 +51,7 @@ const TrekkingInfo = () => {
               className={`cursor-pointer w-full flex items-center gap-2 text-nowrap  text-secondary-500 hover:scale-105 duration-300  ]`}
             >
               <h2
-                className={`w-full   px-6 py-5  text-left pl-2 hover:bg-zinc-100 ease-in-out duration-200 md:text-sm text-xs font-medium  `}
+                className={`w-full   md:px-6 px-4 md:py-5 py-3  text-left pl-2 hover:bg-zinc-100 ease-in-out duration-200 md:text-sm text-xs font-medium  `}
               >
                 {" "}
                 {item.title}
@@ -52,7 +60,8 @@ const TrekkingInfo = () => {
           ))}
         </div>
       </div>
-      <div className="col-span-8 space-y-10">
+      
+      <div className="lg:col-span-8 col-span-9 space-y-10">
         <Element
           id="trek-guide"
           name="trek-guide"

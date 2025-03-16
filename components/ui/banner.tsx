@@ -23,7 +23,7 @@ const Banner = ({ img, title, className }: bannerprops) => {
         height={1000}
         src="/pattern.png"
         alt="expedition-image"
-        className=" absolute bottom-0 w-full h-20"
+        className=" absolute bottom-0 w-full h-20 z-[4]"
       />
       {/* dot overlay */}
       <div className="absolute top-0  h-full w-full bg-[radial-gradient(#ffffff23_1px,#f3f3f311_1px)] bg-[size:4px_4px] z-[2]" />

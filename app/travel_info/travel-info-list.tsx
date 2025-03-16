@@ -2,15 +2,15 @@ import React from "react";
 
 const TravelInfoList = () => {
   return (
-    <div className="space-y-12 w-10/12 mx-auto my-16">
+    <div className="space-y-12 md:w-10/12 w-11/12 mx-auto md:my-16 my-8">
       {travelInfo.map((item, index) => (
         <div key={index}>
-          <h1 className="font-bold text-[1.5vw] mb-2">
+          <h1 className="font-bold lg:text-[1.5vw] text-xl mb-2">
             {" "}
             <span>{index + 1} .</span>
             {item.title}
           </h1>
-          <p className="font-medium text-md text-zinc-800">
+          <p className="font-medium md:text-base text-sm text-zinc-800">
             {item.description}
           </p>
         </div>

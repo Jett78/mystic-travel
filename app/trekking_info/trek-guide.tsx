@@ -4,7 +4,7 @@ import React from "react";
 
 const TrekGuide = () => {
   return (
-    <div className="grid grid-cols-3 gap-8 my-8">
+    <div className="grid lg:grid-cols-3 grid-cols-2 gap-8 my-8">
       {trekguidedata.map((item, index) => (
         <div key={index}>
           <DirectionAwareHover imageUrl={item.img}>

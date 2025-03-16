@@ -3,17 +3,19 @@ import React from "react";
 
 const GeneralList = () => {
   return (
-    <div className="space-y-14 my-16">
+    <div className="space-y-14 md:my-16 my-8">
       {generallistinfo.map((item, index) => (
         <div
           key={index}
-          className={`grid grid-cols-2 items-center gap-10 w-10/12 mx-auto`}
+          className={`grid lg:grid-cols-2 grid-cols-1 items-center gap-10 md:w-10/12 w-11/12 mx-auto`}
         >
           <header className={`${index % 2 === 0 ? "order-0" : "order-1"}`}>
-            <h2 className="text-[2.5vw] font-bold mb-4">
+            <h2 className="lg:text-[2.5vw] leading-[1.1] text-xl font-bold mb-4">
               {item.title} <hr className="h-[3px] w-40 bg-primary-600" />
             </h2>
-            <p className="font-medium text-md text-zinc-700">{item.desc}</p>
+            <p className="font-medium md:text-base text-sm text-zinc-700">
+              {item.desc}
+            </p>
           </header>
 
           <figure>
@@ -22,7 +24,7 @@ const GeneralList = () => {
               alt="img"
               width={1000}
               height={1000}
-              className="rounded-md h-[60vh]  object-cover"
+              className="rounded-md max-h-[60vh]  object-cover"
             />
           </figure>
         </div>
