@@ -14,7 +14,7 @@ export default function AllExpHero({ distance }: any) {
   const { name, route } = data;
   return (
     <>
-      <div className="w-full h-[60vh] bg-zinc-200 relative  flex justify-center items-end">
+      <div className="w-full md:h-[60vh] h-[50vh] bg-zinc-200  overflow-hidden relative  flex justify-center items-center">
         <Image
           width={1000}
           height={1000}
@@ -27,10 +27,10 @@ export default function AllExpHero({ distance }: any) {
           height={1000}
           src="/pattern.png"
           alt="expedition-image"
-          className=" absolute bottom-0 w-full h-20"
+          className=" absolute bottom-0 w-full h-20 z-[2]"
         />
-        <div className="absolute inset-0 w-full h-80 bg-gradient-to-b from-black via-black/50 to-transparent" />
-        <h1 className="text-3xl md:text-6xl absolute left-1/2 -translate-x-1/2 top-1/2 -translae-y-1/2  tracking-wide  title font-bold text-white z-10">
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-black via-black/50 to-transparent" />
+        <h1 className="text-3xl whitespace-nowrap md:text-6xl absolute left-1/2 -translate-x-1/2 top-1/2 -translae-y-1/2  tracking-wide  title font-bold text-white z-10">
           Expedition - {route}
         </h1>
       </div>

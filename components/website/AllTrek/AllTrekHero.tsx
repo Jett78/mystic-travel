@@ -14,7 +14,7 @@ export default function AllTrekHero({ region }: any) {
   const { name } = data;
   return (
     <>
-      <div className="w-full h-[60vh] bg-zinc-200  overflow-hidden relative  flex justify-center items-center">
+      <div className="w-full md:h-[60vh] h-[50vh] bg-zinc-200  overflow-hidden relative  flex justify-center items-center">
         <Leaf />
         <Image
           width={1000}
@@ -28,11 +28,11 @@ export default function AllTrekHero({ region }: any) {
           height={1000}
           src="/pattern.png"
           alt="expedition-image"
-          className=" absolute bottom-0 w-full h-20"
+          className=" absolute bottom-0 w-full h-20 z-[2]"
         />
-        <div className="absolute inset-0 w-full h-80 bg-gradient-to-b from-black via-black/50 to-transparent" />
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-black via-black/50 to-transparent" />
 
-        <h1 className="text-3xl md:text-6xl absolute left-1/2 -translate-x-1/2 top-1/2 -translae-y-1/2 tracking-wide title font-bold text-secondary-50">
+        <h1 className="md:text-3xl text-2xl text-center lg:text-6xl absolute left-1/2 -translate-x-1/2 top-1/2 -translae-y-1/2 tracking-wide title font-bold text-secondary-50">
           {name}
         </h1>
       </div>
