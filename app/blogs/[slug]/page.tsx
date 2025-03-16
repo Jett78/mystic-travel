@@ -18,11 +18,11 @@ const BlogDetails = () => {
     blogItem;
 
   return (
-    <div className=" w-10/12 mx-auto py-24">
-      <h1 className="font-semibold text-[3vw] text-center font-palker tracking-wide mb-4">
+    <div className=" w-10/12 mx-auto md:py-24 py-20">
+      <h1 className="font-semibold lg:text-[3vw] text-2xl text-center font-palker tracking-wide mb-4">
         {title}
       </h1>
-      <div className="flex justify-between items-end">
+      <div className="flex flex-wrap justify-between items-center">
         <div className="flex items-center gap-2">
           <Image
             src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -44,11 +44,11 @@ const BlogDetails = () => {
           alt="blog-image"
           width={1000}
           height={1000}
-          className="w-full rounded-md h-[70vh] object-cover"
+          className="w-full rounded-md lg:h-[70vh] h-[40vh] object-cover"
         />
       </figure>
 
-      <div className="space-y-8 font-medium text-md text-zinc-800">
+      <div className="md:space-y-8 space-y-4 font-medium md:text-md text-sm text-zinc-800">
         <p>{description}</p>
         <p>{importance}</p>
         <p>{conclusion}</p>
