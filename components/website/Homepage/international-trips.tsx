@@ -5,12 +5,12 @@ import React from "react";
 
 const InternationalTrips = () => {
   return (
-    <div className="my-20">
+    <div className="md:my-20 my-10">
       {" "}
       <h1 className="text-3xl text-center title-exp  md:text-6xl mb-6 relative tracking-wide title font-bold  text-black">
         International Tours
       </h1>
-      <p className="w-[80%] mx-auto text-center">
+      <p className="md:w-[80%] text-sm md:text-base text-zinc-600 mx-auto text-center">
         Embark on unforgettable journeys across borders, exploring diverse
         cultures, iconic landmarks, and breathtaking landscapes. Whether you're
         seeking adventure, relaxation, or cultural enrichment, our curated
@@ -28,7 +28,7 @@ const InternationalTrips = () => {
                 className="absolute left-1/2 -translate-x-1/2 bottom-4 text-white z-10  p-3 flex flex-col gap-2 justify-end"
                 href={item?.path}
               >
-                <h1 className="text-center text-[3vw] tracking-wider font-palker   md:whitespace-nowrap md:truncate md:opacity-0 group-hover/article:opacity-100 group-focus-within/article:opacity-100 md:translate-y-2 group-hover/article:translate-y-0 group-focus-within/article:translate-y-0 transition duration-200 ease-[cubic-bezier(.5,.85,.25,1.8)] group-hover/article:delay-300 group-focus-within/article:delay-300">
+                <h1 className="text-center md:text-[3vw] text-lg leading-[1.1] tracking-wider font-palker   md:whitespace-nowrap md:truncate md:opacity-0 group-hover/article:opacity-100 group-focus-within/article:opacity-100 md:translate-y-2 group-hover/article:translate-y-0 group-focus-within/article:translate-y-0 transition duration-200 ease-[cubic-bezier(.5,.85,.25,1.8)] group-hover/article:delay-300 group-focus-within/article:delay-300">
                   {item?.title}
                 </h1>
                 <span className=" font-medium  md:whitespace-nowrap md:truncate md:opacity-0 group-hover/article:opacity-100 group-focus-within/article:opacity-100 md:translate-y-2 group-hover/article:translate-y-0 group-focus-within/article:translate-y-0 transition duration-200 ease-[cubic-bezier(.5,.85,.25,1.8)] group-hover/article:delay-500 group-focus-within/article:delay-500">
@@ -36,7 +36,7 @@ const InternationalTrips = () => {
                 </span>
               </Link>
               <Image
-                className="object-cover h-72 md:h-[420px]  w-full"
+                className="object-cover h-40 md:h-[420px]  w-full"
                 src={item?.url}
                 width="960"
                 height="480"

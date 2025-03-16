@@ -69,6 +69,13 @@ section {
   align-items: center;
 }
 
+.activemountaintrek {
+  background-color: #e5fefe;
+  color: #02ADED;
+  border-left: 4px solid #02ADED;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-left 0.2s ease-in-out;
+}
+
 body::-webkit-scrollbar {
   display: none;
 }

@@ -35,16 +35,16 @@ const NewHero = () => {
       <div className="absolute inset-0 top-0 bg-black bg-opacity-20 w-full h-screen" />
 
       <div className="absolute left-1/2 -translate-x-1/2 top-1/3 -translate-y-1/2 space-y-4">
-        <div className="flex justify-center gap-4">
-          <button className="px-6 border py-1 rounded-full border-primary-600 bg-white text-black">
+        <div className="flex flex-wrap justify-center gap-4">
+          <button className="px-6 border py-1 md:text-base text-xs rounded-full border-primary-600 bg-white text-black">
             Expedition
           </button>
-          <button className="px-6 border py-1 text-sm rounded-full border-primary-600 text-white">
+          <button className="px-6 border py-1  md:text-base text-xs rounded-full border-primary-600 whitespace-nowrap text-white">
             Booking Available dates 2025-2026
           </button>
         </div>
 
-        <h1 className="font-bold text-[5vw] text-white whitespace-nowrap text-center tracking-wide font-palker">
+        <h1 className="font-bold lg:text-[5vw] my-4 leading-[2] md:text-4xl text-2xl text-white whitespace-nowrap text-center tracking-wide font-palker">
           {title}
         </h1>
 
@@ -57,34 +57,36 @@ const NewHero = () => {
       </div>
 
       {/* Image Thumbnail Navigation */}
-      <div className="grid grid-cols-5 gap-2 absolute bottom-2">
-        {cards.map((item, index) => (
-          <div
-            key={index}
-            onClick={() => handleManualClick(index)}
-            className="cursor-pointer group"
-          >
-            <figure
-              className={`p-1 border rounded-xl border-dashed relative overflow-hidden ${
-                index === currentIndex ? "border-primary-600" : ""
-              }`}
+      <div className="grid md:grid-cols-5 grid-cols-3 gap-2 absolute bottom-2">
+        {cards
+          .slice(0, window.innerWidth < 769 ? 3 : cards.length)
+          .map((item, index) => (
+            <div
+              key={index}
+              onClick={() => handleManualClick(index)}
+              className="cursor-pointer group"
             >
-              <Image
-                src={item.img}
-                alt="card"
-                width={1000}
-                height={1000}
-                className="h-[20vh] object-cover rounded-xl group-hover:scale-110 ease-in-out duration-300"
-              />
+              <figure
+                className={`p-1 border rounded-xl border-dashed relative overflow-hidden ${
+                  index === currentIndex ? "border-primary-600" : ""
+                }`}
+              >
+                <Image
+                  src={item.img}
+                  alt="card"
+                  width={1000}
+                  height={1000}
+                  className="lg:h-[20vh] h-[25vh] object-cover rounded-xl group-hover:scale-110 ease-in-out duration-300"
+                />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
 
-              <h2 className="absolute top-1/2 -translate-y-1/2 whitespace-nowrap left-1/2 -translate-x-1/2 font-palker text-white tracking-wide text-[1.2vw]">
-                {item.title}
-              </h2>
-            </figure>
-          </div>
-        ))}
+                <h2 className="absolute top-1/2 -translate-y-1/2 md:whitespace-nowrap left-1/2 -translate-x-1/2 font-palker text-white tracking-wide md:text-[1.2vw] text-xs text-center">
+                  {item.title}
+                </h2>
+              </figure>
+            </div>
+          ))}
       </div>
     </main>
   );

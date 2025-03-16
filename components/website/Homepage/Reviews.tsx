@@ -79,7 +79,7 @@ function Reviews() {
             className="w-full h-full object-cover object-center"
           />
         </div>
-        <h1 className="text-3xl md:text-6xl relative tracking-wide title font-bold text-secondary-500">
+        <h1 className="text-2xl md:text-6xl relative text-center tracking-wide title font-bold text-secondary-500">
           TOP-RATED REVIEWS
         </h1>
         <div
@@ -120,7 +120,7 @@ function Reviews() {
                     ></Image>
                   </figure>
                   {/* review  */}
-                  <p className="text-secondary-400 text-center py-4">
+                  <p className="text-secondary-400 text-center md:text-base text-sm py-4">
                     {itemn.review}
                   </p>
 

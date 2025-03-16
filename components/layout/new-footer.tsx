@@ -28,7 +28,7 @@ const Footer = () => {
       </h1>
 
       {/* major links */}
-      <div className="grid grid-cols-5 gap-8 w-11/12 mx-auto border-t pt-8 relative z-[2]">
+      <div className="grid grid-cols-4 gap-8 w-11/12 mx-auto border-t pt-8 relative z-[2]">
         <div>
           <PageTitle title="About Us" />
           <p className="font-medium text-zinc-800 text-sm mb-6">
@@ -50,15 +50,15 @@ const Footer = () => {
         </div>
 
         <div>
-          <PageTitle title="Trekking Info" />
+          <PageTitle title="Useful Info" />
           <div className="space-y-2">
-            {trekkinginfo.map((item, index) => (
+            {usefulInfo.map((item, index) => (
               <div key={index}>
                 <Link
-                  href={item.path}
+                  href={item.href}
                   className="font-medium text-sm text-zinc-800 hover:ml-2 ease-in-out duration-300 hover:text-primary-600"
                 >
-                  {item.title}
+                  {item.name}
                 </Link>
               </div>
             ))}
@@ -68,21 +68,6 @@ const Footer = () => {
           <PageTitle title="Activities" />
           <div className="space-y-2">
             {activities.map((item, index) => (
-              <div key={index}>
-                <Link
-                  href={item.path}
-                  className="font-medium text-sm text-zinc-800 hover:ml-2 ease-in-out duration-300 hover:text-primary-600"
-                >
-                  {item.title}
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div>
-          <PageTitle title="Useful Links" />
-          <div className="space-y-2">
-            {usefullinks.map((item, index) => (
               <div key={index}>
                 <Link
                   href={item.path}
@@ -107,10 +92,23 @@ const Footer = () => {
               </div>
             ))}
           </div>
+
+          <div className="flex flex-col justify-center items-start space-y-6 pt-4">
+            <h1 className="font-palker tracking-wide text-[1.6vw] text-black">
+              We Accept
+            </h1>
+            <Image
+              src="https://mysticnepaladventure.com/wp-content/uploads/2024/12/payment.webp"
+              alt="affiliation"
+              width={200}
+              height={200}
+              className="h-10 w-40  object-contain"
+            />
+          </div>
         </div>
       </div>
 
-      <div className="flex gap-24 mt-16 relative z-[2] w-11/12 mx-auto">
+      <div className=" mt-14 relative z-[2] w-11/12 mx-auto">
         <div className="flex flex-col  justify-start  items-start space-y-6">
           <h1 className="font-palker tracking-wide text-[1.6vw] text-white">
             Our Affiliations
@@ -128,18 +126,6 @@ const Footer = () => {
               </div>
             ))}
           </div>
-        </div>
-
-
-        <div className="flex flex-col justify-center items-center space-y-6">
-          <h1 className="font-palker tracking-wide text-[1.6vw] text-white">We Accept</h1>
-          <Image
-            src="https://mysticnepaladventure.com/wp-content/uploads/2024/12/payment.webp"
-            alt="affiliation"
-            width={200}
-            height={200}
-            className="h-10 w-40  object-contain"
-          />
         </div>
       </div>
 
@@ -214,35 +200,10 @@ const activities = [
   },
 ];
 
-const usefullinks = [
-  {
-    title: "TIA",
-    path: "/",
-  },
-  {
-    title: "Nepal Visa Process",
-    path: "/",
-  },
-  {
-    title: "Ambassador Process",
-    path: "/",
-  },
-  {
-    title: "Time of visit",
-    path: "/",
-  },
-  {
-    title: "Contact Us",
-    path: "/",
-  },
-  {
-    title: "Book Now",
-    path: "/",
-  },
-  {
-    title: "Customize Trips",
-    path: "/",
-  },
+const usefulInfo = [
+  { name: "Visa Info", href: "/visa_info" },
+  { name: "Travel Info", href: "/travel_info" },
+  { name: "General Info", href: "/general_info" },
 ];
 
 const trekkinginfo = [

@@ -92,7 +92,7 @@ export default function RootLayout({
 
           <div>{children}</div>
 
-          <Footer />
+          {/* <Footer /> */}
         </>
         {/* )} */}
       </body>

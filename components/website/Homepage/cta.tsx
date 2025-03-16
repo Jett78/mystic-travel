@@ -17,10 +17,10 @@ const Cta = () => {
         <p className="text-zinc-200 mb-4">
           Contact Mystic Adventure for the best adventure of your life.
         </p>
-        <h2 className="font-palker uppercase text-[5vw] tracking-wide leading-[1.1]">
+        <h2 className="font-palker uppercase md:text-[5vw] text-4xl whitespace-nowrap tracking-wide leading-[1.1]">
           Find Your Trail,
         </h2>
-        <h2 className="font-palker uppercase text-[5vw] tracking-wide leading-[1.1]">
+        <h2 className="font-palker uppercase md:text-[5vw] text-4xl whitespace-nowrap tracking-wide leading-[1.1]">
           Start Your Journey!
         </h2>
 

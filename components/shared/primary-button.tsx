@@ -8,7 +8,7 @@ const PrimaryButton = ({ title, className }: buttonprops) => {
   return (
     <button
       className={cn(
-        "px-8 py-2 rounded-lg bg-primary-600 text-white font-semibold",
+        "md:px-8 px-6 py-2 rounded-lg bg-primary-600 text-white font-semibold md:text-base text-xs",
         className
       )}
     >

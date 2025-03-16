@@ -4,9 +4,9 @@ import React from "react";
 
 const WhyChoose = () => {
   return (
-    <main className="grid grid-cols-2 gap-x-8  py-16">
-      <div className="grid grid-cols-2 items-center gap-4">
-        <div className="grid gap-4 h-full w-full">
+    <main className="grid md:grid-cols-2 gap-y-8 gap-x-8  py-16">
+      <div className="md:order-1 order-2 grid grid-cols-2 items-center gap-4">
+        <div className=" grid gap-4 h-full w-full">
           {choosedata.slice(0, 2).map((item, index) => (
             <div key={index} className="relative">
               <Image
@@ -17,7 +17,7 @@ const WhyChoose = () => {
                 className="h-full object-cover rounded-md "
               />
               <div className="absolute inset-0 rounded-md bg-gradient-to-t from-black via-black/50 to-transparent w-full" />
-              <h2 className="absolute bottom-2 left-2 text-[1.4vw] text-white uppercase font-palker tracking-wide ">
+              <h2 className="absolute bottom-2 left-2 md:text-[1.4vw] text-xs text-white uppercase font-palker tracking-wide ">
                 {item.title}
               </h2>
             </div>
@@ -36,19 +36,19 @@ const WhyChoose = () => {
                   className="h-full object-cover rounded-md"
                 />
                 <div className="absolute inset-0 rounded-md  bg-gradient-to-t from-black via-black/50 to-transparent  w-full" />
-                <h2 className="absolute bottom-2 left-2 text-[1.4vw] text-white uppercase font-palker tracking-wide ">
+                <h2 className="absolute bottom-2 left-2 md:text-[1.4vw] text-xs text-white uppercase font-palker tracking-wide ">
                   {item.title}
                 </h2>
               </div>
             ))}
         </figure>
       </div>
-      <div className="grid grid-cols-3 items-center gap-4">
+      <div className="md:order-2 order-1 grid md:grid-cols-3 items-center gap-4">
         <header className="col-span-2">
-          <h1 className="text-[3.5vw] uppercase font-palker">
+          <h1 className="md:text-[3.5vw] text-3xl leading-[1.2] uppercase font-palker">
             Why <span className="text-primary-600">Choose</span>{" "}
           </h1>
-          <h1 className="text-[3.5vw] uppercase font-palker whitespace-nowrap">
+          <h1 className="md:text-[3.5vw] text-3xl uppercase font-palker whitespace-nowrap">
             Mystic Adventure{" "}
           </h1>
 
@@ -74,7 +74,7 @@ const WhyChoose = () => {
           <PrimaryButton title="About Us" />
         </header>
 
-        <figure>
+        <figure className="md:block hidden">
           {choosedata
             .filter((_, index) => index === 3)
             .map((item, index) => (

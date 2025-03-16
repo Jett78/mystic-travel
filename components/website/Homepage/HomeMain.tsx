@@ -57,9 +57,7 @@ function HomeMain({}: any) {
           <div className="md:w-10/12 w-11/12 mx-auto">
             <WhyChoose />
           </div>
-          {/* <div className="md:w-10/12 w-11/12 mx-auto">
-            <Services />
-          </div> */}
+
           <div className="w-full mx-auto">
             <PopularExpedition />
           </div>
@@ -70,9 +68,7 @@ function HomeMain({}: any) {
           <div className="md:w-10/12 w-11/12 mx-auto">
             <Faq />
           </div>
-          {/* <div className="w-full mx-auto">
-            <Banner />
-          </div> */}
+
           <Cta />
           <div className="md:w-10/12 w-11/12 mx-auto">
             <Reviews />

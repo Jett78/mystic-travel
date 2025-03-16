@@ -2,58 +2,69 @@
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { Icon } from "@iconify/react";
-import Ham from "@/public/hamburger.png";
 import Logo from "@/public/logo/logo-straight.svg";
 import Image from "next/image";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-
 import { usePathname } from "next/navigation";
 import PrimaryButton from "./shared/primary-button";
 
 type Props = {};
 
-const sideNavLinks = [
-  { title: "Home", href: "" },
-  { title: "Trekking", href: "" },
-  { title: "Expedition", href: "" },
-  { title: "Other activities", href: "" },
-  { title: "Expeditions", href: "" },
-  { title: "Blogs", href: "" },
-  { title: "Contact us", href: "" },
-];
-
 function Navbar({}: Props) {
   const currentRoute = usePathname();
   const navContainerRef = useRef(null);
   const [scrolled, setScrolled] = useState(false);
-  const sideNavRef = useRef(null);
-  const [sideNav, setSideNav] = useState(false);
-  const [sideLinks, setSideLinks] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenDestinations, setIsOpenDestinations] = useState(false);
+  const [isOpenInfo, setIsOpenInfo] = useState(false);
+  const [isOpenExpeditions, setIsOpenExpeditions] = useState(false);
+  const [isOpenTrekking, setIsOpenTrekking] = useState(false);
+  const [isRotatedDestinations, setIsRotatedDestinations] = useState(false);
+  const [isUsefulInfo, setIsUsefulInfo] = useState(false);
+  const [isRotatedTrekking, setIsRotatedTrekking] = useState(false);
+  const [isRotatedExpeditions, setIsRotatedExpeditions] = useState(false);
+  const [isRotatedAboutUs, setIsRotatedAboutUs] = useState(false);
+  const [isRotatedOtherActivities, setIsRotatedOtherActivities] =
+    useState(false);
 
-  const { contextSafe } = useGSAP();
-  const handleOpenNav = contextSafe(() => {
-    if (!sideNav) {
-      gsap.to(sideNavRef.current, { right: 0 });
-      gsap.to(".links", { opacity: 1, duration: 1 });
-      setSideNav(true);
-    }
-    if (sideNav) {
-      gsap.to(sideNavRef.current, { right: "-100%" });
-      gsap.to(".links", { opacity: 0, duration: 1 });
-      setSideNav(false);
-    }
-  });
+  const toggleDropdownDestinations = () => {
+    setIsOpenDestinations(!isOpenDestinations);
+    setIsRotatedDestinations(!isRotatedDestinations);
+    setIsOpenInfo(false);
+    setIsOpenExpeditions(false);
+    setIsOpenTrekking(false);
+    setIsUsefulInfo(false);
+    setIsRotatedTrekking(false);
+    setIsRotatedExpeditions(false);
+  };
+  const toggleDropdownUsefulInfo = () => {
+    setIsOpenInfo(!isOpenInfo);
+    setIsUsefulInfo(!isUsefulInfo);
+    setIsOpenDestinations(false);
+    setIsOpenExpeditions(false);
+    setIsOpenTrekking(false);
+    setIsRotatedDestinations(false);
+    setIsRotatedTrekking(false);
+    setIsRotatedExpeditions(false);
+  };
 
-  const handleLink = (index: number) => {
-    if (!sideLinks) {
-      gsap.to(`openlinks-${index}`, { height: "20vh" });
-      setSideLinks(true);
-    }
-    if (sideLinks) {
-      gsap.to(`openlinks-${index}`, { height: "0vh" });
-      setSideLinks(false);
-    }
+  const toggleDropdownTrekking = () => {
+    setIsRotatedTrekking(!isRotatedTrekking);
+    setIsOpenInfo(false);
+    setIsOpenDestinations(false);
+    setIsOpenTrekking(false);
+    setIsUsefulInfo(false);
+    setIsRotatedDestinations(false);
+    setIsRotatedExpeditions(false);
+  };
+  const toggleDropdownExpeditions = () => {
+    setIsOpenTrekking(!isOpenTrekking);
+    setIsRotatedExpeditions(!isRotatedExpeditions);
+    setIsOpenInfo(false);
+    setIsOpenExpeditions(false);
+    setIsOpenDestinations(false);
+    setIsUsefulInfo(false);
+    setIsRotatedTrekking(false);
+    setIsRotatedDestinations(false);
   };
 
   useEffect(() => {
@@ -82,61 +93,7 @@ function Navbar({}: Props) {
         scrolled ? "bg-white shadow-sm" : "bg-transparent text-white"
       } ease-in-out duration-300 transition-all z-[900]  fixed w-full h-[4.5rem] `}
     >
-      {/* mobile nav  */}
-      <div
-        ref={sideNavRef}
-        className="absolute  md:hidden w-[100vw] flex justify-center items-center top-0 right-[-100%]  h-[100vh] mx-auto bg-secondary-50  py-2"
-      >
-        <div className="w-11/12 mx-auto  grid grid-cols-1  gap-5 place-content-center pt-[5rem] text-start h-full place-items-start  flex-col justify-center items-center">
-          {sideNavLinks.map((link, index) => (
-            <>
-              <Link
-                onClick={() => handleLink(index)}
-                key={index}
-                className="w-full"
-                href={link.href}
-              >
-                <div className="title  links text-lg border-b mb-1 opacity-0 font-medium tracking-wide w-full flex justify-between items-center">
-                  {link.title} <span></span> <span></span>
-                </div>
-                <div
-                  className={`w-full  openlinks-${index} bg-green-200 h-0`}
-                ></div>
-              </Link>
-            </>
-          ))}
-        </div>
-      </div>
-
-      <div className="w-11/12 md:hidden   relative  tracking-wide  mx-auto h-full flex  justify-between items-center gap-5">
-        {/* LOGO  */}
-        <Link href="/" className="cursor-pointer">
-          <Image
-            src={Logo}
-            alt="trek-nepal-logo"
-            className="w-[6rem] h-[3rem] object-fit object-center"
-          />
-          )
-        </Link>
-        <div onClick={handleOpenNav} className="">
-          {sideNav === false ? (
-            <Image
-              width={500}
-              height={500}
-              src={Ham}
-              alt="ham"
-              className="w-[2rem]  h-[1rem] object-fit object-center pr-1"
-            />
-          ) : (
-            <Icon
-              icon="material-symbols:close"
-              className="w-[2rem]  h-[2rem] object-fit object-center pr-1"
-            />
-          )}
-        </div>
-      </div>
-
-      <div className="w-10/12 tracking-wide  mx-auto h-full hidden md:flex justify-between items-center gap-5">
+      <div className="lg:w-10/12 w-11/12 tracking-wide  mx-auto h-full  flex justify-between items-center gap-5">
         <Link href="/" className="font-bold text-2xl  tracking-wide ">
           <Image
             src={Logo}
@@ -145,65 +102,11 @@ function Navbar({}: Props) {
           />
         </Link>
         {/*  nav links  */}
-        <div className="flex items-center  gap-6">
-          <div className="group relative ">
-            <div
-              className={` flex gap-1 justify-center items-center cursor-pointer hover:text-primary-600 ${
-                currentRoute.includes("/about_us")
-                  ? "text-primary-600 font-semibold  duration-[0.5]"
-                  : ""
-              }`}
-            >
-              <span className="text-[0.9vw] font-medium">About us</span>
-              <Icon
-                icon="gridicons:dropdown"
-                className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
-              />
-            </div>
-            <ul className="absolute hidden group-hover:block duration-[0.5] top-[100%] left-[50%] translate-x-[-50%] whitespace-nowrap  bg-white shadow p-5">
-              {aboutLinks.map((trek) => (
-                <li key={trek.href} className="py-1">
-                  <Link href={trek.href}>
-                    <div className="border-b border-primary-100 text-secondary-500 text-[13px] font-semibold hover:text-primary-600 cursor-pointer">
-                      {trek.name}
-                    </div>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="group relative ">
-            <div
-              className={` flex gap-1 justify-center items-center cursor-pointer hover:text-primary-600 ${
-                currentRoute.includes("/trek")
-                  ? "text-primary-600 font-semibold  duration-[0.5]"
-                  : ""
-              }`}
-            >
-              <span className="text-[0.9vw] font-medium">Useful info</span>
-              <Icon
-                icon="gridicons:dropdown"
-                className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
-              />
-            </div>
-            <ul className="absolute hidden group-hover:block duration-[0.5] top-[100%] left-[50%] translate-x-[-50%] whitespace-nowrap  bg-white shadow p-5">
-              {usefulInfo.map((info) => (
-                <li key={info.href} className="py-1">
-                  <Link href={info.href}>
-                    <div className="border-b border-primary-100 text-secondary-500 text-[13px] font-semibold hover:text-primary-600 cursor-pointer">
-                      {info.name}
-                    </div>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
+        <div className="lg:flex hidden items-center  gap-6">
           <div className="group relative">
             <div
               className={` flex gap-1 justify-center items-center cursor-pointer hover:text-primary-600 ${
-                currentRoute.includes("/trek")
+                currentRoute.includes("/destinations")
                   ? "text-primary-600 font-semibold  duration-[0.5]"
                   : ""
               }`}
@@ -230,7 +133,7 @@ function Navbar({}: Props) {
           <div className="group relative">
             <div
               className={` flex gap-1 justify-center items-center cursor-pointer hover:text-primary-600 ${
-                currentRoute.includes("/trek")
+                currentRoute.includes("/info")
                   ? "text-primary-600 font-semibold  duration-[0.5]"
                   : ""
               }`}
@@ -308,7 +211,59 @@ function Navbar({}: Props) {
               ))}
             </ul>
           </div>
+          <div className="group relative ">
+            <div
+              className={` flex gap-1 justify-center items-center cursor-pointer hover:text-primary-600 ${
+                currentRoute.includes("/about_us")
+                  ? "text-primary-600 font-semibold  duration-[0.5]"
+                  : ""
+              }`}
+            >
+              <span className="text-[0.9vw] font-medium">About us</span>
+              <Icon
+                icon="gridicons:dropdown"
+                className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
+              />
+            </div>
+            <ul className="absolute hidden group-hover:block duration-[0.5] top-[100%] left-[50%] translate-x-[-50%] whitespace-nowrap  bg-white shadow p-5">
+              {aboutLinks.map((trek) => (
+                <li key={trek.href} className="py-1">
+                  <Link href={trek.href}>
+                    <div className="border-b border-primary-100 text-secondary-500 text-[13px] font-semibold hover:text-primary-600 cursor-pointer">
+                      {trek.name}
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
+          <div className="group relative ">
+            <div
+              className={` flex gap-1 justify-center items-center cursor-pointer hover:text-primary-600 ${
+                currentRoute.includes("/trekking_info")
+                  ? "text-primary-600 font-semibold  duration-[0.5]"
+                  : ""
+              }`}
+            >
+              <span className="text-[0.9vw] font-medium">Useful info</span>
+              <Icon
+                icon="gridicons:dropdown"
+                className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
+              />
+            </div>
+            <ul className="absolute hidden group-hover:block duration-[0.5] top-[100%] left-[50%] translate-x-[-50%] whitespace-nowrap  bg-white shadow p-5">
+              {usefulInfo.map((info) => (
+                <li key={info.href} className="py-1">
+                  <Link href={info.href}>
+                    <div className="border-b border-primary-100 text-secondary-500 text-[13px] font-semibold hover:text-primary-600 cursor-pointer">
+                      {info.name}
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
           <Link href="/blogs" className="text-[0.9vw] font-medium">
             Blogs
           </Link>
@@ -324,6 +279,136 @@ function Navbar({}: Props) {
           >
             <PrimaryButton title="contact" />
           </Link>
+        </div>
+
+        <div className="lg:hidden block" onClick={() => setIsOpen(!isOpen)}>
+          <Icon icon="quill:hamburger" width="32" height="32" />
+        </div>
+
+        <div
+          className={`${
+            isOpen ? "translate-x-0" : "-translate-x-full"
+          } ease-in-out duration-500 h-screen fixed top-0 bg-white z-[2] p-4 left-0 w-full `}
+        >
+          <div className="flex justify-between">
+            <Image
+              src={Logo}
+              alt="logo"
+              width={1000}
+              height={1000}
+              className=" h-[5vh] w-fit object-fit object-center"
+            />
+            <div className="text-red-500" onClick={() => setIsOpen(!isOpen)}>
+              <Icon icon="iconoir:cancel" width="32" height="32" />
+            </div>
+          </div>
+
+          <nav className="text-black mt-8">
+            <div className="border-b  pb-2">
+              <div
+                className="flex justify-between items-center"
+                onClick={toggleDropdownDestinations}
+              >
+                <h2 className="cursor-pointer font-medium text-lg">
+                  Destinations
+                </h2>
+
+                <Icon
+                  icon="formkit:down"
+                  width="16"
+                  height="7"
+                  className={`h-8 w-8 transition-transform duration-500 ${
+                    isRotatedDestinations ? "rotate-180" : ""
+                  }`}
+                />
+              </div>
+              <div
+                className={`overflow-hidden transition-max-height duration-500 ease-in-out ${
+                  isOpenDestinations ? "max-h-96" : "max-h-0"
+                }`}
+              >
+                <div className="pl-4 mt-2 text-[16px] flex flex-col">
+                  {destinationsLinks.map((item, index) => {
+                    return (
+                      <Link href={item.href} key={index}>
+                        {item.name}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            <div className="border-b  pb-2">
+              <div
+                className="flex justify-between items-center"
+                onClick={toggleDropdownUsefulInfo}
+              >
+                <h2 className="cursor-pointer font-medium text-lg">
+                  Useful Info
+                </h2>
+
+                <Icon
+                  icon="formkit:down"
+                  width="16"
+                  height="7"
+                  className={`h-8 w-8 transition-transform duration-500 ${
+                    isUsefulInfo ? "rotate-180" : ""
+                  }`}
+                />
+              </div>
+              <div
+                className={`overflow-hidden transition-max-height duration-500 ease-in-out ${
+                  isOpenInfo ? "max-h-96" : "max-h-0"
+                }`}
+              >
+                <div className="pl-4 mt-2 text-[16px] flex flex-col">
+                  {usefulInfo.map((item, index) => {
+                    return (
+                      <Link href={item.href} key={index}>
+                        {item.name}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            <div className="border-b  pb-2">
+              <div
+                className="flex justify-between items-center"
+                onClick={toggleDropdownExpeditions}
+              >
+                <h2 className="cursor-pointer font-medium text-lg">
+                  Expeditions
+                </h2>
+
+                <Icon
+                  icon="formkit:down"
+                  width="16"
+                  height="7"
+                  className={`h-8 w-8 transition-transform duration-500 ${
+                    isRotatedExpeditions ? "rotate-180" : ""
+                  }`}
+                />
+              </div>
+              <div
+                className={`overflow-hidden transition-max-height duration-500 ease-in-out ${
+                  isOpenExpeditions ? "max-h-96" : "max-h-0"
+                }`}
+              >
+                <div className="pl-4 mt-2 text-[16px] flex flex-col">
+                  {treksLink.map((item, index) => {
+                    return (
+                      <Link href={item.href} key={index}>
+                        {item.name}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </nav>
         </div>
       </div>
     </div>
@@ -347,6 +432,7 @@ const usefulInfo = [
   { name: "Visa Info", href: "/visa_info" },
   { name: "Travel Info", href: "/travel_info" },
   { name: "General Info", href: "/general_info" },
+  { name: "Trekking Info", href: "/trekking_info" },
 ];
 const destinationsLinks = [
   { name: "Nepal", href: "/nepal/everest_region" },
