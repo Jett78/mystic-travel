@@ -12,38 +12,42 @@ function AcitvityDetail({ activity }: any) {
   const data: any = OtherActivitiesData.find((obj) => obj.route == activity);
   const { gallery, desc, name, route } = data;
   return (
-    <div className="w-11/12 md:w-10/12 mx-auto py-[5rem] text-zinc-50 overflow-hidden">
+    <div className="w-11/12 md:w-10/12 mx-auto md:py-[5rem] py-[3rem] text-zinc-50 ">
       {/* tab  */}
-      <div className="w-full py-1 overflow-x-scroll md:overflow-x-visible mb-9 flex justify-start  items-center gap-10">
-        {/* exp tab  */}
-        {OtherActivitiesData.map((item, index) => (
-          <Link
-            href={`/other_activities/${item.route}`}
-            key={index}
-            className={`${
-              item.route === route ? "bg-primary-600" : "bg-secondary-50"
-            } px-10 py-2  whitespace-nowrap shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] hover:scale-105 duration-300 cursor-pointer`}
-          >
-            <h1
-              className={`text-lg relative tracking-wide title font-medium    ${
-                item.route === route
-                  ? "text-secondary-50"
-                  : "text-secondary-500"
-              }`}
+      <div className="h-fit  top-16 z-[50] bg-white">
+        <div className="w-full py-1 overflow-x-scroll md:overflow-x-visible mb-9 flex justify-start  items-center md:gap-10 gap-4">
+          {/* exp tab  */}
+          {OtherActivitiesData.map((item, index) => (
+            <Link
+              href={`/other_activities/${item.route}`}
+              key={index}
+              className={`${
+                item.route === route ? "bg-primary-600" : "bg-secondary-50"
+              } md:px-10 px-4 py-2  whitespace-nowrap shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] hover:scale-105 duration-300 cursor-pointer`}
             >
-              {item.name}
-            </h1>
-          </Link>
-        ))}
+              <h1
+                className={`md:text-lg text-sm relative tracking-wide title font-medium    ${
+                  item.route === route
+                    ? "text-secondary-50"
+                    : "text-secondary-500"
+                }`}
+              >
+                {item.name}
+              </h1>
+            </Link>
+          ))}
+        </div>
       </div>
       {/* title  */}
       <div className="w-full flex flex-col gap-2">
         {/* TITLE  */}
-        <h1 className="text-2xl relative tracking-wide title font-semibold italic text-secondary-500">
+        <h1 className="text-2xl relative tracking-wide title font-semibold  text-secondary-500">
           {name}
         </h1>
         {/* DESC  */}
-        <p className="text-lg  text-secondary-400">{desc}</p>
+        <p className="md:text-lg text-sm font-medium  text-secondary-400">
+          {desc}
+        </p>
       </div>
 
       {/* gallery  */}
@@ -75,7 +79,7 @@ function AcitvityDetail({ activity }: any) {
 
       <Link href="/booking" className="flex justify-end items-center w-full">
         <div
-          className={`cursor-pointer  text-nowrap md:w-[20%] w-full mx-auto text-secondary-50 bg-gradient-to-r from-primary-600 to-primary-500   duration-200 flex justify-center items-center  px-5  h-[3rem] text-sm`}
+          className={`cursor-pointer  text-nowrap md:w-[20%] w-full mx-auto text-secondary-50 bg-primary-600 rounded-md   duration-200 flex justify-center items-center  px-5  h-[3rem] text-sm`}
         >
           Book now
         </div>

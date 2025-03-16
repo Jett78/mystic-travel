@@ -8,11 +8,11 @@ function RelatedActivities({ activity }: any) {
     <>
       <div className="w-11/12 md:w-10/12 pb-[5rem] mx-auto">
         {/* TITLE  */}
-        <h1 className="text-2xl relative tracking-wide title font-semibold italic text-secondary-500">
-          RELATED
+        <h1 className="text-2xl relative tracking-wide title font-semibold  text-secondary-500">
+          RELATED Activities
         </h1>
         {/* NAVIGATION  activities */}
-        <div className="w-full">
+        <div className="w-full mt-4">
           <div className="w-full overflow-x-scroll flex md:grid gap-3 grid-cols-4 md:place-content-center place-items-center">
             {RelatedActivitiesData.map((item) => (
               <div
