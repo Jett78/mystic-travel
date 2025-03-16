@@ -55,7 +55,7 @@ export default InternationalTrips;
 const items = [
   {
     id: "1",
-    path: "/nepal",
+    path: "/nepal/everest_region",
     url: "https://mysticnepaladventure.com/wp-content/uploads/2024/06/trekkinginnepal.jpg",
     title: "Nepal",
     description: "COO & Co-Founder",
@@ -64,7 +64,7 @@ const items = [
 
   {
     id: "2",
-    path: "/india",
+    path: "/india/city_tours",
 
     url: "https://mysticnepaladventure.com/wp-content/uploads/2024/06/india.jpg",
     title: "India",
@@ -73,7 +73,7 @@ const items = [
   },
   {
     id: "3",
-    path: "/bhutan",
+    path: "/bhutan/city_tours",
 
     url: "https://mysticnepaladventure.com/wp-content/uploads/2024/06/bhutan.jpg",
     title: "Bhutan",
