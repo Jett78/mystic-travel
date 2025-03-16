@@ -36,7 +36,7 @@ const TrekkingInfo = () => {
   }, []);
 
   return (
-    <main className="grid lg:grid-cols-10 gap-y-6 md:w-10/12 w-11/12 mx-auto ">
+    <main className="grid lg:grid-cols-10 gap-y-6 md:w-10/12 w-11/12 mx-auto my-10">
       <div className="lg:col-span-2 col-span-9 h-fit sticky lg:top-32 top-16 z-[50] bg-white py-4">
         <div className=" lg:flex-col flex-row flex ">
           {trekkinginfodata.map((item, index) => (

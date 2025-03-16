@@ -206,6 +206,7 @@ const usefulInfo = [
   { name: "Visa Info", href: "/visa_info" },
   { name: "Travel Info", href: "/travel_info" },
   { name: "General Info", href: "/general_info" },
+  { name: "Trekking Info", href: "/trekking_info" },
 ];
 
 const trekkinginfo = [
