@@ -12,41 +12,36 @@ type Props = {};
 export default function OurTeam({}: Props) {
   return (
     <div className="pb-[5rem] w-full">
-      <div className="w-full md:w-[70%] pb-[5rem] mx-auto flex flex-col gap-5">
-        <h1 className="text-3xl md:text-6xl text-center relative tracking-wide mt-10 title font-bold text-secondary-500">
-          MADE FOR CLIMBERS
-        </h1>
+      <div className="w-full  pb-[5rem] mx-auto flex flex-col gap-5">
         <div className="flex md:flex-row flex-col w-full gap-5">
           {/* left  */}
           <div className="w-full md:w-[50%] flex flex-col gap-2">
-            <span className="tex-lg text-secondary-400">Our team</span>
-            <span className="text-4xl font-medium uppercase">
+            <span className="md:text-4xl text-2xl font-medium uppercase">
               Creating the deltaboard has been our team
             </span>
           </div>
           {/* RIGHT  */}
           <div className="flex w-full md:w-[70%] flex-col gap-5">
             <div>
-              <span className="text-sm font-bold">title</span>
-              <p className="text-secondary-400">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. At modi
-                vitae ad illo dolore ipsum distinctio consequuntur quis natus
-                quidem. Lorem ipsum dolor sit amet, consectetur adipisicing
-                elit. Quasi dolores exercitationem perferendis magni? Ut quod
-                culpa, saepe magni laborum omnis ratione officia veniam sit
-                labore! Alias incidunt enim aut voluptatum!
+              <p className="text-secondary-400 md:text-base text-sm">
+                At Mystic Adventure, we are passionate about creating
+                unforgettable travel experiences. Our team is composed of
+                dedicated professionals with a deep love for exploration and a
+                commitment to delivering exceptional service. We believe that
+                the right team can make all the difference in turning your
+                travel dreams into reality.
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="grid w-full md:w-[90%] mx-auto md:gap-3 gap-10 grid-cols-1 md:grid-cols-3">
+      <div className="grid w-full  mx-auto md:gap-3 gap-10 grid-cols-1 md:grid-cols-3">
         {TeamData.map((teamMember, index) => (
           <div
             key={teamMember.id}
             className={`flex flex-col ${
-              index % 3 === 1 ? "md:mt-[20%]" : ""
+              index % 3 === 1 ? "md:mt-[20%] " : ""
             } gap-1`}
           >
             <div className="w-full justify-between flex px-2">
@@ -72,6 +67,80 @@ export default function OurTeam({}: Props) {
             </div>
           </div>
         ))}
+      </div>
+      <div className="mt-20">
+        <h2 className="text-center font-palker md:text-[3vw] text-3xl">
+          Trekking Guides
+        </h2>
+        <div className="grid w-full mt-10  mx-auto md:gap-3 gap-10 grid-cols-1 md:grid-cols-3">
+          {TeamData.slice(0, 3).map((teamMember, index) => (
+            <div
+              key={teamMember.id}
+              className={`flex flex-col ${
+                index % 3 === 1 ? "md:mt-[20%]" : ""
+              } gap-1`}
+            >
+              <div className="w-full justify-between flex px-2">
+                <span className="font-sm uppercase tracking-wide title">
+                  {teamMember.name}
+                </span>
+                <span className="text-[14px] italic   text-secondary-500">
+                  {teamMember.role}
+                </span>
+              </div>
+              <div className="relative group h-[50vh] cursor-pointer">
+                <div className="absolute md:group-hover:opacity-[0.5] duration-300  top-0  opacity-0 left-0 w-full h-[50vh] bg-black"></div>
+                <div className="absolute bottom-[5%] opacity-0  duration-300 md:group-hover:opacity-[1] left-0 w-full px-5 text-secondary-50">
+                  <p>{teamMember.desc}</p>
+                </div>
+                <Image
+                  width={1000}
+                  height={1000}
+                  src={teamMember.img}
+                  alt="banner-image"
+                  className="h-full w-full object-cover object-center"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="mt-20">
+        <h2 className="text-center font-palker md:text-[3vw] text-3xl">
+          Mountaineering Guides
+        </h2>
+        <div className="grid w-full mt-10  mx-auto md:gap-3 gap-10 grid-cols-1 md:grid-cols-3">
+          {TeamData.slice(0, 3).map((teamMember, index) => (
+            <div
+              key={teamMember.id}
+              className={`flex flex-col ${
+                index % 3 === 1 ? "md:mt-[20%]" : ""
+              } gap-1`}
+            >
+              <div className="w-full justify-between flex px-2">
+                <span className="font-sm uppercase tracking-wide title">
+                  {teamMember.name}
+                </span>
+                <span className="text-[14px] italic   text-secondary-500">
+                  {teamMember.role}
+                </span>
+              </div>
+              <div className="relative group h-[50vh] cursor-pointer">
+                <div className="absolute md:group-hover:opacity-[0.5] duration-300  top-0  opacity-0 left-0 w-full h-[50vh] bg-black"></div>
+                <div className="absolute bottom-[5%] opacity-0  duration-300 md:group-hover:opacity-[1] left-0 w-full px-5 text-secondary-50">
+                  <p>{teamMember.desc}</p>
+                </div>
+                <Image
+                  width={1000}
+                  height={1000}
+                  src={teamMember.img}
+                  alt="banner-image"
+                  className="h-full w-full object-cover object-center"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

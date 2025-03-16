@@ -47,13 +47,13 @@ function AboutUs({}: Props) {
   });
   return (
     <>
-      <div className="w-full my-20 grid grid-cols-2 gap-10">
+      <div className="w-full md:my-20 my-10 grid lg:grid-cols-2 gap-10">
         {/* about us  */}
-        <div className="w-full about-desc1  flex flex-col gap-2 items-start justify-center space-y-8 ">
-          <span className="text-secondary-500 text-lg font-medium font-palker text-[4vw] uppercase">
+        <div className="w-full about-desc1  flex flex-col gap-2 items-start justify-center md:space-y-8 space-y-4 ">
+          <span className="text-secondary-500 text-2xl font-medium font-palker md:text-[4vw] uppercase">
             Our Story
           </span>
-          <div className="space-y-4 text-secondary-400 text-md font-medium">
+          <div className="space-y-4 text-secondary-400 md:text-md text-sm font-medium">
             <p className="">
               Mystic Nepal Adventure (P.).Ltd is an independently owned and
               officially authorized full-service tour operator based in
@@ -82,7 +82,7 @@ function AboutUs({}: Props) {
         </div>
         {/* image  */}
         <Image
-          className="w-full object-cover about-desc1 object-center rounded-md h-[70vh]"
+          className="w-full object-cover about-desc1 object-center rounded-md max-h-[70vh]"
           width={1000}
           height={1000}
           alt="about-us-img"
@@ -96,7 +96,7 @@ function AboutUs({}: Props) {
           LET&apos;S GET TO <br /> KNOW EACH OTHER
         </h1>
         <div className="w-full flex justify-end">
-          <p className="w-full md:w-[60%] about-desc2 text-secondary-400">
+          <p className="w-full md:w-[60%] md:text-base font-medium text-sm about-desc2 text-secondary-400">
             {`From the side of Mystic Adventure, let's embark on a journey of connection
             and discovery together. We're passionate about understanding your
             interests, sharing insights, and exploring ideas with you. Whether
@@ -109,16 +109,16 @@ function AboutUs({}: Props) {
         </div>
       </div>
 
-      <div className="w-full  mx-auto grid grid-cols-3 gap-2  md:gap-10 pb-[5rem]">
+      <div className="w-full  mx-auto grid lg:grid-cols-3 gap-8  md:gap-10 pb-[5rem]">
         <div className="flex flex-col gap-3">
           {/* image  */}
-          <div className="w-full h-[70vh] p-3 bg-zinc-200   group cursor-pointer overflow-hidden hover:-rotate-[2deg] duration-500   relative  flex justify-center items-center">
+          <div className="w-full md:h-[70vh] h-[50vh] p-3 bg-zinc-200   group cursor-pointer overflow-hidden hover:-rotate-[2deg] duration-500   relative  flex justify-center items-center">
             <Image
               width={1000}
               height={1000}
               src="https://images.unsplash.com/photo-1517934274943-d1749ff2d7a8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="expedition-image"
-              className="absolute rounded-md top-0 left-0 group-hover:rotate-[2deg] group-hover:scale-110 duration-500  w-full h-full object-cover object-center"
+              className="rounded-lg absolute  top-0 left-0 group-hover:rotate-[2deg] group-hover:scale-110 duration-500  w-full h-full object-cover object-center"
             />
             <div className="absolute top-0 left-0 w-full h-full bg-black opacity-[0.5]"></div>
             {/* text  */}
@@ -127,7 +127,7 @@ function AboutUs({}: Props) {
                 icon="mdi:target-variant"
                 className="w-[2.5rem] h-[2.5rem] object-cover object-center absolute top-[2%] right-[2%] rotate-45 text-secondary-50"
               />
-              <span className="title text-3xl text-secondary-50 italic">
+              <span className="title text-3xl text-secondary-50 italic mb-4">
                 Our mission
               </span>
               <p className="text-secondary-50 text-sm">
@@ -146,7 +146,7 @@ function AboutUs({}: Props) {
         {/* image  */}
         <div className="flex flex-col gap-3">
           {/* image  */}
-          <div className="w-full h-[70vh] group cursor-pointer overflow-hidden hover:rotate-[2deg] duration-500 p-3 bg-zinc-200 relative  flex justify-center items-center">
+          <div className="w-full md:h-[70vh] h-[50vh] group cursor-pointer overflow-hidden hover:rotate-[2deg] duration-500 p-3 bg-zinc-200 relative  flex justify-center items-center">
             <Image
               width={1000}
               height={1000}
@@ -161,7 +161,7 @@ function AboutUs({}: Props) {
                 icon="tabler:device-vision-pro"
                 className="w-[2.5rem] h-[2.5rem] object-cover object-center absolute top-[2%] right-[2%] rotate-45 text-secondary-50"
               />
-              <span className="title text-3xl text-secondary-50 italic">
+              <span className="title text-3xl text-secondary-50 italic mb-4">
                 Our vision
               </span>
               <p className="text-secondary-50 text-sm">

@@ -41,15 +41,15 @@ export default function CertificatesMain({}: Props) {
   });
   return (
     <>
-      <div className="w-full ">
+      <div className="w-full overflow-hidden">
         <Banner
           title=" Our Proud Milestones"
-          className="text-[4vw]"
+          className="md:text-[4vw] text-2xl"
           img="https://images.unsplash.com/photo-1499540633125-484965b60031?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         />
       </div>
       <div
-        className="px-[15em] 
+        className="lg:px-[15em] px-4 
      py-[5rem] flex flex-col gap-10 justify-center items-center relative bg-white"
       >
         {CertificatesData.map((item, index) => {
@@ -75,12 +75,12 @@ export default function CertificatesMain({}: Props) {
                     isOddIndex ? "items-start" : "items-end"
                   } `}
                 >
-                  <span className="text-2xl md:text-4xl font-semibold title">
+                  <span className="text-xl md:text-4xl font-semibold title">
                     {item.name}
                   </span>
                   <hr className="bg-secondary-500 w-[7rem] rounded-[110%] h-[3px]" />
                 </div>
-                <p className="text-[13px  mt-[1rem] text-secondary-400 font-medium">
+                <p className="text-[13px]  mt-[1rem] text-secondary-400 font-medium">
                   {item.desc}
                 </p>
               </div>
