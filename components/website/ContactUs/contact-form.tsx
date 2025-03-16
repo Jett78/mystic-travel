@@ -8,10 +8,10 @@ import React from "react";
 
 const ContactForm = () => {
   return (
-    <main className="w-10/12 mx-auto grid grid-cols-2 gap-6 p-4 my-24">
+    <main className="md:w-10/12 w-11/12 mx-auto grid lg:grid-cols-2 grid-cols-1 gap-6 md:p-4 p-2 md:my-24 my-10">
       <div className="space-y-6 overflow-hidden">
-        <h2 className="font-palker text-[3vw] tracking-wide">Get in Touch</h2>
-        <p className="font-medium text-zinc-500">
+        <h2 className="font-palker lg:text-[3vw] text-2xl tracking-wide">Get in Touch</h2>
+        <p className="font-medium md:text-base text-sm text-zinc-500">
           We are an independently owned and officially authorized full-service
           tour operator based in Kathmandu, Nepal.
         </p>
@@ -22,7 +22,7 @@ const ContactForm = () => {
                 href={item.path}
                 className="font-medium text-sm text-zinc-800 hover:ml-2 ease-in-out duration-300 hover:text-primary-600"
               >
-                <Image src={item.img} alt="social" width={28} height={28} />
+                <Image src={item.img} alt="social" width={24} height={24} />
               </Link>
             </div>
           ))}
@@ -34,11 +34,11 @@ const ContactForm = () => {
           className="w-full h-full mx-auto rounded-lg shadow-md"
         ></iframe>
       </div>
-      <div className="space-y-6 bg-zinc-50 rounded-lg p-6">
-        <h2 className="font-palker text-[2vw] tracking-wide">
+      <div className="space-y-6 bg-zinc-50 rounded-lg md:p-6 p-2">
+        <h2 className="font-palker lg:text-[2vw] text-xl tracking-wide">
           Fill up the form
         </h2>
-        <p className="font-medium text-zinc-500">
+        <p className="font-medium md:text-base text-sm text-zinc-500">
           Your email address will not be published.Required fields are marked
         </p>
 
