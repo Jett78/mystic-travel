@@ -30,7 +30,7 @@ const Card = ({ item }: cardinterface) => {
       {/* desc */}
       <div className="flex w-full flex-col gap-2">
         {/* title */}
-        <span className="text-md title font-medium text-[1.4vw] tracking-wider">
+        <span className="text-md title font-medium md:text-[1.4vw] tracking-wider">
           {item.packageName}
         </span>
         {/* short intro */}
@@ -38,7 +38,7 @@ const Card = ({ item }: cardinterface) => {
           {item.packageDesc}
         </p>
         {/* short intro */}
-        <p className="text-sm md:hidden block font-medium text-secondary-400 line-clamp-2">
+        <p className="text-xs md:hidden block font-medium text-secondary-400 line-clamp-2 my-2">
           {item.packageDesc}
         </p>
 

@@ -20,7 +20,7 @@ const NepalPackages = () => {
   return (
     <main className="my-10">
       <div className="w-full pb-[5rem] px-1 flex flex-col gap-3">
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5">
           {packageItem.package?.map((item: any, index: number) => (
             <Card item={item} key={index} />
           ))}

@@ -22,12 +22,12 @@ export default function IndiaPackageLayout({
         }
         title={`India / ${activePackage?.title || "India"}`}
       />
-      <div className="w-10/12 mx-auto ">
-        <div className="flex z-[2] gap-6 sticky h-fit top-16 bg-white border-b py-6">
+      <div className="md:w-10/12 w-11/12 mx-auto ">
+        <div className="flex z-[2] overflow-x-auto gap-6 sticky h-fit top-16 bg-white border-b py-6">
           {indiapackages.map((item) => (
             <Link key={item.slug} href={`/india/${item.slug}`}>
               <button
-                className={`px-4 py-3 rounded-md border transition font-medium text-sm ${
+                className={`px-4 py-3 rounded-md border transition font-medium md:text-sm text-xs whitespace-nowrap ${
                   activeSlug === item.slug
                     ? "bg-primary-600 text-white"
                     : "hover:bg-gray-200"
