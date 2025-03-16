@@ -69,7 +69,7 @@ function Reviews() {
 
   return (
     <div className="w-full py-[3rem] flex flex-col gap-20 justify-center items-center relative">
-      <div className="w-10/12 mx-auto justify-between items-center flex">
+      <div className="md:w-10/12 w-11/12 mx-auto justify-between items-center flex">
         <div
           onClick={handlePrev}
           className="w-[2rem]  md:w-[2.5rem] h-[2rem] md:h-[2.5rem] hover:scale-105 duration-300 cursor-pointer overflow-hidden  text-secondary-700 hover:text-secondary-400"

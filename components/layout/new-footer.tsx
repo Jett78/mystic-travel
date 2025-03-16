@@ -5,7 +5,7 @@ import React from "react";
 
 const PageTitle = ({ title }: { title: string }) => {
   return (
-    <h2 className=" font-bold mb-8">
+    <h2 className=" font-bold md:mb-8 mb-4">
       {title}
       <hr className="h-[3px] w-8 bg-primary-600" />
     </h2>
@@ -28,7 +28,7 @@ const Footer = () => {
       </h1>
 
       {/* major links */}
-      <div className="grid grid-cols-4 gap-8 w-11/12 mx-auto border-t pt-8 relative z-[2]">
+      <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8 w-11/12 mx-auto border-t pt-8 relative z-[2]">
         <div>
           <PageTitle title="About Us" />
           <p className="font-medium text-zinc-800 text-sm mb-6">
@@ -94,7 +94,7 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col justify-center items-start space-y-6 pt-4">
-            <h1 className="font-palker tracking-wide text-[1.6vw] text-black">
+            <h1 className="font-palker tracking-wide lg:text-[1.6vw] text-xl text-black">
               We Accept
             </h1>
             <Image
@@ -108,9 +108,9 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className=" mt-14 relative z-[2] w-11/12 mx-auto">
+      <div className="mt-14  relative z-[2] w-11/12 mx-auto">
         <div className="flex flex-col  justify-start  items-start space-y-6">
-          <h1 className="font-palker tracking-wide text-[1.6vw] text-white">
+          <h1 className="font-palker tracking-wide lg:text-[1.6vw] text-xl text-white">
             Our Affiliations
           </h1>
           <div className="flex items-center justify-center gap-6">
@@ -121,7 +121,7 @@ const Footer = () => {
                   alt="affiliation"
                   width={200}
                   height={200}
-                  className="h-16 w-16 rounded-full object-cover"
+                  className="md:h-16 md:w-16 h-10 w-10 rounded-full object-cover"
                 />
               </div>
             ))}
@@ -129,8 +129,10 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="w-11/12 relative z-[2] mx-auto py-6 flex justify-between items-center font-medium text-white text-sm">
-        <p>© {date} Mystic Nepal Adventure. All rights reserved.</p>
+      <div className="w-11/12 relative z-[2] mx-auto py-6 flex flex-wrap gap-y-2 md:justify-between justify-center items-center font-medium text-white sm:text-sm text-xs">
+        <p className="whitespace-nowrap ">
+          © {date} Mystic Nepal Adventure. All rights reserved.
+        </p>
 
         <div className="flex items-center gap-2">
           <p>Designed and Developed by</p>
