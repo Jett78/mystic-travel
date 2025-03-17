@@ -37,7 +37,7 @@ function Reviews() {
         },
       },
       {
-        breakpoint: 769,
+        breakpoint: 825,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -93,12 +93,12 @@ function Reviews() {
         </div>
       </div>
       {/* CARDS  */}
-      <div className="w-11/12 md:w-11/12 mx-auto  flex  justify-center relative items-center p-2">
+      <div className="w-11/12 md:w-11/12 mx-auto  flex  justify-center relative items-center ">
         <div className="w-full">
           <Slider {...settings} ref={sliderRef}>
             {ReviewsData.map((itemn, index) => (
               <div key={index}>
-                <div className=" flex flex-col gap-3 border shadow-md rounded-md p-3 mx-2">
+                <div className=" flex flex-col gap-3 border shadow-md rounded-md p-2 mx-2">
                   <span className="flex text-primary-600 opacity-20">
                     <Icon
                       icon="mdi:comma"

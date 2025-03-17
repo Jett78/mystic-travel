@@ -35,10 +35,10 @@ function PackageDetailMain({}: Props) {
       {/* hero banner */}
       <PackageBanner />
 
-      <div className="md:py-[5rem] py-[2rem] w-11/12 md:w-10/12 flex flex-col md:flex-row justify-center relative items-start gap-3 mx-auto">
+      <div className="md:py-[5rem] py-[2rem] w-11/12 md:w-10/12 flex flex-col lg:flex-row justify-center relative items-start gap-3 mx-auto">
         {/* tab  link  */}
-        <div className="mx-auto  w-full bg-white z-[100] md:w-[15%] flex-col gap-2 backdrop-blur-sm sticky top-[4rem] overflow-x-scroll md:overflow-x-visible md:top-[7rem] left-0  flex  font-medium items-center">
-          <div className="w-full py-1 overflow-x-scroll md:overflow-x-visible flex md:flex-col gap-2 font-medium items-center">
+        <div className="mx-auto  w-full bg-white z-[100] lg:w-[15%] flex-col gap-2 backdrop-blur-sm sticky top-[4rem]  overflow-x-scroll md:overflow-x-visible md:top-[7rem] left-0  flex  font-medium items-center">
+          <div className="w-full py-1 overflow-x-scroll md:overflow-x-visible flex lg:flex-col gap-2 font-medium items-center">
             {buttonLabels.map((item, index) => (
               <ScrollLink
                 key={index}
@@ -71,7 +71,7 @@ function PackageDetailMain({}: Props) {
         </div>
 
         {/* sticky top detail  */}
-        <div className="w-full md:w-[85%] flex flex-col gap-2">
+        <div className="w-full lg:w-[85%] flex flex-col gap-2">
           <MajorTopInfo
             title="Everest Base Camp Trekking"
             item={importantdata}

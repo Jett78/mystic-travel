@@ -52,7 +52,7 @@ const BookForm = () => {
           <Payment handleClose={handleClose} />
         </div>
 
-        <div className="w-11/12 mx-auto md:w-10/12 py-[6rem]">
+        <div className="w-11/12 mx-auto md:w-10/12 py-[2rem]">
           <Link href="/package_detail" className="w-full flex justify-start">
             <div className="text-zinc-700 z-40 hover:scale-105 duration-300 hover:text-zinc-800 flex  justify-center items-center">
               <div className="overflow-hidden title flex justify-center items-center">
@@ -64,13 +64,11 @@ const BookForm = () => {
               <div className="font-medium">Back</div>
             </div>
           </Link>
-          <h1 className="text-3xl md:text-6xl mb-5 mt-5 text-center relative tracking-wide  title font-bold text-secondary-500 z-10">
-            Make your booking
-          </h1>
-          <div className=" bg-gray-100 flex items-center justify-center">
+
+          <div className="mt-2  flex items-center justify-center">
             <div className="container max-w-screen-lg mx-auto">
               <div>
-                <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+                <div className="border rounded shadow-lg p-4 px-4 md:p-8 mb-6">
                   <div className="grid gap-5 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
                     <div className="w-full flex flex-col gap-5">
                       <div className="text-gray-600">
@@ -204,7 +202,7 @@ const BookForm = () => {
                             <button
                               type="submit"
                               onClick={notify}
-                              className="w-full cursor-pointer py-3 px-10 bg-gradient-to-r from-primary-600 to-primary-500 text-sm font-medium text-secondary-50"
+                              className="w-full cursor-pointer py-3 px-10 bg-primary-600 rounded-md text-sm font-medium text-secondary-50"
                             >
                               Proceed
                             </button>

@@ -8,16 +8,18 @@ const WhyChoose = () => {
       <div className="md:order-1 order-2 grid grid-cols-2 items-center gap-4">
         <div className=" grid gap-4 h-full w-full">
           {choosedata.slice(0, 2).map((item, index) => (
-            <div key={index} className="relative">
-              <Image
-                src={item.img}
-                alt="dummy-img"
-                width={1000}
-                height={1000}
-                className="h-full object-cover rounded-md "
-              />
+            <div key={index} className="relative group">
+              <figure className="overflow-hidden rounded-md h-full">
+                <Image
+                  src={item.img}
+                  alt="dummy-img"
+                  width={1000}
+                  height={1000}
+                  className="h-full object-cover group-hover:scale-125 ease-in-out duration-200"
+                />
+              </figure>
               <div className="absolute inset-0 rounded-md bg-gradient-to-t from-black via-black/50 to-transparent w-full" />
-              <h2 className="absolute bottom-2 left-2 md:text-[1.2vw] text-xs text-white uppercase font-semibold uppercase tracking-wide ">
+              <h2 className="absolute bottom-2 left-2 lg:text-[1.2vw] text-xs text-white uppercase font-semibold  tracking-wide ">
                 {item.title}
               </h2>
             </div>
@@ -27,16 +29,18 @@ const WhyChoose = () => {
           {choosedata
             .filter((_, index) => index === 2)
             .map((item, index) => (
-              <div key={index} className="relative">
-                <Image
-                  src={item.img}
-                  alt="dummy-img"
-                  width={1000}
-                  height={1000}
-                  className="h-full object-cover rounded-md"
-                />
+              <div key={index} className="relative group">
+                <figure className="overflow-hidden rounded-md h-full">
+                  <Image
+                    src={item.img}
+                    alt="dummy-img"
+                    width={1000}
+                    height={1000}
+                    className="h-full object-cover group-hover:scale-125 ease-in-out duration-200"
+                  />
+                </figure>
                 <div className="absolute inset-0 rounded-md  bg-gradient-to-t from-black via-black/50 to-transparent  w-full" />
-                <h2 className="absolute bottom-2 left-2 md:text-[1.2vw] text-xs text-white uppercase font-semibold uppercase tracking-wide ">
+                <h2 className="absolute bottom-2 left-2 lg:text-[1.2vw] text-xs text-white uppercase font-semibold  tracking-wide ">
                   {item.title}
                 </h2>
               </div>
@@ -78,16 +82,18 @@ const WhyChoose = () => {
           {choosedata
             .filter((_, index) => index === 3)
             .map((item, index) => (
-              <div key={index} className="relative">
-                <Image
-                  src={item.img}
-                  alt="dummy-img"
-                  width={1000}
-                  height={1000}
-                  className="h-[20vh] object-cover rounded-md"
-                />
+              <div key={index} className="relative group">
+                <figure className="overflow-hidden rounded-md h-[20vh]">
+                  <Image
+                    src={item.img}
+                    alt="dummy-img"
+                    width={1000}
+                    height={1000}
+                    className="h-full object-cover  group-hover:scale-125 ease-in-out duration-200"
+                  />
+                </figure>
                 <div className="absolute inset-0 rounded-md bg-gradient-to-t from-black via-black/50 to-transparent w-full" />
-                <h2 className="absolute bottom-2 left-2 text-[1.1vw] text-white  font-semibold uppercase tracking-wide ">
+                <h2 className="absolute bottom-2 left-2 lg:text-[1.2vw] text-white  font-semibold uppercase tracking-wide ">
                   {item.title}
                 </h2>
               </div>

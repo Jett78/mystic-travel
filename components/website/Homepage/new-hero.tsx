@@ -47,7 +47,7 @@ const NewHero = () => {
           </button>
         </div>
 
-        <h1 className="font-bold lg:text-[5vw]  md:text-4xl text-2xl text-white whitespace-nowrap text-center tracking-wide font-palker">
+        <h1 className="font-bold lg:text-[5vw]  md:text-6xl text-2xl text-white whitespace-nowrap text-center tracking-wide font-palker">
           {title}
         </h1>
 
@@ -60,7 +60,7 @@ const NewHero = () => {
       </div>
 
       {/* Image Thumbnail Navigation */}
-      <div className="md:grid hidden md:grid-cols-5 grid-cols-3 gap-2 absolute z-[3] bottom-2">
+      <div className="lg:grid hidden md:grid-cols-5 grid-cols-3 gap-2 absolute z-[3] bottom-2">
         {cards.map((item, index) => (
           <div
             key={index}
@@ -90,7 +90,7 @@ const NewHero = () => {
         ))}
       </div>
 
-      <div className="md:hidden grid md:grid-cols-3 grid-cols-3 gap-2 absolute bottom-6 mx-4 z-[3]">
+      <div className="lg:hidden grid md:grid-cols-3 grid-cols-3 gap-2 absolute bottom-6 mx-4 z-[3]">
         {cards.slice(0, 3).map((item, index) => (
           <div
             key={index}
@@ -107,12 +107,12 @@ const NewHero = () => {
                 alt="card"
                 width={1000}
                 height={1000}
-                className="lg:h-[20vh] h-[15vh] object-cover rounded-xl group-hover:scale-110 ease-in-out duration-300"
+                className="md:h-[25vh] h-[15vh] object-cover rounded-xl group-hover:scale-110 ease-in-out duration-300"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
 
-              <h2 className="absolute top-1/2 -translate-y-1/2 md:whitespace-nowrap left-1/2 -translate-x-1/2 font-semibold text-white tracking-wide md:text-[1.2vw] text-xs text-center">
+              <h2 className="absolute top-1/2 -translate-y-1/2  left-1/2 -translate-x-1/2 font-semibold text-white tracking-wide md:text-xl text-xs text-center">
                 {item.title}
               </h2>
             </figure>

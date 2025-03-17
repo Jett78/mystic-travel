@@ -1,10 +1,10 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import React from "react";
 
 type cardprops = {
-  packageImg: string;
+  packageImg: string | StaticImageData;
   packageName: string;
   packageDesc: string;
   packageDay: string;
@@ -18,7 +18,7 @@ const Card = ({ item }: cardinterface) => {
   return (
     <div className="w-full rounded-md p-2 cursor-pointer group flex flex-col justify-start items-start gap-3 border hover:border-primary-600 hover:shadow-md">
       {/* img */}
-      <figure className="overflow-hidden w-full h-[35vh] rounded-md">
+      <figure className="overflow-hidden w-full max-h-[35vh] rounded-md">
         <Image
           width={1000}
           height={1000}
@@ -30,7 +30,7 @@ const Card = ({ item }: cardinterface) => {
       {/* desc */}
       <div className="flex w-full flex-col gap-2">
         {/* title */}
-        <span className="text-md title font-medium md:text-[1.4vw] tracking-wider">
+        <span className="text-md title font-medium lg:text-[1.4vw] tracking-wider">
           {item.packageName}
         </span>
         {/* short intro */}

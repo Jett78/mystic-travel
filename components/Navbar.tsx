@@ -16,6 +16,8 @@ function Navbar({}: Props) {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
+  const isBlogs = currentRoute.includes("/blogs");
+
   const [isOpenDestinations, setIsOpenDestinations] = useState(false);
   const [isOpenInfo, setIsOpenInfo] = useState(false);
   const [isOpenExpeditions, setIsOpenExpeditions] = useState(false);
@@ -311,7 +313,7 @@ function Navbar({}: Props) {
         <div
           className={`${
             isOpen ? "translate-x-0" : "-translate-x-full"
-          } ease-in-out duration-500 h-screen fixed top-0 bg-white z-[2] p-4 left-0 w-full `}
+          } ease-in-out duration-500 h-screen xl:hidden fixed top-0 bg-white z-[2] p-4 left-0 w-full `}
         >
           <div className="flex justify-between">
             <Image
@@ -319,15 +321,15 @@ function Navbar({}: Props) {
               alt="logo"
               width={1000}
               height={1000}
-              className=" h-[5vh] w-fit object-fit object-center"
+              className=" h-[4vh] w-fit object-fit object-center"
             />
             <div className="text-red-500" onClick={() => setIsOpen(!isOpen)}>
               <Icon icon="iconoir:cancel" width="32" height="32" />
             </div>
           </div>
 
-          <nav className="text-black mt-12 space-y-4">
-            <div className="border-b  pb-2">
+          <nav className="text-black md:mt-16 mt-12 md:space-y-6 space-y-2">
+            <div className="border-b  py-2">
               <div
                 className="flex justify-between items-center"
                 onClick={toggleDropdownDestinations}
@@ -362,7 +364,7 @@ function Navbar({}: Props) {
               </div>
             </div>
 
-            <div className="border-b  pb-2">
+            <div className="border-b  py-2">
               <div
                 className="flex justify-between items-center"
                 onClick={toggleDropdownUsefulInfo}
@@ -397,7 +399,7 @@ function Navbar({}: Props) {
               </div>
             </div>
 
-            <div className="border-b  pb-2">
+            <div className="border-b  py-2">
               <div
                 className="flex justify-between items-center"
                 onClick={toggleDropdownExpeditions}
@@ -432,7 +434,7 @@ function Navbar({}: Props) {
               </div>
             </div>
 
-            <div className="border-b  pb-2">
+            <div className="border-b  py-2">
               <div
                 className="flex justify-between items-center"
                 onClick={toggleDropdownTrekking}
@@ -467,7 +469,7 @@ function Navbar({}: Props) {
               </div>
             </div>
 
-            <div className="border-b  pb-2">
+            <div className="border-b  py-2">
               <div
                 className="flex justify-between items-center"
                 onClick={toggleDropdownAbout}
@@ -502,19 +504,34 @@ function Navbar({}: Props) {
               </div>
             </div>
 
-            <Link
-              href="/contact_us"
-              className={`group relative mt-4 ${
-                currentRoute.includes("/blogs")
-                  ? "text-primary-600   duration-[0.5]"
-                  : ""
-              }`}
-            >
-              <PrimaryButton
-                title="contact us"
-                className="px-12 py-2 text-md"
-              />
-            </Link>
+            <div className="border-b  py-2">
+              <Link
+                href="/blogs"
+                className={`cursor-pointer font-semibold text-md ${
+                  currentRoute.includes("/blogs")
+                    ? "text-primary-600   duration-[0.5]"
+                    : ""
+                }`}
+              >
+                Blogs
+              </Link>
+            </div>
+
+            <div>
+              <Link
+                href="/contact_us"
+                className={`group relative mt-4 ${
+                  currentRoute.includes("/blogs")
+                    ? "text-primary-600   duration-[0.5]"
+                    : ""
+                }`}
+              >
+                <PrimaryButton
+                  title="contact us"
+                  className="px-6 py-3 text-md"
+                />
+              </Link>
+            </div>
 
             {/* <Link href="/blogs" className="py-4  w-full ">
               <span className="border-b py-4 w-full h-8 cursor-pointer font-semibold text-md">

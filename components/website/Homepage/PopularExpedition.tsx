@@ -39,7 +39,7 @@ function PopularExpedition() {
         },
       },
       {
-        breakpoint: 769,
+        breakpoint: 825,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
