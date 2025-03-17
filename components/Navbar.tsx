@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { Icon } from "@iconify/react";
 import Logo from "@/public/logo/logo-straight.svg";
+import Logowhite from "@/public/logo/white-straight-logo.svg";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import PrimaryButton from "./shared/primary-button";
@@ -107,16 +108,24 @@ function Navbar({}: Props) {
         scrolled ? "bg-white shadow-sm" : "bg-transparent text-white"
       } ease-in-out duration-300 transition-all z-[900]  fixed w-full h-[4.5rem] `}
     >
-      <div className="lg:w-10/12 w-11/12 tracking-wide  mx-auto h-full  flex justify-between items-center gap-5">
+      <div className="2xl:w-10/12 w-11/12 tracking-wide  mx-auto h-full  flex justify-between items-center gap-5">
         <Link href="/" className="font-bold text-2xl  tracking-wide ">
-          <Image
-            src={Logo}
-            alt="trek-nepal-logo"
-            className=" h-[4vh] w-fit object-fit object-center"
-          />
+          {scrolled ? (
+            <Image
+              src={Logo}
+              alt="trek-nepal-logo"
+              className=" h-[4vh] w-fit object-fit object-center"
+            />
+          ) : (
+            <Image
+              src={Logowhite}
+              alt="trek-nepal-logo"
+              className=" h-[4vh] w-fit object-fit object-center"
+            />
+          )}
         </Link>
         {/*  nav links  */}
-        <div className="lg:flex hidden items-center  gap-6">
+        <div className="xl:flex hidden items-center  gap-6">
           <div className="group relative">
             <div
               className={` flex gap-1 justify-center items-center cursor-pointer hover:text-primary-600 ${
@@ -295,7 +304,7 @@ function Navbar({}: Props) {
           </Link>
         </div>
 
-        <div className="lg:hidden block" onClick={() => setIsOpen(!isOpen)}>
+        <div className="xl:hidden block" onClick={() => setIsOpen(!isOpen)}>
           <Icon icon="quill:hamburger" width="32" height="32" />
         </div>
 
@@ -317,7 +326,7 @@ function Navbar({}: Props) {
             </div>
           </div>
 
-          <nav className="text-black mt-8 space-y-4">
+          <nav className="text-black mt-12 space-y-4">
             <div className="border-b  pb-2">
               <div
                 className="flex justify-between items-center"
@@ -501,7 +510,10 @@ function Navbar({}: Props) {
                   : ""
               }`}
             >
-              <PrimaryButton title="contact us" className="px-12 py-2 text-md"/>
+              <PrimaryButton
+                title="contact us"
+                className="px-12 py-2 text-md"
+              />
             </Link>
 
             {/* <Link href="/blogs" className="py-4  w-full ">
