@@ -173,32 +173,24 @@ const affiliations = [
 
 const activities = [
   {
-    title: "Trekking",
-    path: "/",
-  },
-  {
-    title: "Hiking",
-    path: "/",
-  },
-  {
-    title: "Peak Climbing",
-    path: "/",
-  },
-  {
-    title: "Expeditions",
-    path: "/",
-  },
-  {
     title: "Rafting",
-    path: "/",
+    path: "/other_activities/rafting",
   },
   {
-    title: "Tours",
-    path: "/",
+    title: "Heli Tour",
+    path: "/other_activities/heli_tour",
   },
   {
-    title: "Adventure",
-    path: "/",
+    title: "Paragliding",
+    path: "/other_activities/paragliding",
+  },
+  {
+    title: "Mountain Biking",
+    path: "/other_activities/mountain_biking",
+  },
+  {
+    title: "Rock Climbing",
+    path: "/other_activities/rock_climbing",
   },
 ];
 

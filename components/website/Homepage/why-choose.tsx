@@ -75,7 +75,7 @@ const WhyChoose = () => {
             </p>
           </div>
 
-          <PrimaryButton title="About Us" />
+          <PrimaryButton title="About Us" path="/about_us" />
         </header>
 
         <figure className="md:block hidden mt-4">

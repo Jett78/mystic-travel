@@ -45,7 +45,7 @@ function AcitvityDetail({ activity }: any) {
           {name}
         </h1>
         {/* DESC  */}
-        <p className="md:text-lg text-sm font-medium  text-secondary-400">
+        <p className="md:text-base text-sm font-medium  text-secondary-400">
           {desc}
         </p>
       </div>

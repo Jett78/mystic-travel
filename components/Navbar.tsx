@@ -294,16 +294,8 @@ function Navbar({}: Props) {
           </Link>
 
           {/* CONTACT US  */}
-          <Link
-            href="/contact_us"
-            className={`group relative ${
-              currentRoute.includes("/blogs")
-                ? "text-primary-600   duration-[0.5]"
-                : ""
-            }`}
-          >
-            <PrimaryButton title="contact" />
-          </Link>
+
+          <PrimaryButton title="contact" path="/contact_us" />
         </div>
 
         <div className="xl:hidden block" onClick={() => setIsOpen(!isOpen)}>
@@ -518,27 +510,12 @@ function Navbar({}: Props) {
             </div>
 
             <div>
-              <Link
-                href="/contact_us"
-                className={`group relative mt-4 ${
-                  currentRoute.includes("/blogs")
-                    ? "text-primary-600   duration-[0.5]"
-                    : ""
-                }`}
-              >
-                <PrimaryButton
-                  title="contact us"
-                  className="px-6 py-3 text-md"
-                />
-              </Link>
+              <PrimaryButton
+                title="contact us"
+                path="/contact_us"
+                className="px-6 py-3 text-md"
+              />
             </div>
-
-            {/* <Link href="/blogs" className="py-4  w-full ">
-              <span className="border-b py-4 w-full h-8 cursor-pointer font-semibold text-md">
-                {" "}
-                Blogs
-              </span>
-            </Link> */}
           </nav>
         </div>
       </div>
