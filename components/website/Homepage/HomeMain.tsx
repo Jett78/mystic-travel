@@ -1,54 +1,12 @@
-"use client";
-import React, { useRef } from "react";
-
-import Banner from "./Banner";
 import PopularExpedition from "./PopularExpedition";
 import PopularTrekking from "./PopularTrekking";
 import Reviews from "./Reviews";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Faq from "./Faq";
 import NewHero from "./new-hero";
 import WhyChoose from "./why-choose";
 import InternationalTrips from "./international-trips";
 import Cta from "./cta";
-type Props = {};
-
-gsap.registerPlugin(ScrollTrigger);
-function HomeMain({}: any) {
-  useGSAP(() => {
-    const tl1 = gsap.timeline({
-      scrollTrigger: {
-        // markers: true,
-        start: "top top",
-        end: "top top",
-        trigger: ".hero-container",
-        scrub: 1,
-      },
-    });
-    tl1.from(".content-main", {
-      // translateY: "50vh",
-      duration: 2,
-      ease: "linear",
-    });
-
-    const herotl = gsap.timeline({
-      scrollTrigger: {
-        start: "top top",
-        // end: "top -100%",
-        // markers: true,
-        trigger: ".hero-container",
-        scrub: 0.5,
-      },
-    });
-
-    // herotl.to(".content-main", {
-    //   top: "-100vh",
-    // });
-  });
-
-  const navContainerRef = useRef<any>(null);
+function HomeMain() {
   return (
     <>
       <div className=" w-full overflow-hidden">

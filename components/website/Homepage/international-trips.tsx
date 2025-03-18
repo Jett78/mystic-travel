@@ -1,16 +1,49 @@
+"use client";
 import PrimaryButton from "@/components/shared/primary-button";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SplitType from "split-type";
 
+gsap.registerPlugin(ScrollTrigger);
 const InternationalTrips = () => {
+  const internationaltoursRef = useRef<HTMLDivElement>(null);
+  useGSAP(() => {
+    const headertext = new SplitType(".internationaltrips");
+    const headerdesc = new SplitType(".internationaltripsdesc");
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: internationaltoursRef.current,
+        start: "top 85%",
+        end: "20% 60%",
+        scrub: 1,
+        // markers: true,
+      },
+    });
+
+    tl.from(headertext.chars, {
+      duration: 0.5,
+      y: 20,
+      opacity: 0,
+      stagger: 0.2,
+    });
+    tl.from(headerdesc.chars, {
+      duration: 0.5,
+      opacity: 0.2,
+      stagger: 0.5,
+    });
+  });
   return (
-    <div className="md:my-20 my-10">
+    <div className="md:my-20 my-10" ref={internationaltoursRef}>
       {" "}
-      <h1 className="text-3xl text-center title-exp  md:text-6xl mb-6 relative tracking-wide title font-bold  text-black">
+      <h1 className="text-3xl text-center title-exp  md:text-6xl mb-6 relative tracking-wide title font-bold  text-black internationaltrips">
         International Tours
       </h1>
-      <p className="md:w-[80%] text-sm md:text-base text-zinc-600 mx-auto text-center">
+      <p className="md:w-[80%] text-sm md:text-base text-zinc-600 mx-auto text-center internationaltripsdesc">
         Embark on unforgettable journeys across borders, exploring diverse
         cultures, iconic landmarks, and breathtaking landscapes. Whether you're
         seeking adventure, relaxation, or cultural enrichment, our curated

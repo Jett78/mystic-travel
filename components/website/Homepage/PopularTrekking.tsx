@@ -2,18 +2,45 @@
 import Image from "next/image";
 import React, { useRef } from "react";
 import { Icon } from "@iconify/react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // import required modulesimport "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider, { Settings } from "react-slick";
-import { FreeMode, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-
 // data
 import TrekData from "@/data/TrekkingData";
 import Link from "next/link";
 
+gsap.registerPlugin(ScrollTrigger);
+
 function PopularTrekking() {
+  const trendingRef = useRef<HTMLDivElement>(null);
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: trendingRef.current,
+        start: "top 85%",
+        end: "60% 60%",
+        scrub: 1,
+        // markers: true,
+      },
+    });
+
+    tl.fromTo(
+      trendingRef.current,
+      {
+        clipPath: "inset(0 0 100% 0)",
+      },
+      {
+        clipPath: "inset(0 0 0% 0)",
+        duration: 1,
+        ease: "power2.inOut",
+      },
+      "<"
+    );
+  });
   const sliderRef = useRef<Slider>(null);
 
   const settings: Settings = {
@@ -74,7 +101,10 @@ function PopularTrekking() {
     }
   };
   return (
-    <div className="w-full h-screen flex justify-center items-center relative">
+    <div
+      className="w-full h-screen flex justify-center items-center relative"
+      ref={trendingRef}
+    >
       {/* image  */}
       <div className="w-full h-screen bg-parallex2 bg-fixed bg-cover   overflow-hidden absolute top-0 left-0 flex justify-center items-center">
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-[0.5]"></div>

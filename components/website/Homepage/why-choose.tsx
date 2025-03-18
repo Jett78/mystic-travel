@@ -1,12 +1,67 @@
+"use client";
 import PrimaryButton from "@/components/shared/primary-button";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
 const WhyChoose = () => {
+  const mainchooseRef = useRef<HTMLDivElement>(null);
+  const leftcontentRef = useRef<HTMLDivElement>(null);
+  const rightcontentRef = useRef<HTMLDivElement>(null);
+  const lastimageRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: mainchooseRef.current,
+        start: "10% bottom",
+        end: "center 40%",
+        scrub: 1,
+        // markers: true,
+      },
+    });
+
+    tl.from(leftcontentRef.current, {
+      x: -100,
+      opacity: 0,
+      duration: 1.5,
+    });
+    tl.from(
+      lastimageRef.current,
+      {
+        scale: 0,
+        opacity: 0,
+        duration: 1.5,
+      },
+      "<"
+    );
+
+    if (rightcontentRef.current) {
+      tl.fromTo(
+        Array.from(rightcontentRef.current.children),
+        {
+          opacity: 0,
+          scale: 0,
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1.5,
+          stagger: 0.5,
+        }
+      );
+    }
+  });
   return (
-    <main className="grid lg:grid-cols-2 gap-y-8 gap-x-8  py-16">
+    <main
+      className="grid lg:grid-cols-2 gap-y-8 gap-x-8  py-16"
+      ref={mainchooseRef}
+    >
       <div className="md:order-1 order-2 grid grid-cols-2 items-center gap-4">
-        <div className=" grid gap-4 h-full w-full">
+        <div className=" grid gap-4 h-full w-full" ref={rightcontentRef}>
           {choosedata.slice(0, 2).map((item, index) => (
             <div key={index} className="relative group">
               <figure className="overflow-hidden rounded-md h-full">
@@ -25,7 +80,8 @@ const WhyChoose = () => {
             </div>
           ))}
         </div>
-        <figure className="">
+
+        <figure className="" ref={lastimageRef}>
           {choosedata
             .filter((_, index) => index === 2)
             .map((item, index) => (
@@ -47,7 +103,8 @@ const WhyChoose = () => {
             ))}
         </figure>
       </div>
-      <div className=" items-center gap-4">
+
+      <div ref={leftcontentRef} className=" items-center gap-4">
         <header className="">
           <h1 className="md:text-[3.5vw] text-3xl leading-[2] uppercase font-palker">
             Why <span className="text-primary-600">Choose</span>{" "}

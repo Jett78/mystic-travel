@@ -7,8 +7,34 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider, { Settings } from "react-slick";
 import ExpData from "@/data/ExpeditionData";
 import Link from "next/link";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SplitType from "split-type";
 
+gsap.registerPlugin(ScrollTrigger);
 function PopularExpedition() {
+  const popularexpeditionsRef = useRef<HTMLDivElement>(null);
+  useGSAP(() => {
+    const headertext = new SplitType(".expedition");
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: popularexpeditionsRef.current,
+        start: "top 85%",
+        end: "20% 60%",
+        scrub: 1,
+        // markers: true,
+      },
+    });
+
+    tl.from(headertext.chars, {
+      duration: 0.5,
+      y: 20,
+      opacity: 0,
+      stagger: 0.2,
+    });
+  });
   const sliderRef = useRef<Slider>(null);
 
   const settings: Settings = {
@@ -70,7 +96,10 @@ function PopularExpedition() {
   };
 
   return (
-    <div className="w-full h-screen flex justify-center items-center relative ">
+    <div
+      className="w-full h-screen flex justify-center items-center relative "
+      ref={popularexpeditionsRef}
+    >
       {/* image  */}
       <div className="w-full h-screen bg-parallex1 bg-fixed bg-cover   overflow-hidden absolute top-0 left-0 flex justify-center items-center">
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-[0.5]" />
@@ -79,7 +108,7 @@ function PopularExpedition() {
 
       {/* CARDS  */}
       <div className="w-11/12 md:w-10/12  mx-auto   flex flex-col gap-5  justify-center relative items-center">
-        <h1 className="text-3xl  md:text-6xl mb-6 relative tracking-wide title font-bold  text-secondary-50">
+        <h1 className="text-3xl  md:text-6xl mb-6 relative tracking-wide title font-bold  text-secondary-50 expedition">
           TRENDING EXPEDITION
         </h1>
 

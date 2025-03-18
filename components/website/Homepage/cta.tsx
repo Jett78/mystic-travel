@@ -1,10 +1,40 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Cta = () => {
+  const ctaRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ctaRef.current,
+        start: "top 85%",
+        end: "20% 60%",
+        scrub: 1,
+        // markers: true,
+      },
+    });
+
+    tl.fromTo(
+      ctaRef.current,
+      {
+        clipPath: "inset(0 0 100% 0)",
+      },
+      {
+        clipPath: "inset(0 0 0% 0)",
+        duration: 1,
+        ease: "power2.inOut",
+      },
+      "<"
+    );
+  });
   return (
-    <main className="h-[75vh] relative">
+    <main className="h-[75vh] relative" ref={ctaRef}>
       <Image
         width={1000}
         height={1000}
@@ -17,10 +47,10 @@ const Cta = () => {
         <p className="text-zinc-200 mb-4">
           Contact Mystic Adventure for the best adventure of your life.
         </p>
-        <h2 className="font-palker uppercase md:text-[5vw] text-4xl whitespace-nowrap tracking-wide leading-[1.1]">
+        <h2 className=" font-palker uppercase md:text-[5vw] text-4xl whitespace-nowrap tracking-wide leading-[1.1] inline-block ">
           Find Your Trail,
         </h2>
-        <h2 className="font-palker uppercase md:text-[5vw] text-4xl whitespace-nowrap tracking-wide leading-[1.1]">
+        <h2 className=" font-palker uppercase md:text-[5vw] text-4xl whitespace-nowrap tracking-wide leading-[1.1] inline-block ">
           Start Your Journey!
         </h2>
 
