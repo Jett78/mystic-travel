@@ -4,7 +4,7 @@ import React from "react";
 
 const NotFound = () => {
   return (
-    <div className="h-screen fixed inset-0 z-[999]">
+    <div className="h-screen fixed inset-0 z-[50]">
       <Image
         src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt="404"
