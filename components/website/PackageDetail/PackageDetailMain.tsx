@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import PrimaryButton from "@/components/shared/primary-button";
-import { Link as ScrollLink, Element } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
 import RelatedPackages from "./related-packages";
 import PackageBanner from "./package-banner";
 import MajorTopInfo from "./major-top-info";
@@ -13,6 +13,8 @@ import PackageInclusion from "./package-inclusion";
 import PackageExclusion from "./package-exclusion";
 import PackageOverview from "./package-overview";
 import PackageGallery from "./package-gallery";
+import Navbar from "@/components/Navbar";
+import PackageReview from "./package-review";
 
 type Props = {};
 
@@ -32,12 +34,13 @@ function PackageDetailMain({}: Props) {
 
   return (
     <main>
+      <Navbar />
       {/* hero banner */}
       <PackageBanner />
 
-      <div className="md:py-[5rem] py-[2rem] w-11/12 md:w-10/12 flex flex-col lg:flex-row justify-center relative items-start gap-3 mx-auto">
+      <div className=" md:py-[5rem] py-[2rem] w-11/12 md:w-10/12 flex flex-col lg:flex-row justify-center relative items-start gap-3 mx-auto">
         {/* tab  link  */}
-        <div className="mx-auto  w-full bg-white z-[100] lg:w-[15%] flex-col gap-2 backdrop-blur-sm sticky top-[4rem]  overflow-x-scroll md:overflow-x-visible md:top-[7rem] left-0  flex  font-medium items-center">
+        <div className="mx-auto  w-full bg-white z-[100] lg:w-[20%] flex-col gap-2 backdrop-blur-sm sticky top-[4rem]  overflow-x-scroll md:overflow-x-visible md:top-[7rem] left-0  flex  font-medium items-center">
           <div className="w-full py-1 overflow-x-scroll md:overflow-x-visible flex lg:flex-col gap-2 font-medium items-center">
             {buttonLabels.map((item, index) => (
               <ScrollLink
@@ -48,7 +51,7 @@ function PackageDetailMain({}: Props) {
                 duration={500}
                 spy={true}
                 offset={offset}
-                className={`cursor-pointer w-full flex items-center lg:justify-start justify-center gap-2 text-nowrap  text-secondary-500 hover:scale-105 duration-300  md:px-4 py-3 text-sm ]`}
+                className={`cursor-pointer w-full flex items-center lg:justify-start justify-center gap-4 text-nowrap  text-secondary-500 hover:scale-105 duration-300  md:px-4 py-3 text-sm ]`}
               >
                 <Image
                   src={item.img}
@@ -57,21 +60,16 @@ function PackageDetailMain({}: Props) {
                   height={1000}
                   className="md:w-6 md:h-6 w-5 h-5 object-cover object-center"
                 />
-                <h2 className="lg:block hidden xl:text-sm lg:text-[10px] font-semibold">
-                  {" "}
+                <h2 className="lg:block hidden xl:text-sm lg:text-[10px] font-medium">
                   {item.label}
-                </h2>{" "}
+                </h2>
               </ScrollLink>
             ))}
           </div>
-
-          <Link href="/booking" className="w-full">
-            <PrimaryButton title="Book Now" className="py-3 w-full" />
-          </Link>
         </div>
 
         {/* sticky top detail  */}
-        <div className="w-full lg:w-[85%] flex flex-col gap-2">
+        <div className="w-full lg:w-[80%] flex flex-col gap-2">
           <MajorTopInfo
             title="Everest Base Camp Trekking"
             item={importantdata}
@@ -153,41 +151,62 @@ function PackageDetailMain({}: Props) {
             {/* fixed dates */}
             <div
               id="fixed-dates"
-              className="w-full mx-auto p-3 md:p-10   bg-primary-50/20 border rounded-md  "
+              className="w-full mx-auto p-3 md:p-10 bg-primary-50/20 border rounded-md"
             >
               <Title title="Fixed Date" />
               <div className="w-full h-full flex flex-col gap-2">
-                <div className="w-full  py-5  overflow-hidden   items-center flex flex-col justify-between px-3 md:px-10">
-                  {/* table  */}
-                  <table className="w-full">
-                    <tr className="border-b border-primary-400 h-[3rem] text-sm whitespace-nowrap md:text-base text-left">
-                      <th>Date</th>
-                      <th>Days</th>
-                      <th>Status</th>
-                      <th>Group Size</th>
-                    </tr>
-                    <tr className="border-b h-[10rem] md:h-20 border-primary-400 text-secondary-400 text-sm">
-                      <td>
-                        <div>
-                          <span className="font-semibold text-secondary-500">
-                            Start:{" "}
-                          </span>
-                          2024-09-01
-                        </div>
-                        <div>
-                          <span className="font-semibold text-secondary-500">
-                            End:{" "}
-                          </span>
-                          2024-09-07
-                        </div>
-                      </td>
-                      <td>45 days</td>
-                      <td>Booking Open</td>
-                      <td>2 - 16 PAX</td>
-                    </tr>
+                <div className="w-full py-5 overflow-x-auto px-3 lg:px-10">
+                  {/* Table */}
+                  <table className="w-full min-w-[600px] text-sm md:text-base border-collapse">
+                    <thead>
+                      <tr className="border-b border-primary-400 h-[3rem] whitespace-nowrap text-left">
+                        <th className="px-2 md:px-4">Date</th>
+                        <th className="px-2 md:px-4">Days</th>
+                        <th className="px-2 md:px-4">Status</th>
+                        <th className="px-2 md:px-4">Price</th>
+                        <th className="px-2 md:px-4 text-right">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b border-primary-400 text-secondary-400 text-sm align-top">
+                        <td className="px-2 md:px-4 py-4">
+                          <div className="whitespace-nowrap">
+                            <span className="font-semibold text-secondary-500">
+                              Start:{" "}
+                            </span>
+                            2024-09-01
+                          </div>
+                          <div>
+                            <span className="font-semibold text-secondary-500">
+                              End:{" "}
+                            </span>
+                            2024-09-07
+                          </div>
+                        </td>
+                        <td className="px-2 md:px-4 py-4 whitespace-nowrap">45 days</td>
+                        <td className="px-2 md:px-4 py-4 whitespace-nowrap">Booking Open</td>
+                        <td className="px-2 md:px-4 py-4">$499</td>
+                        <td className="px-2 md:px-4 py-4 flex items-center justify-end">
+                          <PrimaryButton
+                            title="Book Now"
+                            path="/booking"
+                            className="py-2 whitespace-nowrap w-fit text-sm"
+                          />
+                        </td>
+                      </tr>
+                    </tbody>
                   </table>
                 </div>
               </div>
+            </div>
+
+            {/* reviews */}
+            <div
+              id="reviews"
+              className="w-full mx-auto p-3 md:p-10   bg-primary-50/20 border rounded-md  "
+            >
+              <Title title="CLient Reviews" />
+              <PackageReview />
             </div>
           </div>
         </div>
@@ -251,6 +270,7 @@ const buttonLabels = [
   { id: 5, label: "Exclusions", img: "/infoicon/close.png" },
   { id: 6, label: "Gallery", img: "/infoicon/gallery.png" },
   { id: 7, label: "Fixed Dates", img: "/infoicon/calendar.png" },
+  { id: 8, label: "Reviews", img: "/infoicon/rating.png" },
 ];
 
 const ItineraryData = [
