@@ -15,6 +15,7 @@ import PackageOverview from "./package-overview";
 import PackageGallery from "./package-gallery";
 import Navbar from "@/components/Navbar";
 import PackageReview from "./package-review";
+import TripHighlights from "./package-trip-highlights";
 
 type Props = {};
 
@@ -40,7 +41,7 @@ function PackageDetailMain({}: Props) {
 
       <div className=" md:py-[5rem] py-[2rem] w-11/12 md:w-10/12 flex flex-col lg:flex-row justify-center relative items-start gap-3 mx-auto">
         {/* tab  link  */}
-        <div className="mx-auto  w-full bg-white z-[100] lg:w-[20%] flex-col gap-2 backdrop-blur-sm sticky top-[4rem]  overflow-x-scroll md:overflow-x-visible md:top-[7rem] left-0  flex  font-medium items-center">
+        <div className="mx-auto  w-full bg-white z-[100] lg:w-[20%] flex-col gap-2 backdrop-blur-sm sticky top-[4.4rem] lg:top-[7rem] overflow-x-scroll md:overflow-x-visible  left-0  flex  font-medium items-center">
           <div className="w-full py-1 overflow-x-scroll md:overflow-x-visible flex lg:flex-col gap-2 font-medium items-center">
             {buttonLabels.map((item, index) => (
               <ScrollLink
@@ -82,6 +83,19 @@ function PackageDetailMain({}: Props) {
           >
             <Title title="Overview" />
             <PackageOverview />
+          </div>
+
+          {/* highlights */}
+          <div
+            id="trip-attractions"
+            className="w-full mx-auto p-3 md:p-10 border rounded-md   bg-primary-50/20  "
+          >
+            <Title title="Trip Attractions" />
+            <div className="w-full h-full flex flex-col gap-2">
+              {attractions.map((item, index) => (
+                <TripHighlights key={index} index={index} item={item} />
+              ))}
+            </div>
           </div>
 
           {/* iternary  */}
@@ -183,8 +197,12 @@ function PackageDetailMain({}: Props) {
                             2024-09-07
                           </div>
                         </td>
-                        <td className="px-2 md:px-4 py-4 whitespace-nowrap">45 days</td>
-                        <td className="px-2 md:px-4 py-4 whitespace-nowrap">Booking Open</td>
+                        <td className="px-2 md:px-4 py-4 whitespace-nowrap">
+                          45 days
+                        </td>
+                        <td className="px-2 md:px-4 py-4 whitespace-nowrap">
+                          Booking Open
+                        </td>
                         <td className="px-2 md:px-4 py-4">$499</td>
                         <td className="px-2 md:px-4 py-4 flex items-center justify-end">
                           <PrimaryButton
@@ -264,13 +282,14 @@ const importantdata = [
 
 const buttonLabels = [
   { id: 1, label: "Overview", img: "/infoicon/eye.png" },
-  { id: 2, label: "Itinerary", img: "/infoicon/route.png" },
-  { id: 3, label: "Route map", img: "/infoicon/chart.png" },
-  { id: 4, label: "Inclusions", img: "/infoicon/greentick.png" },
-  { id: 5, label: "Exclusions", img: "/infoicon/close.png" },
-  { id: 6, label: "Gallery", img: "/infoicon/gallery.png" },
-  { id: 7, label: "Fixed Dates", img: "/infoicon/calendar.png" },
-  { id: 8, label: "Reviews", img: "/infoicon/rating.png" },
+  { id: 2, label: "Trip Attractions", img: "/infoicon/mountain.png" },
+  { id: 3, label: "Itinerary", img: "/infoicon/route.png" },
+  { id: 4, label: "Route map", img: "/infoicon/chart.png" },
+  { id: 5, label: "Inclusions", img: "/infoicon/greentick.png" },
+  { id: 6, label: "Exclusions", img: "/infoicon/close.png" },
+  { id: 7, label: "Gallery", img: "/infoicon/gallery.png" },
+  { id: 8, label: "Fixed Dates", img: "/infoicon/calendar.png" },
+  { id: 9, label: "Reviews", img: "/infoicon/rating.png" },
 ];
 
 const ItineraryData = [
@@ -528,6 +547,61 @@ const Inclusion = [
     title: "Certificate",
     description:
       "Mount Manaslu climbing certificate issued by MoCTCA after a successful climb.",
+  },
+];
+const attractions = [
+  {
+    id: 1,
+    title: "Arrival and Departure",
+    description:
+      "Private vehicle transportation from the airport to the hotel and back.",
+  },
+  {
+    id: 2,
+    title: "Kathmandu Hotel Accommodation",
+    description:
+      "Four nights in a 4-star hotel in Kathmandu, with a single room and a bed and breakfast package.",
+  },
+  {
+    id: 3,
+    title: "Greetings for Dinner",
+    description:
+      "A welcome dinner at a typical tourist restaurant in Kathmandu with the office staff.",
+  },
+  {
+    id: 4,
+    title: "Customs Clearance",
+    description:
+      "Support for cargo clearance at Nepalese Customs, with charges applicable for the clearance service.",
+  },
+  {
+    id: 5,
+    title: "Permits",
+    description:
+      "Royalty for mountaineering expeditions and a permit fee imposed by the Nepalese government for climbing Mount Manaslu, and accessing conservation area.",
+  },
+  {
+    id: 6,
+    title: "Representative Officer",
+    description:
+      "One government liaison officer provided with complete equipment, salary, and accommodation.",
+  },
+  {
+    id: 7,
+    title: "Waste Management",
+    description:
+      "Fees for the transfer of human waste shipments and depositing garbage.",
+  },
+  {
+    id: 8,
+    title: "Insurance",
+    description:
+      "Insurance coverage for medical expenses and emergency rescue services for all Nepalese staff involved in the trek and expedition.",
+  },
+  {
+    id: 9,
+    title: "Map",
+    description: "Map for Trekking and Climbing",
   },
 ];
 
