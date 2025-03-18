@@ -26,7 +26,7 @@ const InternationalTrips = () => {
             >
               <Link
                 className="absolute left-1/2 -translate-x-1/2 bottom-4 text-white z-10  p-3 flex flex-col gap-2 justify-end"
-                href={item?.path}
+                href={item.path}
               >
                 <h1 className="text-center md:text-[3vw] text-lg leading-[1.1] tracking-wider font-palker   md:whitespace-nowrap md:truncate md:opacity-0 group-hover/article:opacity-100 group-focus-within/article:opacity-100 md:translate-y-2 group-hover/article:translate-y-0 group-focus-within/article:translate-y-0 transition duration-200 ease-[cubic-bezier(.5,.85,.25,1.8)] group-hover/article:delay-300 group-focus-within/article:delay-300">
                   {item?.title}

@@ -10,7 +10,7 @@ const PackageBanner = () => {
         height={1000}
         src="https://images.unsplash.com/photo-1486525546686-3cd5484691f4?q=80&w=2031&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt="expedition-image"
-        className="w-full max-h-[70vh] object-cover brightness-50"
+        className="w-full max-h-[60vh] object-cover brightness-50"
       />
       <Image
         width={1000}
@@ -25,27 +25,6 @@ const PackageBanner = () => {
 
       {/* dot overlay */}
       <div className="absolute top-0  h-[110vh] w-full bg-[radial-gradient(#ffffff23_1px,#f3f3f311_1px)] bg-[size:4px_4px] z-[2]" />
-
-      {/* <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-[4]">
-        <h1 className="text-3xl md:text-[6vw] leading-[1.1]  tracking-wide  font-palker text-white uppercase whitespace-nowrap ">
-          Everest Base Camp Trekking
-        </h1>
-        <p className="text-center text-white/80 my-8">
-          The Everest Base Camp Trek is one of the most iconic and challenging
-          treks globally, offering breathtaking views of the Himalayas and an
-          immersive experience into Sherpa culture.
-        </p>
-
-        <div className="flex justify-center gap-4">
-          <PrimaryButton
-            title="Explore Date"
-            className="bg-transparent border"
-          />
-          <PrimaryButton title="Book Now" className="" />
-        </div>
-      </div> */}
-
-      
     </div>
   );
 };
