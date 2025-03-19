@@ -29,29 +29,41 @@ const WhyChoose = () => {
       opacity: 0,
       duration: 1.5,
     });
-    tl.from(
-      lastimageRef.current,
-      {
-        scale: 0,
-        opacity: 0,
-        duration: 1.5,
-      },
-      "<"
-    );
 
-    if (rightcontentRef.current) {
-      tl.fromTo(
-        Array.from(rightcontentRef.current.children),
-        {
-          opacity: 0,
-          scale: 0,
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 1.5,
-          stagger: 0.5,
-        }
+    if (rightcontentRef.current && lastimageRef.current) {
+      // Animate rightcontentRef children
+      tl.add(
+        gsap.fromTo(
+          Array.from(rightcontentRef.current.children),
+          {
+            opacity: 0,
+            scale: 0,
+          },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 1.5,
+            stagger: 0.5,
+          }
+        ),
+        0 // Start at the same time (0s)
+      );
+
+      tl.add(
+        gsap.fromTo(
+          Array.from(lastimageRef.current.children),
+          {
+            opacity: 0,
+            scale: 0,
+          },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 1.5,
+            stagger: 0.5,
+          }
+        ),
+        0 // Start at the same time (0s)
       );
     }
   });
@@ -81,26 +93,24 @@ const WhyChoose = () => {
           ))}
         </div>
 
-        <figure className="" ref={lastimageRef}>
-          {choosedata
-            .filter((_, index) => index === 2)
-            .map((item, index) => (
-              <div key={index} className="relative group">
-                <figure className="overflow-hidden rounded-md h-full">
-                  <Image
-                    src={item.img}
-                    alt="dummy-img"
-                    width={1000}
-                    height={1000}
-                    className="h-full object-cover group-hover:scale-125 ease-in-out duration-200"
-                  />
-                </figure>
-                <div className="absolute inset-0 rounded-md  bg-gradient-to-t from-black via-black/50 to-transparent  w-full" />
-                <h2 className="absolute bottom-2 left-2 lg:text-[1.2vw] text-xs text-white uppercase font-semibold  tracking-wide ">
-                  {item.title}
-                </h2>
-              </div>
-            ))}
+        <figure className="space-y-4 mt-4" ref={lastimageRef}>
+          {choosedata.slice(2, 4).map((item, index) => (
+            <div key={index} className="relative group">
+              <figure className="overflow-hidden rounded-md h-full">
+                <Image
+                  src={item.img}
+                  alt="dummy-img"
+                  width={1000}
+                  height={1000}
+                  className="h-full object-cover group-hover:scale-125 ease-in-out duration-200"
+                />
+              </figure>
+              <div className="absolute inset-0 rounded-md  bg-gradient-to-t from-black via-black/50 to-transparent  w-full" />
+              <h2 className="absolute bottom-2 left-2 lg:text-[1.2vw] text-xs text-white uppercase font-semibold  tracking-wide ">
+                {item.title}
+              </h2>
+            </div>
+          ))}
         </figure>
       </div>
 
@@ -134,28 +144,6 @@ const WhyChoose = () => {
 
           <PrimaryButton title="About Us" path="/about_us" />
         </header>
-
-        <figure className="md:block hidden mt-4">
-          {choosedata
-            .filter((_, index) => index === 3)
-            .map((item, index) => (
-              <div key={index} className="relative group">
-                <figure className="overflow-hidden rounded-md h-[20vh]">
-                  <Image
-                    src={item.img}
-                    alt="dummy-img"
-                    width={1000}
-                    height={1000}
-                    className="h-full object-cover  group-hover:scale-125 ease-in-out duration-200"
-                  />
-                </figure>
-                <div className="absolute inset-0 rounded-md bg-gradient-to-t from-black via-black/50 to-transparent w-full" />
-                <h2 className="absolute bottom-2 left-2 lg:text-[1.2vw] text-white  font-semibold uppercase tracking-wide ">
-                  {item.title}
-                </h2>
-              </div>
-            ))}
-        </figure>
       </div>
     </main>
   );
