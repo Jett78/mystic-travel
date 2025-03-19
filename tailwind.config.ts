@@ -53,6 +53,16 @@ const config: Config = {
         //   dark: "#1E40AF", // Darker shade
         // },
       },
+      keyframes: {
+        customPing: {
+          "0%": { transform: "scale(1)", opacity: "1" },
+          "50%": { transform: "scale(1.1)", opacity: "0.5" },
+          "100%": { transform: "scale(1.2)", opacity: "1" },
+        },
+      },
+      animation: {
+        customPing: "customPing 1.5s cubic-bezier(0, 0, 0.2, 1) infinite ",
+      },
 
       backgroundImage: {
         parallex1:
