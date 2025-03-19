@@ -2,139 +2,149 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider, { Settings } from "react-slick";
 
 const NewHero = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [bgImg, setBgImg] = useState(cards[0].img);
-  const [title, setTitle] = useState(cards[0].title);
+  const sliderRef = useRef<Slider>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => {
-        const newIndex = (prevIndex + 1) % cards.length;
-        setBgImg(cards[newIndex].img);
-        setTitle(cards[newIndex].title);
-        return newIndex;
-      });
-    }, 5000); // Change every 5 seconds
+  const settings: Settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    fade: true,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
+  };
 
-    return () => clearInterval(interval); // Cleanup on unmount
-  }, []);
+  const handleNext = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+    }
+  };
 
-  const handleManualClick = (index: number) => {
-    setCurrentIndex(index);
-    setBgImg(cards[index].img);
-    setTitle(cards[index].title);
+  const handlePrev = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickPrev();
+    }
+  };
+
+  const goToSlide = (index: number) => {
+    if (sliderRef.current) {
+      sliderRef.current.slickGoTo(index);
+    }
   };
 
   return (
-    <main
-      className="md:h-screen h-[100dvh] fixed  w-full bg-cover transition-all duration-1000 ease-in-out"
-      style={{ backgroundImage: `url(${bgImg})` }}
-    >
-      <div className="absolute top-0  h-full w-full bg-[radial-gradient(#ffffff23_1px,#f3f3f311_1px)] bg-[size:4px_4px] z-[2]" />
-
-      <div className="absolute top-0 bg-gradient-to-b from-black/80 via-black/50 to-transparent w-full h-40" />
-      <div className="absolute inset-0 top-0 bg-black bg-opacity-20 w-full h-screen" />
-
-      <div className="absolute left-1/2 -translate-x-1/2 top-1/3 -translate-y-1/2 md:space-y-10 space-y-4 z-[4]">
-        <div className="flex flex-wrap justify-center gap-4">
-          <button className="px-6 border py-1 md:text-base text-xs rounded-full border-primary-600 bg-white text-black">
-            Expedition
-          </button>
-          <button className="px-6 border py-1  md:text-base text-xs rounded-full border-primary-600 whitespace-nowrap text-white">
-            Booking Available dates 2025-2026
-          </button>
-        </div>
-
-        <h1 className="font-bold lg:text-[5vw]  md:text-6xl text-2xl text-white whitespace-nowrap text-center tracking-wide font-palker">
-          {title}
-        </h1>
-
-        <Link
-          href="/package_detail"
-          className="w-fit mx-auto justify-center relative flex items-center px-12 py-3 overflow-hidden md:text-lg text-xs font-medium bg-primary-600 text-white  rounded-xl hover:text-white group hover:bg-gray-50"
-        >
-          <span className="absolute left-0 block w-full h-0 transition-all bg-blue-500 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
-          <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              ></path>
-            </svg>
-          </span>
-          <span className="relative">Explore Now</span>
-        </Link>
-      </div>
-
-      {/* Image Thumbnail Navigation */}
-      <div className="lg:grid hidden md:grid-cols-5 grid-cols-3 gap-2 absolute z-[3] bottom-2">
+    <main className="md:h-screen h-[100dvh] fixed w-full">
+      <Slider {...settings} ref={sliderRef}>
         {cards.map((item, index) => (
-          <div
-            key={index}
-            onClick={() => handleManualClick(index)}
-            className="cursor-pointer group"
-          >
-            <figure
-              className={`p-1 border rounded-xl border-dashed relative overflow-hidden ${
-                index === currentIndex ? "border-primary-600" : ""
-              }`}
-            >
+          <div key={index} className="">
+            <figure>
               <Image
                 src={item.img}
                 alt="card"
                 width={1000}
                 height={1000}
-                className="lg:h-[28vh] h-[25vh] object-cover rounded-xl group-hover:scale-110 ease-in-out duration-300"
+                className="h-screen bg-cover w-full brightness-75"
               />
-
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-
-              <h2 className="absolute top-1/2 -translate-y-1/2 lg:whitespace-nowrap left-1/2 -translate-x-1/2 font-semibold text-white tracking-wide lg:text-[1.1vw] text-xs text-center">
-                {item.title}
-              </h2>
+              <div className="absolute top-0 bg-gradient-to-b from-black/80 via-black/50 to-transparent w-full h-40" />
+              <div className="absolute inset-0 top-0 bg-black bg-opacity-20 w-full h-screen" />
+              <div className="absolute top-0 h-full w-full bg-[radial-gradient(#ffffff23_1px,#f3f3f311_1px)] bg-[size:4px_4px]" />
             </figure>
+
+            <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-white space-y-6 z-[10]">
+              <h1 className="font-bold lg:text-[5.7vw] sm:text-6xl text-2xl whitespace-nowrap text-center tracking-wide font-palker">
+                {item.title}
+              </h1>
+              <p className="text-center md:text-sm text-xs w-full">
+                An Everest expedition is a challenging and awe-inspiring
+                adventure that takes climbers to the highest point on Earth,
+                Mount Everest, standing at 8,848 meters (29,029 feet). Here's an
+                overview of what this incredible journey entails:
+              </p>
+              <Link
+                href="/package_detail"
+                className="w-fit mx-auto justify-center relative z-[4] flex items-center px-12 py-3 overflow-hidden md:text-lg text-xs font-medium bg-primary-600 text-white rounded-xl hover:text-white group hover:bg-gray-50"
+              >
+                <span className="absolute left-0 block w-full h-0 transition-all bg-blue-500 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
+                <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    ></path>
+                  </svg>
+                </span>
+                <span className="relative">Explore Now</span>
+              </Link>
+            </div>
           </div>
         ))}
+      </Slider>
+
+      <div className="w-10/12 absolute flex items-center justify-between left-1/2 -translate-x-1/2 lg:bottom-[3vw] sm:bottom-[8vw] bottom-[20vw] text-white ">
+        {/* Numbered Pagination */}
+        <div>
+          <span className="md:text-[4vw] text-4xl font-palker">
+            {String(currentSlide + 1).padStart(2, "0")}
+          </span>
+          <span className="mx-2">/</span>
+          <span>{String(cards.length).padStart(2, "0")}</span>
+        </div>
+
+        {/* Arrows */}
+        <div className="flex items-center gap-4">
+          <div
+            className="border rounded-full aspect-square lg:p-6 p-4 cursor-pointer hover:scale-110 ease-in-out duration-300 hover:bg-white hover:text-black "
+            onClick={handlePrev}
+          >
+            <Icon icon="mynaui:arrow-left" className="md:text-3xl text-xl" />
+          </div>
+          <div
+            className="border rounded-full aspect-square lg:p-6 p-4 cursor-pointer  hover:scale-110 ease-in-out duration-300 hover:bg-white hover:text-black hover:animate-none animate-customPing"
+            onClick={handleNext}
+          >
+            <Icon icon="mynaui:arrow-right" className="md:text-3xl text-xl" />
+          </div>
+        </div>
       </div>
 
-      <div className="lg:hidden grid md:grid-cols-3 grid-cols-3 gap-2 absolute bottom-6 mx-4 z-[3]">
-        {cards.slice(0, 3).map((item, index) => (
-          <div
+      {/* Custom Pagination with Thumbnails */}
+      <div className="absolute bottom-[3vw] left-1/2 -translate-x-1/2 flex md:gap-4 gap-2 z-[10]">
+        {cards.map((item, index) => (
+          <button
             key={index}
-            onClick={() => handleManualClick(index)}
-            className="cursor-pointer group"
+            onClick={() => goToSlide(index)}
+            className={`relative md:w-12 md:h-12 w-8 h-8 rounded-full overflow-hidden transition-all duration-300 ${
+              currentSlide === index
+                ? "ring-2 ring-white scale-110"
+                : "opacity-70"
+            }`}
           >
-            <figure
-              className={`p-1 border rounded-xl border-dashed relative overflow-hidden ${
-                index === currentIndex ? "border-primary-600" : ""
-              }`}
-            >
-              <Image
-                src={item.img}
-                alt="card"
-                width={1000}
-                height={1000}
-                className="md:h-[25vh] h-[15vh] object-cover rounded-xl group-hover:scale-110 ease-in-out duration-300"
-              />
-
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-
-              <h2 className="absolute top-1/2 -translate-y-1/2  left-1/2 -translate-x-1/2 font-semibold text-white tracking-wide md:text-xl text-xs text-center">
-                {item.title}
-              </h2>
-            </figure>
-          </div>
+            <Image
+              src={item.img}
+              alt={`Thumbnail ${item.title}`}
+              layout="fill"
+              objectFit="cover"
+              className="brightness-75"
+            />
+          </button>
         ))}
       </div>
     </main>
