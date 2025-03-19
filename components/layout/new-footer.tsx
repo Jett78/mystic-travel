@@ -242,7 +242,11 @@ const contactdetails = [
     icon: <Icon icon="ion:location-outline" />,
   },
   {
-    title: "mnatours@hotmail.cominfo /@mysticnepaladventure.com",
+    title: "mnatours@hotmail.com",
+    icon: <Icon icon="mdi-light:email" />,
+  },
+  {
+    title: "info@mysticnepaladventure.com",
     icon: <Icon icon="mdi-light:email" />,
   },
 ];
