@@ -1,7 +1,14 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useRef } from "react";
+import SplitType from "split-type";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 
 const PageTitle = ({ title }: { title: string }) => {
   return (
@@ -13,9 +20,32 @@ const PageTitle = ({ title }: { title: string }) => {
 };
 
 const Footer = () => {
+  const footerRef = useRef<HTMLDivElement>(null);
+  useGSAP(() => {
+    const headertext = new SplitType(".footertitle");
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: footerRef.current,
+        start: "top 85%",
+        end: "20% 60%",
+        scrub: 1,
+        // markers: true,
+      },
+    });
+
+    tl.from(headertext.chars, {
+      duration: 0.5,
+      opacity: 0,
+      stagger: 0.2,
+    });
+  }, []);
   const date = new Date().getFullYear();
   return (
-    <footer className="bg-white  relative border-t-2 border-dashed">
+    <footer
+      className="bg-white  relative border-t-2 border-dashed"
+      ref={footerRef}
+    >
       <Image
         src="/footer.png"
         alt="footer-img"
@@ -23,7 +53,7 @@ const Footer = () => {
         height={1000}
         className="w-full h-[45vh] object-cover absolute bottom-0 z-[0]"
       />
-      <h1 className="font-palker uppercase text-[8vw] tracking-wider text-center">
+      <h1 className="footertitle font-palker uppercase text-[8vw] tracking-wider text-center">
         Mystic<span className="text-primary-600">Nepal</span>Adventure
       </h1>
 
