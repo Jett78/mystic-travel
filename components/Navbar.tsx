@@ -8,7 +8,14 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import PrimaryButton from "./shared/primary-button";
 import MobileNav from "./layout/mobile-nav";
-import { aboutLinks, activitiesLink, destinationsLinks, expeditionsLink, treksLink, usefulInfo } from "@/constants";
+import {
+  aboutLinks,
+  activitiesLink,
+  destinationsLinks,
+  expeditionsLink,
+  treksLink,
+  usefulInfo,
+} from "@/constants";
 
 type Props = {};
 
@@ -65,7 +72,7 @@ function Navbar({}: Props) {
           )}
         </Link>
         {/*  nav links  */}
-        <div className="xl:flex hidden items-center  gap-6">
+        <div className="xl:flex hidden items-center  gap-4">
           <div className="group relative">
             <div
               className={` flex gap-1 justify-center items-center cursor-pointer hover:text-primary-600 ${
@@ -233,7 +240,11 @@ function Navbar({}: Props) {
 
           {/* CONTACT US  */}
 
-          <PrimaryButton title="contact" path="/contact_us" />
+          <PrimaryButton
+            title="Contact us"
+            path="/contact_us"
+            className="md:px-4"
+          />
         </div>
 
         <div className="xl:hidden block" onClick={() => setIsOpen(!isOpen)}>
@@ -266,5 +277,3 @@ function Navbar({}: Props) {
 }
 
 export default Navbar;
-
-
