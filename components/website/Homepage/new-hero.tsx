@@ -20,6 +20,7 @@ const NewHero = () => {
     fade: true,
     arrows: false,
     autoplay: true,
+    pauseOnHover: false,
     autoplaySpeed: 3000,
     beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
   };
@@ -55,13 +56,13 @@ const NewHero = () => {
                 height={1000}
                 className="h-screen bg-cover w-full brightness-75"
               />
-              <div className="absolute top-0 bg-gradient-to-b from-black/80 via-black/50 to-transparent w-full h-40" />
-              <div className="absolute inset-0 top-0 bg-black bg-opacity-20 w-full h-screen" />
+              <div className="absolute top-0 bg-gradient-to-b from-black/80 via-black/50 to-transparent w-full h-52" />
+              <div className="absolute inset-0 top-0 bg-black bg-opacity-30 w-full h-screen" />
               <div className="absolute top-0 h-full w-full bg-[radial-gradient(#ffffff23_1px,#f3f3f311_1px)] bg-[size:4px_4px]" />
             </figure>
 
             <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-white space-y-6 z-[10]">
-              <h1 className="font-bold lg:text-[5.7vw] sm:text-6xl text-2xl whitespace-nowrap text-center tracking-wide font-palker">
+              <h1 className="font-bold lg:text-[5.7vw] sm:text-6xl xs:text-3xl text-2xl whitespace-nowrap text-center tracking-wide font-palker">
                 {item.title}
               </h1>
               <p className="text-center md:text-sm text-xs w-full">
@@ -156,22 +157,22 @@ export default NewHero;
 const cards = [
   {
     title: "Langtang Base Camp Trek",
-    img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    img: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     title: "Annapurna Base Camp Trek",
-    img: "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    img: "https://images.unsplash.com/photo-1584395631446-e41b0fc3f68d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     title: "Mardi Base Camp Trek",
-    img: "https://plus.unsplash.com/premium_photo-1672115681150-cce7a518bba1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    img: "https://images.unsplash.com/photo-1529556253689-cf147e0fb3d9?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     title: "Everest Base Camp Trek",
-    img: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    img: "https://images.unsplash.com/photo-1551932733-22b68c904545?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     title: "Dhaulagiri Base Camp Trek",
-    img: "https://images.unsplash.com/photo-1477346611705-65d1883cee1e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    img: "https://images.unsplash.com/photo-1592731057019-57ed336948ed?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
