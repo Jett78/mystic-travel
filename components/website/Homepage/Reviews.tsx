@@ -5,9 +5,57 @@ import { Icon } from "@iconify/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider, { Settings } from "react-slick";
+import SplitType from "split-type";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Reviews() {
+  const reviewRef = useRef<HTMLDivElement>(null);
+  const reviewcardsRef = useRef<HTMLDivElement>(null); // Ref for the slider container
   const sliderRef = useRef<Slider>(null);
+
+  useGSAP(() => {
+    // Animate the header text
+    const headertext = new SplitType(".reviews");
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: reviewRef.current,
+        start: "top 85%",
+        end: "60% 60%",
+        scrub: 1,
+        // markers: true,
+      },
+    });
+
+    tl.from(headertext.chars, {
+      duration: 0.5,
+      y: 20,
+      opacity: 0,
+      stagger: 0.2,
+    });
+
+    // Animate the review cards
+    if (reviewcardsRef.current) {
+      const cards = reviewcardsRef.current.querySelectorAll(".review-card"); // Target cards by class
+      tl.fromTo(
+        cards,
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 2,
+          stagger: 1,
+        },
+        "-=0.5" // Overlap with the header animation slightly
+      );
+    }
+  }, []); // Empty dependency array ensures this runs once on mount
 
   const settings: Settings = {
     dots: false,
@@ -17,8 +65,6 @@ function Reviews() {
     slidesToScroll: 1,
     arrows: false,
     autoplay: true,
-
-    // Responsive breakpoints
     responsive: [
       {
         breakpoint: 1440,
@@ -68,23 +114,26 @@ function Reviews() {
   };
 
   return (
-    <div className="w-full py-[3rem] flex flex-col gap-20 justify-center items-center relative">
+    <div
+      className="w-full py-[3rem] flex flex-col gap-20 justify-center items-center relative"
+      ref={reviewRef}
+    >
       <div className="md:w-10/12 w-11/12 mx-auto justify-between items-center flex">
         <div
           onClick={handlePrev}
-          className="w-[2rem]  md:w-[2.5rem] h-[2rem] md:h-[2.5rem] hover:scale-105 duration-300 cursor-pointer overflow-hidden  text-secondary-700 hover:text-secondary-400"
+          className="w-[2rem] md:w-[2.5rem] h-[2rem] md:h-[2.5rem] hover:scale-105 duration-300 cursor-pointer overflow-hidden text-secondary-700 hover:text-secondary-400"
         >
           <Icon
             icon="mynaui:fat-arrow-left"
             className="w-full h-full object-cover object-center"
           />
         </div>
-        <h1 className="text-2xl md:text-6xl relative text-center tracking-wide title font-bold text-secondary-500">
+        <h1 className="reviews text-2xl md:text-6xl relative text-center tracking-wide title font-bold text-secondary-500">
           TOP-RATED REVIEWS
         </h1>
         <div
           onClick={handleNext}
-          className="w-[2rem]  md:w-[2.5rem] h-[2rem] md:h-[2.5rem] hover:scale-105 duration-300 cursor-pointer overflow-hidden  text-secondary-700 hover:text-secondary-400"
+          className="w-[2rem] md:w-[2.5rem] h-[2rem] md:h-[2.5rem] hover:scale-105 duration-300 cursor-pointer overflow-hidden text-secondary-700 hover:text-secondary-400"
         >
           <Icon
             icon="mynaui:fat-arrow-right"
@@ -92,13 +141,14 @@ function Reviews() {
           />
         </div>
       </div>
-      {/* CARDS  */}
-      <div className="w-11/12 md:w-11/12 mx-auto  flex  justify-center relative items-center ">
-        <div className="w-full">
+
+      {/* CARDS */}
+      <div className="w-11/12 md:w-11/12 mx-auto flex justify-center relative items-center">
+        <div className="w-full" ref={reviewcardsRef}>
           <Slider {...settings} ref={sliderRef}>
             {ReviewsData.map((itemn, index) => (
               <div key={index}>
-                <div className=" flex flex-col gap-3 border  rounded-md p-2 mx-2">
+                <div className="review-card flex flex-col gap-3 border rounded-md p-2 mx-2">
                   <span className="flex text-primary-600 opacity-20">
                     <Icon
                       icon="mdi:comma"
@@ -110,26 +160,27 @@ function Reviews() {
                     />
                   </span>
 
-                  <figure className="w-[6rem]  h-[6rem] mx-auto rounded-full bg-zinc-700 overflow-hidden">
+                  <figure className="w-[6rem] h-[6rem] mx-auto rounded-full bg-zinc-700 overflow-hidden">
                     <Image
                       width={500}
                       height={500}
                       alt="client-img"
                       className="w-full h-full object-cover rounded-full object-top"
                       src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    ></Image>
+                    />
                   </figure>
-                  {/* review  */}
+
+                  {/* review */}
                   <p className="text-secondary-400 text-center lg:text-base text-sm py-4 md:h-40">
                     {itemn.review}
                   </p>
 
                   <div className="w-full flex flex-col">
-                    {/* name  */}
-                    <span className="title italic  tracking-wide">
+                    {/* name */}
+                    <span className="title italic tracking-wide">
                       {itemn.name}
                     </span>
-                    <div className="w-full flex  items-center justify-between">
+                    <div className="w-full flex items-center justify-between">
                       <span className="text-[14px] font-medium text-secondary-400">
                         Web Designer
                       </span>

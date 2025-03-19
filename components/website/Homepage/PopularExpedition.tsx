@@ -15,6 +15,7 @@ import SplitType from "split-type";
 gsap.registerPlugin(ScrollTrigger);
 function PopularExpedition() {
   const popularexpeditionsRef = useRef<HTMLDivElement>(null);
+  const expeditioncardRef = useRef<HTMLDivElement>(null);
   useGSAP(() => {
     const headertext = new SplitType(".expedition");
 
@@ -22,7 +23,7 @@ function PopularExpedition() {
       scrollTrigger: {
         trigger: popularexpeditionsRef.current,
         start: "top 85%",
-        end: "20% 60%",
+        end: "40% 60%",
         scrub: 1,
         // markers: true,
       },
@@ -34,7 +35,27 @@ function PopularExpedition() {
       opacity: 0,
       stagger: 0.2,
     });
+
+    // Animate the review cards
+    if (expeditioncardRef.current) {
+      const cards = expeditioncardRef.current.querySelectorAll(".review-card"); // Target cards by class
+      tl.fromTo(
+        cards,
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 2,
+          stagger: 1,
+        },
+        "-=0.5" // Overlap with the header animation slightly
+      );
+    }
   });
+
   const sliderRef = useRef<Slider>(null);
 
   const settings: Settings = {
@@ -112,11 +133,11 @@ function PopularExpedition() {
           TRENDING EXPEDITION
         </h1>
 
-        <div className="w-full">
+        <div className="w-full" ref={expeditioncardRef}>
           <Slider {...settings} ref={sliderRef}>
             {ExpData.map((item, index) => (
               <Link key={index} href="/package_detail">
-                <div className="bg-secondary-50 flex flex-col gap-3 h-auto p-2 mx-1">
+                <div className="review-card bg-secondary-50 flex flex-col gap-3 h-auto p-2 mx-1">
                   <div className="relative">
                     <div className="px-4 text-secondary-50 text-sm py-1 bg-primary-600 absolute top-[3%] left-[3%]">
                       $120

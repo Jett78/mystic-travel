@@ -12,34 +12,51 @@ import Slider, { Settings } from "react-slick";
 // data
 import TrekData from "@/data/TrekkingData";
 import Link from "next/link";
+import SplitType from "split-type";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function PopularTrekking() {
   const trendingRef = useRef<HTMLDivElement>(null);
+  const trekkingcardRef = useRef<HTMLDivElement>(null);
   useGSAP(() => {
+    const headertext = new SplitType(".trekking");
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: trendingRef.current,
         start: "top 85%",
-        end: "60% 60%",
+        end: "40% 60%",
         scrub: 1,
         // markers: true,
       },
     });
 
-    tl.fromTo(
-      trendingRef.current,
-      {
-        clipPath: "inset(0 0 100% 0)",
-      },
-      {
-        clipPath: "inset(0 0 0% 0)",
-        duration: 1,
-        ease: "power2.inOut",
-      },
-      "<"
-    );
+    tl.from(headertext.chars, {
+      duration: 0.5,
+      y: 20,
+      opacity: 0,
+      stagger: 0.2,
+    });
+
+    // Animate the review cards
+    if (trekkingcardRef.current) {
+      const cards = trekkingcardRef.current.querySelectorAll(".review-card"); // Target cards by class
+      tl.fromTo(
+        cards,
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 2,
+          stagger: 1,
+        },
+        "-=0.5" // Overlap with the header animation slightly
+      );
+    }
   });
   const sliderRef = useRef<Slider>(null);
 
@@ -112,15 +129,15 @@ function PopularTrekking() {
 
       {/* CARDS  */}
       <div className="w-11/12 md:w-10/12 mx-auto   flex flex-col gap-5  justify-center relative items-center">
-        <h1 className="text-3xl title-trek  md:text-6xl mb-6 relative tracking-wide title font-bold  text-secondary-50">
-          TRENDING TREKKING
+        <h1 className="trekking text-3xl title-trek  md:text-6xl mb-6 relative tracking-wide title font-bold  text-secondary-50">
+          Popular Trekking
         </h1>
 
-        <div className="w-full">
+        <div className="w-full" ref={trekkingcardRef}>
           <Slider {...settings} ref={sliderRef}>
             {TrekData.map((item, index) => (
               <Link key={index} href="/package_detail">
-                <div className="bg-secondary-50 mx-1 flex flex-col gap-3 h-auto max-h-[60vh] p-2">
+                <div className="review-card bg-secondary-50 mx-1 flex flex-col gap-3 h-auto max-h-[60vh] p-2">
                   <div className="relative">
                     <div className="px-4 text-secondary-50 z-10 text-sm py-1 text- bg-primary-600 absolute top-[3%] left-[3%]">
                       $120
