@@ -28,7 +28,7 @@ export default function Faq({}: Props) {
         start: "top 85%",
         end: "30% 60%",
         scrub: 1,
-        markers: true,
+        // markers: true,
       },
     });
 
