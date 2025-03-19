@@ -1,11 +1,12 @@
 "use client";
 import React, { useRef, useState } from "react";
 import { Icon } from "@iconify/react";
-import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import Link from "next/link";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
 
+gsap.registerPlugin(ScrollTrigger);
 type Props = {};
 
 export default function Faq({}: Props) {
@@ -16,75 +17,70 @@ export default function Faq({}: Props) {
   };
 
   const homeFaqRef = useRef(null);
+  const staggerfaqRef = useRef<HTMLDivElement>(null);
   useGSAP(() => {
-    // ANIMATION CODE
-    const textSplitFaq = new SplitType(".home-faq-title");
+    const headertext = new SplitType(".faqtitle");
+    const headerdesc = new SplitType(".faqdesc");
+
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: ".home-faq-title",
-        // markers: true,
-        start: "top 90%",
-        end: "50% 50%",
-        scrub: 2,
-      },
-    });
-    // Perform the animations
-    tl.from(
-      textSplitFaq.chars,
-      {
-        opacity: 0,
-        duration: 1.5,
-        stagger: 0.05,
-        ease: "sine.inOut",
-      },
-      "tl"
-    );
-
-    gsap.from(".home-faq-desc", {
-      opacity: 0,
-      duration: 1.5,
-      y: "100px",
-      ease: "sine.inOut",
-      scrollTrigger: {
-        trigger: ".home-faq-desc",
-        // markers: true,
-        start: "top 90%",
-        end: "50% 50%",
-        scrub: 2,
-      },
-    });
-
-    gsap.from(homeFaqRef.current, {
-      opacity: 0,
-      duration: 1.5,
-      y: "50px",
-      ease: "sine.inOut",
-      scrollTrigger: {
         trigger: homeFaqRef.current,
-        // markers: true,
-        start: "top 90%",
-        end: "50% 50%",
-        scrub: 2,
+        start: "top 85%",
+        end: "30% 60%",
+        scrub: 1,
+        markers: true,
       },
     });
+
+    tl.from(headertext.chars, {
+      duration: 0.5,
+      y: 20,
+      opacity: 0,
+      stagger: 0.2,
+    });
+    tl.from(headerdesc.chars, {
+      duration: 0.5,
+      opacity: 0.2,
+      stagger: 0.5,
+    });
+
+    if (staggerfaqRef.current) {
+      tl.fromTo(
+        Array.from(staggerfaqRef.current?.children),
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          stagger: 0.5,
+        }
+      );
+    }
   });
+
   return (
-    <div className="md:py-20 py-12 lg:w-11/12 w-11/12 3xl:w-8/12 mx-auto relative bg-[url('/noise.jpg')] bg-cover bg-center bg-opacity-80 bg-white bg-blend-overlay ">
+    <div
+      className="md:py-20 py-12   3xl:w-8/12 mx-auto relative bg-[url('/noise.jpg')] bg-cover bg-center bg-opacity-80 bg-white bg-blend-overlay "
+      ref={homeFaqRef}
+    >
       {/* top title  */}
       <div className="mx-auto">
         {/* title  */}
         <div className=" flex-col flex gap-2 justify-center items-center  ">
-          <h2 className="uppercase font-extrabold title lg:text-[4vw] leading-[1em] sm:text-[1.5em] text-2xl">
+          <h2 className="faqtitle uppercase font-extrabold title lg:text-[4vw] leading-[1em] sm:text-[1.5em] text-2xl">
             Frequently asked questions
           </h2>
 
-          <p className=" text-secondary-400 desc text-center mt-4 md:text-base text-xs">
+          <p className="faqdesc text-secondary-400 desc text-center mt-4 md:text-base text-xs">
             This section highlights some of the most recent and frequently asked
             questions from our community{" "}
           </p>
         </div>
 
-        <div className="gap-6 desc space-y-4 md:my-14 my-6">
+        <div className="gap-6 desc space-y-4 md:my-14 my-6" ref={staggerfaqRef}>
           {FaqData.map((item, index) => (
             <div
               key={index}
@@ -98,7 +94,7 @@ export default function Faq({}: Props) {
                 className="flex justify-between md:p-6 p-2 items-center cursor-pointer"
                 onClick={() => toggleFAQ(index)}
               >
-                <h2 className="font-medium md:text-[16px] text-sm cursor-pointer">
+                <h2 className="font-medium md:text-[16px] text-xs cursor-pointer">
                   {item.question}
                 </h2>
                 <div className="text-3xl">
