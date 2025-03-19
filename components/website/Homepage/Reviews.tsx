@@ -98,7 +98,7 @@ function Reviews() {
           <Slider {...settings} ref={sliderRef}>
             {ReviewsData.map((itemn, index) => (
               <div key={index}>
-                <div className=" flex flex-col gap-3 border shadow-md rounded-md p-2 mx-2">
+                <div className=" flex flex-col gap-3 border  rounded-md p-2 mx-2">
                   <span className="flex text-primary-600 opacity-20">
                     <Icon
                       icon="mdi:comma"
@@ -120,7 +120,7 @@ function Reviews() {
                     ></Image>
                   </figure>
                   {/* review  */}
-                  <p className="text-secondary-400 text-center md:text-base text-sm py-4">
+                  <p className="text-secondary-400 text-center lg:text-base text-sm py-4 md:h-40">
                     {itemn.review}
                   </p>
 
@@ -133,7 +133,7 @@ function Reviews() {
                       <span className="text-[14px] font-medium text-secondary-400">
                         Web Designer
                       </span>
-                      <span className="flex justify-center items-center text-primary-600">
+                      <span className="flex justify-center items-center text-yellow-600">
                         {[...Array(5)].map((_, i) => (
                           <Icon key={i} icon="material-symbols:star" />
                         ))}
