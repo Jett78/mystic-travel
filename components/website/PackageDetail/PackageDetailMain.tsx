@@ -13,7 +13,6 @@ import PackageInclusion from "./package-inclusion";
 import PackageExclusion from "./package-exclusion";
 import PackageOverview from "./package-overview";
 import PackageGallery from "./package-gallery";
-import Navbar from "@/components/Navbar";
 import PackageReview from "./package-review";
 import TripHighlights from "./package-trip-highlights";
 import MajorAttractions from "./major-attractions";
@@ -36,7 +35,6 @@ function PackageDetailMain({}: Props) {
 
   return (
     <main>
-      <Navbar />
       {/* hero banner */}
       <PackageBanner />
 
