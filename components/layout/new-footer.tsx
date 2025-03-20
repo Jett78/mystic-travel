@@ -28,7 +28,7 @@ const Footer = () => {
       scrollTrigger: {
         trigger: footerRef.current,
         start: "top 85%",
-        end: "20% 60%",
+        end: "20% 50%",
         scrub: 1,
         // markers: true,
       },
@@ -53,7 +53,7 @@ const Footer = () => {
         height={1000}
         className="w-full h-[45vh] object-cover absolute bottom-0 z-[0]"
       />
-      <h1 className="footertitle font-palker uppercase text-[8vw] tracking-wider text-center">
+      <h1 className="footertitle font-palker uppercase text-[8vw] tracking-wider text-center whitespace-nowrap">
         Mystic<span className="text-primary-600">Nepal</span>Adventure
       </h1>
 
