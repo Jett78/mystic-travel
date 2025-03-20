@@ -16,6 +16,7 @@ import PackageGallery from "./package-gallery";
 import Navbar from "@/components/Navbar";
 import PackageReview from "./package-review";
 import TripHighlights from "./package-trip-highlights";
+import MajorAttractions from "./major-attractions";
 
 type Props = {};
 
@@ -27,7 +28,7 @@ function PackageDetailMain({}: Props) {
       if (window.innerWidth < 768) {
         setOffset(-150); // Offset for mobile screens
       } else {
-        setOffset(-250); // Offset for larger screens
+        setOffset(-180); // Offset for larger screens
       }
     };
     updateOffset();
@@ -70,7 +71,7 @@ function PackageDetailMain({}: Props) {
         </div>
 
         {/* sticky top detail  */}
-        <div className="w-full lg:w-[80%] flex flex-col gap-2">
+        <div className="w-full lg:w-[60%] flex flex-col gap-2">
           <MajorTopInfo
             title="Everest Base Camp Trekking"
             item={importantdata}
@@ -227,6 +228,10 @@ function PackageDetailMain({}: Props) {
               <PackageReview />
             </div>
           </div>
+        </div>
+
+        <div className="lg:w-[20%] w-full sticky top-[4.4rem] lg:top-[7rem] h-fit">
+          <MajorAttractions />
         </div>
       </div>
 
