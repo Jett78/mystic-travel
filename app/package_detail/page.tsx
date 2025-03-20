@@ -5,7 +5,7 @@ type Props = {};
 
 function Page({}: Props) {
   return (
-    <main className="bg-white z-[20] relative">
+    <main className="">
       <PackageDetailMain />
     </main>
   );
