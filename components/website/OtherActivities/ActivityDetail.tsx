@@ -12,9 +12,9 @@ function AcitvityDetail({ activity }: any) {
   const data: any = OtherActivitiesData.find((obj) => obj.route == activity);
   const { gallery, desc, name, route } = data;
   return (
-    <div className="w-11/12 md:w-10/12 mx-auto md:py-[5rem] py-[3rem] text-zinc-50 ">
+    <div className="w-11/12 md:w-10/12 mx-auto md:py-[3rem] py-4 text-zinc-50 ">
       {/* tab  */}
-      <div className="h-fit  top-16 z-[50] bg-white">
+      <div className=" sticky top-16 z-[50] bg-white pt-6">
         <div className="w-full py-1 overflow-x-scroll md:overflow-x-visible mb-9 flex justify-start  items-center md:gap-10 gap-4">
           {/* exp tab  */}
           {OtherActivitiesData.map((item, index) => (
@@ -22,11 +22,11 @@ function AcitvityDetail({ activity }: any) {
               href={`/other_activities/${item.route}`}
               key={index}
               className={`${
-                item.route === route ? "bg-primary-600" : "bg-secondary-50"
-              } md:px-10 px-4 py-2  whitespace-nowrap shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] hover:scale-105 duration-300 cursor-pointer`}
+                item.route === route ? "bg-primary-600" : ""
+              } px-6 py-3 rounded-md border   whitespace-nowrap  hover:scale-105 duration-300 cursor-pointer`}
             >
               <h1
-                className={`md:text-lg text-sm relative tracking-wide title font-medium    ${
+                className={`font-medium md:text-sm text-xs relative tracking-wide    ${
                   item.route === route
                     ? "text-secondary-50"
                     : "text-secondary-500"

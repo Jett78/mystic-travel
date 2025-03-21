@@ -18,20 +18,20 @@ function AllExp({ distance }: any) {
   const { intro, name, route, package: packages } = data;
 
   return (
-    <div className="w-full md:py-[5rem] py-4">
+    <div className="w-full md:py-[2rem] py-4">
       {/* tab  */}
-      <div className="w-full z-[10] bg-white sticky top-[4.5rem] mb-9 py-4 flex justify-start overflow-x-scroll md:overflow-x-visible  items-center md:gap-10 gap-6">
+      <div className="w-full z-[10] bg-white border-b sticky top-[4.5rem] mb-9 py-4 flex justify-start overflow-x-scroll md:overflow-x-visible  items-center md:gap-10 gap-6">
         {/* exp tab  */}
         {ExpData.map((item, index) => (
           <Link
             href={`/expedition/${item.route}`}
             key={index}
             className={`${
-              item.route === route ? "bg-primary-600" : "bg-secondary-50"
-            } md:px-10 px-4 py-2 rounded-md  shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] hover:scale-105 duration-300 cursor-pointer`}
+              item.route === route ? "bg-primary-600" : ""
+            } px-6 py-3 rounded-md  border hover:scale-105 duration-300 cursor-pointer`}
           >
             <h1
-              className={`md:text-lg text-sm whitespace-nowrap relative tracking-wide title font-medium    ${
+              className={`font-medium md:text-sm text-xs relative tracking-wide   ${
                 item.route === route
                   ? "text-secondary-50"
                   : "text-secondary-500"

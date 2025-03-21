@@ -18,20 +18,20 @@ function AllTrek({ region }: any) {
   const { name, intro, package: packages, route } = data;
 
   return (
-    <div className="w-full  md:py-[5rem] py-4">
+    <div className="w-full  md:py-[2rem] py-4">
       {/* tab  */}
-      <div className="sticky z-[2] top-[4.4rem] h-fit w-full mb-9  flex bg-white py-4 justify-start   items-center md:gap-10 gap-6">
+      <div className="w-full z-[10] bg-white border-b sticky top-[4.5rem] mb-9 py-4 flex justify-start overflow-x-scroll md:overflow-x-visible  items-center md:gap-10 gap-6">
         {/* exp tab  */}
         {TrekData.map((item, index) => (
           <Link
             href={`/trek/${item.route}`}
             key={index}
             className={`${
-              item.route === region ? "bg-primary-600" : "bg-secondary-50"
-            } overflow-x-auto md:px-10 px-2 rounded-md py-2 whitespace-nowrap   shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] hover:scale-105 duration-300 cursor-pointer`}
+              item.route === region ? "bg-primary-600" : ""
+            } px-6 py-3 rounded-md  border hover:scale-105 duration-300 cursor-pointer`}
           >
             <h1
-              className={`md:text-lg text-sm relative tracking-wide title font-medium    ${
+              className={`font-medium md:text-sm text-xs relative whitespace-nowrap    ${
                 item.route === region
                   ? "text-secondary-50"
                   : "text-secondary-500"
