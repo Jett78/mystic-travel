@@ -2,6 +2,7 @@ export const aboutLinks = [
   { name: "Company", href: "/about_us" },
   { name: "Our team", href: "/our_team" },
   { name: "Certificates", href: "/certificates" },
+  { name: "Customize Trip", href: "/customize" },
 ];
 
 export const usefulInfo = [
@@ -9,6 +10,7 @@ export const usefulInfo = [
   { name: "Travel Info", href: "/travel_info" },
   { name: "General Info", href: "/general_info" },
   { name: "Trekking Info", href: "/trekking_info" },
+  { name: "Terms and Conditions", href: "/terms" },
 ];
 export const destinationsLinks = [
   { name: "Nepal", href: "/nepal/everest_region" },
