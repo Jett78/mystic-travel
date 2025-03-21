@@ -13,10 +13,9 @@ export const usefulInfo = [
   { name: "Terms and Conditions", href: "/terms" },
 ];
 export const destinationsLinks = [
-  { name: "Nepal", href: "/nepal/everest_region" },
+  { name: "Nepal", href: "/nepal/nepal_tours" },
   { name: "India", href: "/india/city_tours" },
   { name: "Bhutan", href: "/bhutan/city_tours" },
-  { name: "Tibet", href: "/tibet/city_tours" },
 ];
 
 export const activitiesLink = [
