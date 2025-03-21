@@ -21,6 +21,7 @@ type Props = {};
 
 function Navbar({}: Props) {
   const currentRoute = usePathname();
+  const isBlogRoute = currentRoute?.startsWith("/blogs/");
   const navContainerRef = useRef(null);
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -52,12 +53,16 @@ function Navbar({}: Props) {
     <div
       ref={navContainerRef}
       className={`${
-        scrolled ? "bg-white shadow-sm" : "bg-transparent text-white"
-      } ease-in-out duration-300 transition-all z-[900]  fixed w-full h-[4.5rem] `}
+        scrolled
+          ? "bg-white shadow-sm"
+          : isBlogRoute
+          ? "bg-white text-black"
+          : "bg-transparent text-white"
+      } ease-in-out duration-300 transition-all z-[900] fixed w-full h-[4.5rem]`}
     >
       <div className="2xl:w-10/12 w-11/12 tracking-wide  mx-auto h-full  flex justify-between items-center gap-5">
         <Link href="/" className="font-bold text-2xl  tracking-wide ">
-          {scrolled ? (
+          {scrolled || isBlogRoute ? (
             <Image
               src={Logo}
               alt="trek-nepal-logo"
@@ -234,7 +239,7 @@ function Navbar({}: Props) {
               ))}
             </ul>
           </div>
-          <Link href="/blogs" className="text-[0.9vw] font-medium">
+          <Link href="/blogs" className="text-[0.9vw] font-medium hover:text-primary-600 ease-in-out duration-300">
             Blogs
           </Link>
 
