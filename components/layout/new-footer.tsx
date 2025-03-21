@@ -21,25 +21,25 @@ const PageTitle = ({ title }: { title: string }) => {
 
 const Footer = () => {
   const footerRef = useRef<HTMLDivElement>(null);
-  useGSAP(() => {
-    const headertext = new SplitType(".footertitle");
+  // useGSAP(() => {
+  //   const headertext = new SplitType(".footertitle");
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: footerRef.current,
-        start: "top 70%",
-        end: "0% 70%",
-        scrub: 1,
-        // markers: true,
-      },
-    });
+  //   const tl = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: footerRef.current,
+  //       start: "top 70%",
+  //       end: "0% 70%",
+  //       scrub: 1,
+  //       // markers: true,
+  //     },
+  //   });
 
-    tl.from(headertext.chars, {
-      duration: 0.5,
-      opacity: 0,
-      stagger: 0.2,
-    });
-  }, []);
+  //   tl.from(headertext.chars, {
+  //     duration: 0.5,
+  //     opacity: 0,
+  //     stagger: 0.2,
+  //   });
+  // }, []);
   const date = new Date().getFullYear();
   return (
     <footer
