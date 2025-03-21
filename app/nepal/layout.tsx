@@ -20,7 +20,19 @@ export default function NepalPackageLayout({
         img={
           "https://images.unsplash.com/photo-1611516491426-03025e6043c8?q=80&w=1933&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         }
-        title={`Nepal / ${activePackage?.title || "Nepal"}`}
+        title={
+          <>
+            <span style={{ color: "#ffffff" }}>Nepal</span> -{" "}
+            <span style={{ color: "#16c1ff" }}>
+              {activePackage?.title || "Nepal"}
+            </span>
+            <span
+              className="iconify"
+              data-icon="mdi:arrow-right"
+              style={{ marginLeft: "8px" }}
+            ></span>
+          </>
+        }
       />
       <div className="md:w-10/12 w-11/12 mx-auto ">
         <div className="flex z-[2] overflow-x-auto gap-6 sticky h-fit top-16 bg-white border-b py-6">
