@@ -140,7 +140,7 @@ const Footer = () => {
 
       <div className="mt-14  relative z-[2] w-11/12 mx-auto">
         <div className="flex flex-col  justify-start  items-start space-y-6">
-          <h1 className="font-palker tracking-wide lg:text-[1.6vw] text-xl text-white">
+          <h1 className="font-palker tracking-wide lg:text-[1.6vw] text-xl text-black">
             Our Affiliations
           </h1>
           <div className="flex items-center justify-center gap-6">
@@ -159,20 +159,20 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="w-11/12 relative z-[2] mx-auto py-6 flex flex-wrap gap-y-2 md:justify-between justify-center items-center font-medium text-white sm:text-sm text-xs">
+      <div className="w-11/12 relative z-[2] mx-auto py-6 flex flex-wrap gap-y-2 md:justify-between justify-center items-center font-medium text-black sm:text-sm text-xs">
         <p className="whitespace-nowrap ">
           © {date} Mystic Nepal Adventure. All rights reserved.
         </p>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-start gap-2">
           <p>Designed and Developed by</p>
           <Link href="https://www.webxnep.com/" target="_blank">
             <Image
-              src="/logo/webx.svg"
+              src="/logo/webxdark.svg"
               alt="webx"
               width={1000}
               height={1000}
-              className="w-10 hover:scale-110 ease-in-out duration-300 cursor-pointer"
+              className="w-12 hover:scale-110 ease-in-out duration-300 cursor-pointer"
             />
           </Link>
         </div>
