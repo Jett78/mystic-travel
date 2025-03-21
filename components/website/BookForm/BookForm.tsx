@@ -9,6 +9,8 @@ import Payment from "./Payment";
 import gsap from "gsap";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
+import InputField from "./input-field";
+import InputLabel from "./input-label";
 
 const BookForm = () => {
   const paymentContainerRef = useRef(null);
@@ -65,49 +67,46 @@ const BookForm = () => {
             </div>
           </Link>
 
-          <div className="mt-2  flex items-center justify-center">
-            <div className="container max-w-screen-lg mx-auto">
+          <div className="mt-4  flex items-center justify-center">
+            <div className="container  mx-auto">
               <div>
                 <div className="border rounded shadow-lg p-4 px-4 md:p-8 mb-6">
                   <div className="grid gap-5 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
                     <div className="w-full flex flex-col gap-5">
                       <div className="text-gray-600">
-                        <p className="font-medium text-lg">
-                          Everest base camp trek
-                        </p>
                         <p>Please fill out all the fields.</p>
                       </div>
                       <Image
                         alt="FormBg"
-                        src={FormBg}
-                        className="h-full w-full object-cover object-center"
+                        src="https://images.unsplash.com/photo-1529733905113-027ed85d7e33?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        width={1000}
+                        height={1000}
+                        className="h-full w-full object-cover object-center rounded-md"
                       ></Image>
                     </div>
 
                     {/* right form  */}
                     <div className="lg:col-span-2 ">
-                      <div className="text-sm  flex flex-col gap-5">
+                      <div className="text-sm  flex flex-col gap-6">
                         <div className="w-full flex gap-2">
                           <div className="w-full">
-                            <label htmlFor="full_name">Full Name</label>
-                            <input
+                            <InputLabel label="Full Name" />
+
+                            <InputField
                               type="text"
                               name="full_name"
                               id="full_name"
                               placeholder="John Doe"
-                              className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                              value=""
                             />
                           </div>
 
                           <div className="w-full">
-                            <label htmlFor="email">Email Address</label>
-                            <input
+                            <InputLabel label="Email Address" />
+
+                            <InputField
                               type="text"
                               name="email"
                               id="email"
-                              className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                              value=""
                               placeholder="email@domain.com"
                             />
                           </div>
@@ -115,25 +114,25 @@ const BookForm = () => {
 
                         <div className="w-full flex gap-3">
                           <div className="w-full">
-                            <label htmlFor="email">Email Address</label>
-                            <input
+                            <InputLabel label="Contact Number" />
+
+                            <InputField
                               type="text"
                               name="email"
                               id="email"
-                              className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                              value=""
                               placeholder="email@domain.com"
                             />
                           </div>
+
                           <div className="w-full">
-                            <label htmlFor="country">Country / region</label>
-                            <div className="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
+                            <InputLabel label="Country / Region" />
+
+                            <div className="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-2">
                               <input
                                 name="country"
                                 id="country"
                                 placeholder="Country"
                                 className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent"
-                                value=""
                               />
                             </div>
                           </div>
@@ -141,24 +140,19 @@ const BookForm = () => {
 
                         <div className="w-full flex gap-3">
                           <div className="w-full">
-                            <label htmlFor="email">Selected Expedition</label>
-                            <input
+                            <InputLabel label="Selected Expedition" />
+
+                            <InputField
                               type="text"
-                              name="email"
-                              id="email"
-                              className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                              value=""
-                              placeholder="Everest base camp trek"
+                              name="expedition"
+                              id="expedition"
+                              placeholder="Everest Base Camp"
                             />
                           </div>
                           <div className="w-full">
-                            <label
-                              htmlFor="activity"
-                              className="block text-sm font-medium text-gray-900"
-                            >
-                              Expedition / Trekking / Activity
-                            </label>
-                            <div className="bg-gray-50 flex items-center  rounded mt-1 px-4 h-10">
+                            <InputLabel label="Expedition / Trekking / Activity" />
+
+                            <div className="bg-gray-50 flex items-center  rounded mt-2 px-4 h-10">
                               <input
                                 type="checkbox"
                                 name="activity"
@@ -174,7 +168,7 @@ const BookForm = () => {
 
                         <div className="w-full flex gap-3 justify-center items-center">
                           <div className="w-full flex flex-col gap-1">
-                            <label htmlFor="email">Arrival Date</label>
+                            <InputLabel label="Arrival Date" />
                             <DatePicker
                               className="border border-gray-200 p-2 rounded-md bg-gray-50 text-sm !w-full"
                               selected={startDate}
@@ -182,12 +176,7 @@ const BookForm = () => {
                             ></DatePicker>
                           </div>
                           <div className="w-full flex flex-col gap-1">
-                            <label
-                              htmlFor="activity"
-                              className="block  text-sm font-medium text-gray-900"
-                            >
-                              Final Departure Date
-                            </label>
+                            <InputLabel label="Final Departure Date" />
 
                             <DatePicker
                               className="border border-gray-200 p-2 rounded-md bg-gray-50 text-sm !w-full"
@@ -195,6 +184,16 @@ const BookForm = () => {
                               onChange={(date) => setStartDate(date)}
                             ></DatePicker>
                           </div>
+                        </div>
+
+                        <div>
+                          <InputLabel label="Your message" />
+                          <textarea
+                            name=""
+                            id=""
+                            rows={8}
+                            className=" border mt-2 rounded px-4 w-full bg-gray-50"
+                          ></textarea>
                         </div>
 
                         <div className="md:col-span-5 text-right">
