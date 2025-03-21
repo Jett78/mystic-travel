@@ -35,12 +35,12 @@ const MajorTopInfo = ({ title, item }: { title: string; item: any }) => {
         Everest Base Camp Trekking
       </h1>
 
-      <div className="flex justify-center  gap-2 ">
+      <div className=" gap-2 ">
         <PrimaryButton
-          title="Explore Date"
-          className="bg-transparent md:px-4 border border-primary-600 hover:bg-white  text-black"
+          path="#fixed-dates"
+          title="Explore Dates"
+          className="bg-transparent md:px-4 border border-primary-600 hover:bg-primary-600 hover:text-white duration-200 text-black"
         />
-        <PrimaryButton title="Book Now" className=" md:px-4" />
       </div>
     </div>
   );
