@@ -89,7 +89,7 @@ export default InternationalTrips;
 const items = [
   {
     id: "1",
-    path: "/nepal/everest_region",
+    path: "/nepal/nepal_tours",
     url: "https://mysticnepaladventure.com/wp-content/uploads/2024/06/trekkinginnepal.jpg",
     title: "Nepal",
     description: "COO & Co-Founder",
