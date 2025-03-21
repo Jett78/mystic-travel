@@ -26,7 +26,7 @@ export default function Faq({}: Props) {
       scrollTrigger: {
         trigger: homeFaqRef.current,
         start: "top 85%",
-        end: "30% 60%",
+        end: "30% 70%",
         scrub: 1,
         // markers: true,
       },
@@ -55,7 +55,7 @@ export default function Faq({}: Props) {
           opacity: 1,
           y: 0,
           duration: 1.5,
-          stagger: 0.5,
+          stagger: 0.3,
         }
       );
     }
