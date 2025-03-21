@@ -59,13 +59,16 @@ const Card = ({ item }: cardinterface) => {
 
       {/* price */}
       <div className="grid grid-cols-2 w-full gap-2">
-        <div className="px-6 py-2 border rounded-md flex justify-center items-center text-md font-bold font-palker text-black ">
-          $100
-        </div>
+        <Link
+          href="/package_detail"
+          className="px-6 py-2 border rounded-md flex justify-center items-center text-sm font-medium hover:bg-black hover:text-white ease-in-out duration-200  text-black "
+        >
+          view more
+        </Link>
 
-        <Link href="/package_detail">
-          <button className="w-full rounded-md py-3 bg-gradient-to-r from-primary-600 to-primary-600 text-sm font-medium text-secondary-100">
-            View more
+        <Link href="/booking">
+          <button className="w-full rounded-md py-3 bg-primary-600 hover:bg-blue-500 ease-in-out duration-200 text-sm font-medium text-secondary-100">
+            Book Now
           </button>
         </Link>
       </div>
