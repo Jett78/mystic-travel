@@ -1,10 +1,10 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import React from "react";
+import React, { ReactNode } from "react";
 
 type bannerprops = {
   img: string;
-  title: string;
+  title: string | ReactNode;
   className?: string;
 };
 const Banner = ({ img, title, className }: bannerprops) => {
