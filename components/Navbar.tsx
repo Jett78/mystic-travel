@@ -239,7 +239,10 @@ function Navbar({}: Props) {
               ))}
             </ul>
           </div>
-          <Link href="/blogs" className="text-[0.9vw] font-medium hover:text-primary-600 ease-in-out duration-300">
+          <Link
+            href="/blogs"
+            className="text-[0.9vw] font-medium "
+          >
             Blogs
           </Link>
 
