@@ -3,17 +3,17 @@ import React from "react";
 
 const MajorAttractions = () => {
   return (
-    <div className="border rounded-lg p-4">
+    <div className=" rounded-lg ">
       <h2 className="font-palker tracking-wider">Essential Information</h2>
 
-      <div className="grid grid-cols-2 gap-4 my-6">
+      <div className="grid grid-cols-2 gap-8 my-6">
         {information.map((item, index) => (
-          <div key={index} className="">
-            <p className="text-3xl text-primary-600">{item.icon}</p>
-            <h2 className="font-semibold text-xs text-primary-600">
+          <div key={index} className="p-2 flex flex-col items-center bg-zinc-50 rounded-md">
+            <p className="text-5xl text-primary-600">{item.icon}</p>
+            <h2 className="font-medium md:text-md text-sm  text-black mt-2">
               {item.title}
             </h2>
-            <p className="font-medium text-xs">{item.value}</p>
+            <p className="font-medium text-xs text-center">{item.value}</p>
           </div>
         ))}
       </div>
