@@ -24,7 +24,7 @@ function Reviews() {
       scrollTrigger: {
         trigger: reviewRef.current,
         start: "top 85%",
-        end: "60% 60%",
+        end: "40% 60%",
         scrub: 1,
         // markers: true,
       },
@@ -32,29 +32,29 @@ function Reviews() {
 
     tl.from(headertext.chars, {
       duration: 0.5,
-      y: 20,
+      x: 20,
       opacity: 0,
       stagger: 0.2,
     });
 
     // Animate the review cards
-    if (reviewcardsRef.current) {
-      const cards = reviewcardsRef.current.querySelectorAll(".review-card"); // Target cards by class
-      tl.fromTo(
-        cards,
-        {
-          opacity: 0,
-          y: 20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 2,
-          stagger: 1,
-        },
-        "-=0.5" // Overlap with the header animation slightly
-      );
-    }
+    // if (reviewcardsRef.current) {
+    //   const cards = reviewcardsRef.current.querySelectorAll(".review-card"); // Target cards by class
+    //   tl.fromTo(
+    //     cards,
+    //     {
+    //       opacity: 0,
+    //       y: 20,
+    //     },
+    //     {
+    //       opacity: 1,
+    //       y: 0,
+    //       duration: 2,
+    //       stagger: 1,
+    //     },
+    //     "-=0.5" // Overlap with the header animation slightly
+    //   );
+    // }
   }, []); // Empty dependency array ensures this runs once on mount
 
   const settings: Settings = {

@@ -31,29 +31,29 @@ function PopularExpedition() {
 
     tl.from(headertext.chars, {
       duration: 0.5,
-      y: 20,
+      x: 10,
       opacity: 0,
-      stagger: 0.2,
+      stagger: 0.1,
     });
 
     // Animate the review cards
-    if (expeditioncardRef.current) {
-      const cards = expeditioncardRef.current.querySelectorAll(".review-card"); // Target cards by class
-      tl.fromTo(
-        cards,
-        {
-          opacity: 0,
-          y: 20,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 2,
-          stagger: 1,
-        },
-        "-=0.5" // Overlap with the header animation slightly
-      );
-    }
+    // if (expeditioncardRef.current) {
+    //   const cards = expeditioncardRef.current.querySelectorAll(".review-card"); // Target cards by class
+    //   tl.fromTo(
+    //     cards,
+    //     {
+    //       opacity: 0,
+    //       y: 20,
+    //     },
+    //     {
+    //       opacity: 1,
+    //       y: 0,
+    //       duration: 2,
+    //       stagger: 1,
+    //     },
+    //     "-=0.5" // Overlap with the header animation slightly
+    //   );
+    // }
   });
 
   const sliderRef = useRef<Slider>(null);
@@ -122,14 +122,10 @@ function PopularExpedition() {
       ref={popularexpeditionsRef}
     >
       {/* image  */}
-      <div className="w-full h-screen bg-parallex1 bg-fixed bg-cover   overflow-hidden absolute top-0 left-0 flex justify-center items-center">
-        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-[0.5]" />
-        {/* <div className="absolute w-full h-40 bottom-0 bg-gradient-to-t from-white via-white/50 to-transparent z-[50]" /> */}
-      </div>
 
       {/* CARDS  */}
       <div className="w-11/12 md:w-10/12  mx-auto   flex flex-col gap-5  justify-center relative items-center">
-        <h1 className="text-3xl  md:text-6xl mb-6 relative tracking-wide title font-bold  text-secondary-50 expedition">
+        <h1 className="text-3xl  md:text-6xl mb-6 relative tracking-wide title font-bold   expedition">
           TRENDING EXPEDITION
         </h1>
 
@@ -137,25 +133,21 @@ function PopularExpedition() {
           <Slider {...settings} ref={sliderRef}>
             {ExpData.map((item, index) => (
               <Link key={index} href="/package_detail">
-                <div className="review-card bg-secondary-50 flex flex-col gap-3 h-auto p-2 mx-1">
+                <div className="review-card border rounded-md flex flex-col gap-3 h-auto p-2 mx-1">
                   <div className="relative">
-                    <div className="px-4 text-secondary-50 text-sm py-1 bg-primary-600 absolute top-[3%] left-[3%]">
-                      $120
-                    </div>
                     {/* MASK */}
-                    <div className="bg-black absolute top-0 left-0 w-full h-full opacity-[0.2]"></div>
                     <Image
                       width={1000}
                       height={1000}
                       src={item.img}
                       alt="expedition-image"
-                      className="w-full h-[30vh] object-cover object-center"
+                      className="w-full h-[30vh] object-cover object-center rounded-lg"
                     />
                   </div>
                   <div className="w-full flex relative flex-col gap-2">
                     {/* distance days */}
                     <div className="w-full absolute top-[-10%] left-0 translate-y-[-50%] flex justify-center items-center">
-                      <div className="w-[70%] h-[2rem] text-sm font-medium px-[10%] text-secondary-400 bg-secondary-100 flex justify-between items-center">
+                      <div className="w-[70%] h-[2rem] rounded-md text-sm font-medium px-[10%] text-secondary-400 bg-secondary-100 flex justify-between items-center">
                         <span className="flex items-center gap-1">
                           <Icon icon="carbon:time" /> <span>5 days</span>
                         </span>
@@ -163,20 +155,26 @@ function PopularExpedition() {
                         <span>259km</span>
                       </div>
                     </div>
-                    <span className="title text-xl pt-[1.5rem] text-secondary-500 tracking-wide">
+                    <span className="font-semibold text-lg pt-[1.5rem] text-secondary-500 tracking-wide">
                       {item.name}
                     </span>
-                    <p className="text-sm text-secondary-400 line-clamp-2">
+                    <p className="text-sm text-secondary-400  line-clamp-2">
                       {item.desc}
                     </p>
 
-                    <div className="w-full flex pb-2 justify-between">
-                      <span className="text-sm py-2">View details</span>
-                      <span className="flex justify-center items-center text-primary-600">
-                        {[...Array(5)].map((_, i) => (
-                          <Icon key={i} icon="material-symbols:star" />
-                        ))}
-                      </span>
+                    <div className="grid grid-cols-2 w-full gap-2">
+                      <Link
+                        href="/package_detail"
+                        className="px-6 py-2 border rounded-md flex justify-center items-center text-sm font-medium hover:bg-black hover:text-white ease-in-out duration-200  text-black "
+                      >
+                        view more
+                      </Link>
+
+                      <Link href="/booking">
+                        <button className="w-full rounded-md py-3 bg-primary-600 hover:bg-blue-500 ease-in-out duration-200 text-sm font-medium text-secondary-100">
+                          Book Now
+                        </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -188,7 +186,7 @@ function PopularExpedition() {
         <div className="flex  items-center">
           <div
             onClick={handlePrev}
-            className="w-[2rem]  md:w-[3rem] h-[2rem] md:h-[3rem] hover:scale-110 duration-300 cursor-pointer overflow-hidden  text-secondary-50 hover:text-secondary-100"
+            className="w-[2rem]  md:w-[3rem] h-[2rem] md:h-[3rem] hover:scale-110 duration-300 cursor-pointer overflow-hidden  "
           >
             <Icon
               icon="ei:arrow-left"
@@ -197,7 +195,7 @@ function PopularExpedition() {
           </div>
           <div
             onClick={handleNext}
-            className="w-[2rem]  md:w-[3rem] h-[2rem] md:h-[3rem] hover:scale-110 duration-300 cursor-pointer overflow-hidden  text-secondary-50 hover:text-secondary-100"
+            className="w-[2rem]  md:w-[3rem] h-[2rem] md:h-[3rem] hover:scale-110 duration-300 cursor-pointer overflow-hidden  "
           >
             <Icon
               icon="ei:arrow-right"
