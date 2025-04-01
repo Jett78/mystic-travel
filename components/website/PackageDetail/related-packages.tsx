@@ -4,7 +4,7 @@ import TrekData from "@/data/TrekData";
 
 const RelatedPackages = () => {
   return (
-    <main className="md:w-10/12 w-11/12 mx-auto">
+    <main className="md:w-11/12 w-11/12 mx-auto">
       <h1 className="font-palker uppercase lg:text-[3vw] text-2xl text-center">
         Related Packages
       </h1>

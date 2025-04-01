@@ -140,7 +140,7 @@ function NavHome({ navContainerRef }: any) {
           )}
         </div>
       </div>
-      <div className="w-10/12  text-secondary-500    tracking-wide  mx-auto h-full hidden md:flex justify-between items-center gap-5">
+      <div className="w-11/12  text-secondary-500    tracking-wide  mx-auto h-full hidden md:flex justify-between items-center gap-5">
         {/*  nav links  */}
         <div className="flex gap-5 text-[14px] font-semibold">
           {companyLinks.map((link) => (

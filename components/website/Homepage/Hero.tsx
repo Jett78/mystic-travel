@@ -61,7 +61,7 @@ function Hero({}: Props) {
       </video>
 
       {/* text HEADINg  */}
-      <div className="text-center  z-20  relative  w-11/12 md:w-10/12   mx-auto flex justify-center items-center flex-col gap-2">
+      <div className="text-center  z-20  relative  w-11/12 md:w-11/12   mx-auto flex justify-center items-center flex-col gap-2">
         <h1
           // ref={heroTitle}
           className="text-6xl relative 3xl:text-8xl hero-title  tracking-wide bg-clip-text text-transparent bg-gradient-to-tr from-primary-50 to-primary-300 title font-bold text-secondary-50"

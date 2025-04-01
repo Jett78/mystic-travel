@@ -7,7 +7,7 @@ import React from "react";
 
 const ContactForm = () => {
   return (
-    <main className="md:w-10/12 w-11/12 mx-auto grid lg:grid-cols-2 grid-cols-1 gap-6 md:p-4 p-2 md:my-24 my-10">
+    <main className="md:w-11/12 w-11/12 mx-auto grid lg:grid-cols-2 grid-cols-1 gap-6 md:p-4 p-2 md:my-24 my-10">
       <div className="space-y-6 overflow-hidden">
         <h2 className="font-palker lg:text-[3vw] text-2xl tracking-wide">Get in Touch</h2>
         <p className="font-medium md:text-base text-sm text-zinc-500">

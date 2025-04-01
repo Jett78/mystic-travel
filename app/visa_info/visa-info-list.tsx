@@ -3,7 +3,7 @@ import React from "react";
 
 const VisaInfoList = () => {
   return (
-    <div className="space-y-12 md:w-10/12 w-11/12 mx-auto md:my-16 my-4">
+    <div className="space-y-12 md:w-11/12 w-11/12 mx-auto md:my-16 my-4">
       {visainfo.map((item, index) => (
         <div key={index}>
           <h1 className="font-bold lg:text-[1.5vw] text-xl mb-2">

@@ -5,7 +5,7 @@ import React from "react";
 
 const BlogList = () => {
   return (
-    <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 md:w-10/12 w-11/12 mx-auto my-14">
+    <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 md:w-11/12 w-11/12 mx-auto my-14">
       {travelBlogs.map((item, index) => (
         <Link href={`/blogs/${item.slug}`} key={index} className="border rounded-md md:p-6 p-2">
           <h2 className="font-semibold lg:text-[1.3vw] text-xl leading-[1.2]">

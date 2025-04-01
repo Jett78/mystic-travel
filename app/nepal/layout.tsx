@@ -34,7 +34,7 @@ export default function NepalPackageLayout({
           </>
         }
       />
-      <div className="md:w-10/12 w-11/12 mx-auto ">
+      <div className="md:w-11/12 w-11/12 mx-auto ">
         <div className="flex z-[2] overflow-x-auto gap-6 sticky h-fit top-16 bg-white border-b py-6">
           {nepalpackages.map((item) => (
             <Link key={item.slug} href={`/nepal/${item.slug}`}>

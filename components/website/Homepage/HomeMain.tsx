@@ -12,7 +12,7 @@ function HomeMain() {
       <div className=" w-full overflow-hidden">
         <NewHero />
         <div className="w-full relative  content-main  bg-white   mt-[100vh]">
-          <div className="md:w-10/12 w-11/12 mx-auto">
+          <div className="md:w-11/12 w-11/12 mx-auto">
             <WhyChoose />
           </div>
 
@@ -23,12 +23,12 @@ function HomeMain() {
           <div className="w-full mx-auto">
             <PopularTrekking />
           </div>
-          <div className="md:w-10/12 w-11/12 mx-auto">
+          <div className="md:w-11/12 w-11/12 mx-auto">
             <Faq />
           </div>
 
           <Cta />
-          <div className="md:w-10/12 w-11/12 mx-auto">
+          <div className="md:w-11/12 w-11/12 mx-auto">
             <Reviews />
           </div>
         </div>

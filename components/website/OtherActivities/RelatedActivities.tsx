@@ -6,7 +6,7 @@ type Props = {};
 function RelatedActivities({ activity }: any) {
   return (
     <>
-      <div className="w-11/12 md:w-10/12 pb-[5rem] mx-auto">
+      <div className="w-11/12 md:w-11/12 pb-[5rem] mx-auto">
         {/* TITLE  */}
         <h1 className="text-2xl relative tracking-wide title font-semibold  text-secondary-500">
           RELATED Activities

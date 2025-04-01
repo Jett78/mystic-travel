@@ -54,7 +54,7 @@ const BookForm = () => {
           <Payment handleClose={handleClose} />
         </div>
 
-        <div className="w-11/12 mx-auto md:w-10/12 py-[2rem]">
+        <div className="w-11/12 mx-auto md:w-11/12 py-[2rem]">
           <Link href="/package_detail" className="w-full flex justify-start">
             <div className="text-zinc-700 z-40 hover:scale-105 duration-300 hover:text-zinc-800 flex  justify-center items-center">
               <div className="overflow-hidden title flex justify-center items-center">

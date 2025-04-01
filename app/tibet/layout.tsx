@@ -22,7 +22,7 @@ export default function IndiaPackageLayout({
         }
         title={`Tibet / ${activePackage?.title || "Tibet"}`}
       />
-      <div className="md:w-10/12 w-11/12 mx-auto ">
+      <div className="md:w-11/12 w-11/12 mx-auto ">
         <div className="flex z-[2] gap-6 overflow-x-auto sticky h-fit top-16 bg-white border-b py-6">
           {tibetpackages.map((item) => (
             <Link key={item.slug} href={`/tibet/${item.slug}`}>

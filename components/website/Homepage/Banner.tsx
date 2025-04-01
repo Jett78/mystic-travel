@@ -69,7 +69,7 @@ function Banner({}: Props) {
         alt="banner-image"
         className="absolute scale-110 top-0 banner-img left-0 brightness-[0.5] w-full h-full object-cover object-bottom"
       ></Image>
-      <div className="relative z-20 w-11/12 md:w-10/12 flex flex-col md:flex-row justify-between items-center gap-5 mx-auto">
+      <div className="relative z-20 w-11/12 md:w-11/12 flex flex-col md:flex-row justify-between items-center gap-5 mx-auto">
         <div className="md:w-[70%] flex items-start justify-start flex-col gap-2">
           <span className="text-sm banner-desc  inline-block   md:text-lg font-medium text-secondary-100">
             Contact Mystic Adventure for the best adventure of your life.

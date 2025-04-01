@@ -123,7 +123,7 @@ function PopularTrekking() {
       ref={trendingRef}
     >
       {/* CARDS  */}
-      <div className="w-11/12 md:w-10/12 mx-auto   flex flex-col gap-5  justify-center relative items-center">
+      <div className="w-11/12 md:w-11/12 mx-auto   flex flex-col gap-5  justify-center relative items-center">
         <h1 className="trekking text-3xl title-trek  md:text-6xl mb-6 relative tracking-wide title font-bold">
           Popular Trekking
         </h1>

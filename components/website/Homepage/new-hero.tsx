@@ -99,7 +99,7 @@ const NewHero = () => {
         ))}
       </Slider>
 
-      <div className="w-10/12 absolute flex items-center justify-between left-1/2 -translate-x-1/2 lg:bottom-[3vw] sm:bottom-[8vw] bottom-[20vw] text-white ">
+      <div className="w-11/12 absolute flex items-center justify-between left-1/2 -translate-x-1/2 lg:bottom-[3vw] sm:bottom-[8vw] bottom-[20vw] text-white ">
         {/* Numbered Pagination */}
         <div>
           <span className="md:text-[4vw] text-4xl font-palker">

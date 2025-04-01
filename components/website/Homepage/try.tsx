@@ -44,7 +44,7 @@ export default function Try({}: Props) {
     );
   });
   return (
-    <div className="w-10/12  pb-[9rem] pt-[5rem] mx-auto relative overflow-hidden try-container h-screen flex justify-center items-center">
+    <div className="w-11/12  pb-[9rem] pt-[5rem] mx-auto relative overflow-hidden try-container h-screen flex justify-center items-center">
       <div className="absolute bottom-4 flex gap-5 items-center">
         <div className="w-[3rem] h-[3rem] overflow-hidden rounded-full border-dotted border-primary-500 p-1 border hover:w-[4rem] hover:h-[4rem] duration-200 cursor-pointer">
           <Image
@@ -78,7 +78,7 @@ export default function Try({}: Props) {
         Your browser does not support the video tag.
       </video>
 
-      <div className="text-center  z-20 title    relative  w-11/12 md:w-10/12 mx-auto flex justify-center items-center flex-col gap-2">
+      <div className="text-center  z-20 title    relative  w-11/12 md:w-11/12 mx-auto flex justify-center items-center flex-col gap-2">
         <h1 className="text-5xl 3xl:text-8xl opacity-0  try-title  tracking-wide font-bold text-secondary-50">
           Unseen Adventures <br /> Await
         </h1>

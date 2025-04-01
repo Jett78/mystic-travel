@@ -50,7 +50,7 @@ const InternationalTrips = () => {
         international tour packages promise unique experiences and lifelong
         memories
       </p>
-      <div className="group flex max-md:flex-col justify-center gap-2 w-10/12 mx-auto my-10">
+      <div className="group flex max-md:flex-col justify-center gap-2 w-11/12 mx-auto my-10">
         {items.map((item, i: number) => {
           return (
             <article

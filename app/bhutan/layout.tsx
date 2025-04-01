@@ -22,7 +22,7 @@ export default function IndiaPackageLayout({
         }
         title={`Bhutan / ${activePackage?.title || "Bhutan"}`}
       />
-      <div className="md:w-10/12 w-11/12 mx-auto ">
+      <div className="md:w-11/12 w-11/12 mx-auto ">
         <div className="flex z-[2] gap-6 sticky overflow-x-auto h-fit top-16 bg-white border-b py-6">
           {bhutanpackages.map((item) => (
             <Link key={item.slug} href={`/bhutan/${item.slug}`}>

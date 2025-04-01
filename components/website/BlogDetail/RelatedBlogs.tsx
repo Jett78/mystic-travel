@@ -9,7 +9,7 @@ function RelatedBlogs({}: Props) {
     scrollTo(0, 0);
   }, []);
   return (
-    <div className="w-full md:w-10/12 mx-auto flex gap-5 flex-col pb-[5rem]">
+    <div className="w-full md:w-11/12 mx-auto flex gap-5 flex-col pb-[5rem]">
       <h1 className="text-2xl md:text-5xl w-full text-center relative tracking-wide mt-10 title font-bold text-secondary-500">
         RELATED BLOGS
       </h1>

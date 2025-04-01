@@ -9,7 +9,7 @@ type Props = {};
 export default function BlogDetailMain({}: Props) {
   return (
     <>
-      <div className="w-11/12 relative md:w-10/12 mx-auto py-[5rem]">
+      <div className="w-11/12 relative md:w-11/12 mx-auto py-[5rem]">
         <Link href="/blogs" className="w-full flex justify-start">
           <div className="text-zinc-700 z-40 hover:scale-105 duration-300 hover:text-zinc-800 flex  justify-center items-center">
             <div className="overflow-hidden title flex justify-center items-center">
@@ -125,7 +125,7 @@ export default function BlogDetailMain({}: Props) {
                 className="absolute top-0 left-0 bg-c w-full h-full object-cover object-bottom"
               ></Image>
 
-              {/* <div className="relative z-20 w-10/12 flex justify-between items-center gap-5 mx-auto">
+              {/* <div className="relative z-20 w-11/12 flex justify-between items-center gap-5 mx-auto">
               <div className="w-[50%] flex items-start justify-start flex-col gap-2">
                 <span className="text-lg font-medium text-secondary-100">
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -223,7 +223,7 @@ export default function BlogDetailMain({}: Props) {
       </div>
 
       {/* Related blogs  */}
-      <div className="w-11/12 md:w-10/12 mx-auto">
+      <div className="w-11/12 md:w-11/12 mx-auto">
         <RelatedBlogs />
       </div>
     </>

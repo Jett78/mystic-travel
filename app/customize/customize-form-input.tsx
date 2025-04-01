@@ -10,7 +10,7 @@ const CustomizeForm = () => {
 
   const mountains = ["Expedition", "Trekking", "Activities"];
   return (
-    <div className="md:w-10/12 w-11/12 mx-auto grid lg:grid-cols-2  gap-4 md:p-4 p-2 border border-primary-600 rounded-md my-20 ">
+    <div className="md:w-11/12 w-11/12 mx-auto grid lg:grid-cols-2  gap-4 md:p-4 p-2 border border-primary-600 rounded-md my-20 ">
       <figure className="lg:block hidden">
         <Image
           src="https://images.unsplash.com/photo-1610715897403-6bd03a9002a9?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

@@ -21,7 +21,7 @@ function AllTrekMain({ region }: any) {
       <div className="relative">
         <AllTrekHero region={region} />
       </div>
-      <div className="w-11/12 relative z-50 md:w-10/12 mx-auto">
+      <div className="w-11/12 relative z-50 md:w-11/12 mx-auto">
         <AllTrek region={region} />
       </div>
     </div>

@@ -7,7 +7,7 @@ const GeneralList = () => {
       {generallistinfo.map((item, index) => (
         <div
           key={index}
-          className={`grid lg:grid-cols-2 grid-cols-1 items-center gap-10 md:w-10/12 w-11/12 mx-auto`}
+          className={`grid lg:grid-cols-2 grid-cols-1 items-center gap-10 md:w-11/12 w-11/12 mx-auto`}
         >
           <header className={`${index % 2 === 0 ? "order-0" : "order-1"}`}>
             <h2 className="lg:text-[2.5vw] leading-[1.1] text-xl font-bold mb-4">

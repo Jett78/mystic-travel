@@ -60,7 +60,7 @@ function Navbar({}: Props) {
           : "bg-transparent text-white"
       } ease-in-out duration-300 transition-all z-[900] fixed w-full h-[4.5rem]`}
     >
-      <div className="2xl:w-10/12 w-11/12 tracking-wide  mx-auto h-full  flex justify-between items-center gap-5">
+      <div className="2xl:w-11/12 w-11/12 tracking-wide  mx-auto h-full  flex justify-between items-center gap-5">
         <Link href="/" className="font-bold text-2xl  tracking-wide ">
           {scrolled || isBlogRoute ? (
             <Image

@@ -21,7 +21,7 @@ function AllExpMain({ distance }: any) {
       />
       <div className="">
         <AllExpHero distance={distance} />
-        <div className="w-11/12 md:w-10/12 mx-auto">
+        <div className="w-11/12 md:w-11/12 mx-auto">
           <AllExp distance={distance} />
         </div>
       </div>

@@ -18,7 +18,7 @@ const BlogDetails = () => {
     blogItem;
 
   return (
-    <div className=" w-10/12 mx-auto md:py-32 py-20">
+    <div className=" w-11/12 mx-auto md:py-32 py-20">
       <h1 className="font-semibold lg:text-[3vw] text-2xl text-center font-palker tracking-wide mb-4">
         {title}
       </h1>

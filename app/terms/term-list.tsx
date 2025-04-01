@@ -3,7 +3,7 @@ import React from "react";
 
 const TermList = () => {
   return (
-    <main className="md:w-10/12 w-11/12 my-10 mx-auto">
+    <main className="md:w-11/12 w-11/12 my-10 mx-auto">
       <div className="space-y-8">
         {termsconditions.map((item, index) => (
           <div key={index}>

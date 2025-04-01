@@ -124,7 +124,7 @@ function PopularExpedition() {
       {/* image  */}
 
       {/* CARDS  */}
-      <div className="w-11/12 md:w-10/12  mx-auto   flex flex-col gap-5  justify-center relative items-center">
+      <div className="w-11/12 md:w-11/12  mx-auto   flex flex-col gap-5  justify-center relative items-center">
         <h1 className="text-3xl  md:text-6xl mb-6 relative tracking-wide title font-bold   expedition">
           TRENDING EXPEDITION
         </h1>
