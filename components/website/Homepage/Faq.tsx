@@ -33,16 +33,16 @@ export default function Faq({}: Props) {
     });
 
     tl.from(headertext.chars, {
-      duration: 0.5,
-      y: 20,
+      duration: 1,
+      x: 20,
       opacity: 0,
       stagger: 0.2,
     });
-    tl.from(headerdesc.chars, {
-      duration: 0.5,
-      opacity: 0.2,
-      stagger: 0.5,
-    });
+    // tl.from(headerdesc.chars, {
+    //   duration: 0.5,
+    //   opacity: 0.2,
+    //   stagger: 0.5,
+    // });
 
     if (staggerfaqRef.current) {
       tl.fromTo(
