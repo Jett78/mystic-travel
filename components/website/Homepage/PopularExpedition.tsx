@@ -185,22 +185,22 @@ function PopularExpedition() {
           </Slider>
         </div>
 
-        <div className="flex gap-5 items-center">
+        <div className="flex  items-center">
           <div
             onClick={handlePrev}
-            className="w-[2rem]  md:w-[2.5rem] h-[2rem] md:h-[2.5rem] hover:scale-105 duration-300 cursor-pointer overflow-hidden  text-secondary-50 hover:text-secondary-100"
+            className="w-[2rem]  md:w-[3rem] h-[2rem] md:h-[3rem] hover:scale-110 duration-300 cursor-pointer overflow-hidden  text-secondary-50 hover:text-secondary-100"
           >
             <Icon
-              icon="mynaui:fat-arrow-left"
+              icon="ei:arrow-left"
               className="w-full h-full object-cover object-center"
             />
           </div>
           <div
             onClick={handleNext}
-            className="w-[2rem]  md:w-[2.5rem] h-[2rem] md:h-[2.5rem] hover:scale-105 duration-300 cursor-pointer overflow-hidden  text-secondary-50 hover:text-secondary-100"
+            className="w-[2rem]  md:w-[3rem] h-[2rem] md:h-[3rem] hover:scale-110 duration-300 cursor-pointer overflow-hidden  text-secondary-50 hover:text-secondary-100"
           >
             <Icon
-              icon="mynaui:fat-arrow-right"
+              icon="ei:arrow-right"
               className="w-full h-full object-cover object-center"
             />
           </div>

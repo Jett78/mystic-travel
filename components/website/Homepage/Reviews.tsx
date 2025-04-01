@@ -115,32 +115,12 @@ function Reviews() {
 
   return (
     <div
-      className="w-full py-[3rem] flex flex-col gap-20 justify-center items-center relative"
+      className="w-full py-[3rem] flex flex-col gap-10 justify-center items-center relative"
       ref={reviewRef}
     >
-      <div className="md:w-10/12 w-11/12 mx-auto justify-between items-center flex">
-        <div
-          onClick={handlePrev}
-          className="w-[2rem] md:w-[2.5rem] h-[2rem] md:h-[2.5rem] hover:scale-105 duration-300 cursor-pointer overflow-hidden text-secondary-700 hover:text-secondary-400"
-        >
-          <Icon
-            icon="mynaui:fat-arrow-left"
-            className="w-full h-full object-cover object-center"
-          />
-        </div>
-        <h1 className="reviews text-2xl md:text-6xl relative text-center tracking-wide title font-bold text-secondary-500">
-          TOP-RATED REVIEWS
-        </h1>
-        <div
-          onClick={handleNext}
-          className="w-[2rem] md:w-[2.5rem] h-[2rem] md:h-[2.5rem] hover:scale-105 duration-300 cursor-pointer overflow-hidden text-secondary-700 hover:text-secondary-400"
-        >
-          <Icon
-            icon="mynaui:fat-arrow-right"
-            className="w-full h-full object-cover object-center"
-          />
-        </div>
-      </div>
+      <h1 className="reviews text-2xl md:text-6xl relative text-center tracking-wide title font-bold text-secondary-500">
+        Hear from our clients
+      </h1>
 
       {/* CARDS */}
       <div className="w-11/12 md:w-11/12 mx-auto flex justify-center relative items-center">
@@ -195,6 +175,26 @@ function Reviews() {
               </div>
             ))}
           </Slider>
+        </div>
+      </div>
+      <div className="flex justify-center ">
+        <div
+          onClick={handlePrev}
+          className="w-[2rem] md:w-[3rem] h-[2rem] md:h-[3rem] hover:scale-110 duration-300 cursor-pointer overflow-hidden text-zinc-700 hover:text-zinc-900"
+        >
+          <Icon
+            icon="ei:arrow-left"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+        <div
+          onClick={handleNext}
+          className="w-[2rem] md:w-[3rem] h-[2rem] md:h-[3rem] hover:scale-110 duration-300 cursor-pointer overflow-hidden text-zinc-700 hover:text-zinc-900"
+        >
+          <Icon
+            icon="ei:arrow-right"
+            className="w-full h-full object-cover object-center"
+          />
         </div>
       </div>
     </div>
