@@ -119,12 +119,13 @@ function PopularTrekking() {
   };
   return (
     <div
-      className="w-full h-screen flex justify-center items-center relative"
+      className="w-full h-screen flex justify-center items-center relative bg-parallex2 bg-fixed bg-cover"
       ref={trendingRef}
     >
-      {/* CARDS  */}
+          <div className="bg-black bg-opacity-40 absolute h-full w-full inset-0"/>
+
       <div className="w-11/12 md:w-11/12 mx-auto   flex flex-col gap-5  justify-center relative items-center">
-        <h1 className="trekking text-3xl title-trek  md:text-6xl mb-6 relative tracking-wide title font-bold">
+        <h1 className="trekking text-3xl title-trek text-white  md:text-6xl mb-6 relative tracking-wide title font-bold">
           Popular Trekking
         </h1>
 
@@ -132,7 +133,7 @@ function PopularTrekking() {
           <Slider {...settings} ref={sliderRef}>
             {TrekData.map((item, index) => (
               <Link key={index} href="/package_detail">
-                <div className="review-card border rounded-md flex flex-col gap-3 h-auto p-2 mx-1">
+                <div className="review-card border rounded-md flex flex-col gap-3 h-auto p-3 mx-2 bg-white">
                   <div className="relative">
                     {/* MASK */}
                     <Image
@@ -189,7 +190,7 @@ function PopularTrekking() {
           >
             <Icon
               icon="ei:arrow-left"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-center text-white"
             />
           </div>
           <div
@@ -198,7 +199,7 @@ function PopularTrekking() {
           >
             <Icon
               icon="ei:arrow-right"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-center text-white"
             />
           </div>
         </div>

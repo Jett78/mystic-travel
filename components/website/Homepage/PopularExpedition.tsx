@@ -118,14 +118,12 @@ function PopularExpedition() {
 
   return (
     <div
-      className="w-full h-screen flex justify-center items-center relative "
+      className="w-full h-screen flex justify-center items-center relative bg-parallex1 bg-fixed bg-cover "
       ref={popularexpeditionsRef}
     >
-      {/* image  */}
-
-      {/* CARDS  */}
+    <div className="bg-black bg-opacity-40 absolute h-full w-full inset-0"/>
       <div className="w-11/12 md:w-11/12  mx-auto   flex flex-col gap-5  justify-center relative items-center">
-        <h1 className="text-3xl  md:text-6xl mb-6 relative tracking-wide title font-bold   expedition">
+        <h1 className="text-3xl  md:text-6xl mb-6 relative tracking-wide title font-bold text-white   expedition">
           TRENDING EXPEDITION
         </h1>
 
@@ -133,7 +131,7 @@ function PopularExpedition() {
           <Slider {...settings} ref={sliderRef}>
             {ExpData.map((item, index) => (
               <Link key={index} href="/package_detail">
-                <div className="review-card border rounded-md flex flex-col gap-3 h-auto p-2 mx-1">
+                <div className="review-card border rounded-md bg-white flex flex-col gap-3 h-auto p-3 mx-2">
                   <div className="relative">
                     {/* MASK */}
                     <Image
@@ -190,7 +188,7 @@ function PopularExpedition() {
           >
             <Icon
               icon="ei:arrow-left"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-center text-white"
             />
           </div>
           <div
@@ -199,7 +197,7 @@ function PopularExpedition() {
           >
             <Icon
               icon="ei:arrow-right"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-center text-white"
             />
           </div>
         </div>
