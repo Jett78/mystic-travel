@@ -164,18 +164,7 @@ const Footer = () => {
           © {date} Mystic Nepal Adventure. All rights reserved.
         </p>
 
-        <div className="flex items-start gap-2">
-          <p>Designed and Developed by</p>
-          <Link href="https://www.webxnep.com/" target="_blank">
-            <Image
-              src="/logo/webxdark.svg"
-              alt="webx"
-              width={1000}
-              height={1000}
-              className="w-12 hover:scale-110 ease-in-out duration-300 cursor-pointer"
-            />
-          </Link>
-        </div>
+       
       </div>
     </footer>
   );
