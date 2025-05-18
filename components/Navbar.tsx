@@ -86,7 +86,7 @@ function Navbar({}: Props) {
                   : ""
               }`}
             >
-              <span className="text-[0.9vw] font-medium">Destinations</span>
+              <span className="text-[0.8vw] font-semibold">Destinations</span>
               <Icon
                 icon="gridicons:dropdown"
                 className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
@@ -113,7 +113,7 @@ function Navbar({}: Props) {
                   : ""
               }`}
             >
-              <span className="text-[0.9vw] font-medium">Trekking</span>
+              <span className="text-[0.8vw] font-semibold">Trekking</span>
               <Icon
                 icon="gridicons:dropdown"
                 className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
@@ -141,7 +141,7 @@ function Navbar({}: Props) {
                   : ""
               }`}
             >
-              <span className="text-[0.9vw] font-medium">Expedition</span>
+              <span className="text-[0.8vw] font-semibold">Expedition</span>
               <Icon
                 icon="gridicons:dropdown"
                 className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
@@ -168,7 +168,7 @@ function Navbar({}: Props) {
                   : ""
               }`}
             >
-              <span className="text-[0.9vw] font-medium">Other Activities</span>
+              <span className="text-[0.8vw] font-semibold">Other Activities</span>
               <Icon
                 icon="gridicons:dropdown"
                 className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
@@ -194,7 +194,7 @@ function Navbar({}: Props) {
                   : ""
               }`}
             >
-              <span className="text-[0.9vw] font-medium">About us</span>
+              <span className="text-[0.8vw] font-semibold">About us</span>
               <Icon
                 icon="gridicons:dropdown"
                 className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
@@ -221,7 +221,7 @@ function Navbar({}: Props) {
                   : ""
               }`}
             >
-              <span className="text-[0.9vw] font-medium">Useful info</span>
+              <span className="text-[0.8vw] font-semibold">Useful info</span>
               <Icon
                 icon="gridicons:dropdown"
                 className="w-[1.5rem] pb-1 pr-1 h-[1.5rem] object-cover object-center"
@@ -239,15 +239,13 @@ function Navbar({}: Props) {
               ))}
             </ul>
           </div>
-          <Link
-            href="/blogs"
-            className="text-[0.9vw] font-medium "
-          >
+          <Link href="/blogs" className="text-[0.8vw] font-semibold ">
             Blogs
           </Link>
-
-          {/* CONTACT US  */}
-
+        </div>
+        {/* CONTACT US  */}
+        <div className="xl:flex hidden ">
+          {" "}
           <PrimaryButton
             title="Contact us"
             path="/contact_us"
