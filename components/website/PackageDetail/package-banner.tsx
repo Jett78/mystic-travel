@@ -24,7 +24,7 @@ const PackageBanner = () => {
       {/* bg overlay */}
       <div className="absolute inset-0 z-[4] bg-gradient-to-b from-black via-black/50 to-transparent opacity-80" />
       <div className="absolute w-full text-center left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[6]">
-        <h1 className="text-white font-bold lg:text-5xl md:text-3xl text-lg uppercase">
+        <h1 className="text-white tracking-wide font-palker lg:text-5xl md:text-3xl text-xl uppercase">
           Everest Base Camp Trekking
         </h1>
 
