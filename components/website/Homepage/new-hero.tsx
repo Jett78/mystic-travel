@@ -54,18 +54,18 @@ const NewHero = () => {
                 alt="card"
                 width={1000}
                 height={1000}
-                className="h-screen bg-cover w-full brightness-75"
+                className="h-screen bg-cover object-cover w-full brightness-75"
               />
               <div className="absolute top-0 bg-gradient-to-b from-black/80 via-black/50 to-transparent w-full h-52" />
               <div className="absolute inset-0 top-0 bg-black bg-opacity-30 w-full h-screen" />
               <div className="absolute top-0 h-full w-full bg-[radial-gradient(#ffffff23_1px,#f3f3f311_1px)] bg-[size:4px_4px]" />
             </figure>
 
-            <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-white space-y-6 z-[10]">
+            <div className="absolute w-full left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-white space-y-6 z-[10]">
               <h1 className="font-bold lg:text-[5.7vw] sm:text-6xl xs:text-3xl text-2xl whitespace-nowrap text-center tracking-wide font-palker">
                 {item.title}
               </h1>
-              <p className="text-center md:text-sm text-xs w-full">
+              <p className="text-center md:text-sm text-xs w-full line-clamp-3 md:w-[40%] mx-auto">
                 An Everest expedition is a challenging and awe-inspiring
                 adventure that takes climbers to the highest point on Earth,
                 Mount Everest, standing at 8,848 meters (29,029 feet). Here's an
@@ -132,7 +132,7 @@ const NewHero = () => {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`relative md:w-12 md:h-12 w-8 h-8 rounded-full overflow-hidden transition-all duration-300 ${
+            className={`relative md:w-12 md:h-12 w-6 h-6 rounded-full overflow-hidden transition-all duration-300 ${
               currentSlide === index
                 ? "ring-2 ring-white scale-110"
                 : "opacity-70"
