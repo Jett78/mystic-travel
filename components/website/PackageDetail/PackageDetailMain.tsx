@@ -1,12 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import PrimaryButton from "@/components/shared/primary-button";
 import { Link as ScrollLink } from "react-scroll";
 import RelatedPackages from "./related-packages";
 import PackageBanner from "./package-banner";
-import MajorTopInfo from "./major-top-info";
 import Title from "./title";
 import Itenary from "./itenary";
 import PackageInclusion from "./package-inclusion";
@@ -70,10 +68,7 @@ function PackageDetailMain({}: Props) {
 
         {/* sticky top detail  */}
         <div className="w-full lg:w-[60%] flex flex-col gap-2">
-          <MajorTopInfo
-            title="Everest Base Camp Trekking"
-            item={importantdata}
-          />
+        
 
           {/* overview */}
           <div
